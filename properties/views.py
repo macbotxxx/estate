@@ -213,7 +213,7 @@ def contact(request):
       context = {
             'recent':recent,
             'companydetails':companydetails,
-            'list':list
+            'list':list,
 
       }
       return render(request,"main/contacts.html",context)
