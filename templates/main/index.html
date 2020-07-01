@@ -1,0 +1,514 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load humanize %}
+       
+     
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  {% block meta %}
+    <meta charset="UTF-8">
+    <title>Realty Space - Real Estate Responsive HTML Theme</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1"><![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Loading Source Sans Pro font that is used in this theme-->
+   
+    {% endblock %}
+  </head>
+  <body class=" ">   
+      <!-- END NAVBAR-->
+      {% block content %}
+      <div class="site-wrap js-site-wrap">
+        <div class="widget js-widget">
+          <div class="widget__content">
+            {%for slide in slideImages %}
+            <div class="banner js-banner-slider banner--slider">
+              <!-- BEGIN SLIDER-->
+              <div class="slider slider--dots">
+                <div class="slider__block js-slick-slider">
+                  <div class="slider__item">
+                    <div class="slider__preview">
+                      <div class="slider__img"><img style="height: 940px; width: 100%;" data-lazy="{{slide.slide_image1.url}}" src="{{slide.slide_image1.url}} " alt=""></div>
+                      <div class="slider__container">
+                        <div class="container">
+                          <div class="row">
+                            <div class="slider__caption">
+                              <h1 class="banner__title">The Best Way to Find Your Perfect Home</h1>
+                              <h3 class="banner__subtitle">With over 700,000 active listings, RoverEstate has the largest inventory of apartments in the United States.</h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slider__item">
+                    <div class="slider__preview">
+                      <div class="slider__img"><img style="height: 940px; width: 100%;" data-lazy="{{slide.slide_image2.url}}" src="{{slide.slide_image2.url}} " alt=""></div>
+                      <div class="slider__container">
+                        <div class="container">
+                          <div class="row">
+                            <div class="slider__caption">
+                              <h1 class="banner__title banner__title--2">Over than <span> <strong style="color: snow;">500 000</strong> </span> Happy Customers</h1>
+                              <h4 class="banner__subtitle banner__subtitle--2">After settling on a search location, you can narrow down your results by specifying preferences such as number of bedrooms and bathrooms, square footage, monthly rent, and whatever else you want to specify in the filter.</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slider__item">
+                    <div class="slider__preview">
+                      <div class="slider__img"><img style="height: 940px; width: 100%;" data-lazy="{{slide.slide_image3.url}}" src="{{slide.slide_image3.url}}" alt=""></div>
+                      <div class="slider__container">
+                        <div class="container">
+                          <div class="row">
+                            <div class="slider__caption">
+                              <h1 class="banner__title banner__title--3">Find the <strong>latest homes for sale, </strong> property news & real estate market data</h1>
+                              <h4 class="banner__subtitle banner__subtitle--2">RoverEstate.com iNigeria’s Number 1 property site for real estate.</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slider__item">
+                    <div class="slider__preview">
+                      <div class="slider__img"><img style="height: 940px; width: 100%;" data-lazy="{{slide.slide_image4.url}}" src="{{slide.slide_image4.url}} " alt=""></div>
+                      <div class="slider__container">
+                        <div class="container">
+                          <div class="row">
+                            <div class="slider__caption">
+                              <h1 class="banner__title banner__title--4"><span class="banner__title-span-1">Find your</span><span class="banner__title-border-bottom"></span><span class="banner__title-span-2">perfect home</span><span class="banner__title-border-top"></span><span class="banner__title-span-3">We have 570,302 for you to choose from</span></h1>
+                              <div class="clearfix"></div>
+                              <h4 class="banner__subtitle banner__subtitle--4">The Right Place To Buy, Sell, Rent or Let Property In All Of The World. Selling Property INigeria Just Got Easier And Cheaper Thanks To RoverEstate.com. List a Property, Land Or Real Estate In Any Country.</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of block .slider__block-->
+              </div>
+              <!-- END SLIDER-->
+              <div class="banner__container">
+                <div class="container">
+                  <div class="row">
+                    <div class="banner__sidebar" >
+                      <h4 class="banner__sidebar-title">The Best Way to Find Your Perfect Home</h4>
+                      <!-- BEGIN SEARCH-->
+                      <form action="property_search/" method="GET" class="form form--flex form--search  form--banner-sidebar">
+                        {%csrf_token%}
+                       
+                        <div class="row">
+                          <div class="form-group">
+                            {{myfilter.form}}
+                          </div>
+                          
+                          <div class="form__buttons">
+                            <button type="submit" class="form__submit">Search</button>
+                          </div>
+                        </div>
+                      </form>
+                      <!-- end of block-->
+                      <!-- END SEARCH-->
+                    </div>
+                    <!-- end of block .banner__search-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            {%endfor%}
+          </div>
+        </div>
+        <div class="widget js-widget widget--landing widget--gray">
+          <div class="widget__header">
+            <h2 class="widget__title">Rover Estate</h2>
+            <h5 class="widget__headline">Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.</h5>
+          </div>
+          <div class="widget__content">
+            <!-- BEGIN PROPERTIES INDEX-->
+            <div class="tab tab--properties">
+              <!-- Nav tabs-->
+              <ul role="tablist" class="nav tab__nav">
+                
+                <li class="active"><a href="#tab-recent" aria-controls="tab-recent" role="tab" data-toggle="tab" class="properties__btn js-pgroup-tab ">Recent</a></li>
+                <li><a href="#tab-featured" aria-controls="tab-featured" role="tab" data-toggle="tab" class="properties__btn js-pgroup-tab">Featured</a></li>
+              </ul>
+              <!-- Tab panes-->
+              <div class="tab-content">
+               
+                <div id="tab-recent" class="tab-pane active">
+                  <div class="listing listing--grid">
+                    {%for all in recent %}
+                    <div class="listing__item">
+                      <div class="properties properties--grid">
+                        <div class="properties__thumb"><a href="{% url 'property_details' all.slug %}" class="item-photo"><img src="{{all.property_main_image.url}} " style="height: 250px; object-fit: cover;" alt="{{all.property_title}}"/>
+                            <figure class="item-photo__hover item-photo__hover--params item-photo__hover--bottom"><span class="properties__param-type">Retail</span><span class="properties__param"><span class="properties__param-column"><span class="properties__param-label">Area:</span><span class="properties__param-value">377 m2</span></span><span class="properties__param-column"><span class="properties__param-label">Beds:</span><span class="properties__param-value">{{all.bedrooms}}</span></span><span class="properties__param-column"><span class="properties__param-label">Baths:</span><span class="properties__param-value">{{all.bathrooms}}</span></span></span></figure></a><span class="properties__ribon">For {{all.listing_type}}</span>
+                        </div>
+                        <!-- end of block .properties__thumb-->
+                        <div class="properties__details">
+                          <div class="properties__info"><a href="{% url 'property_details' all.slug %}" class="properties__address"><span class="properties__address-street">{{all.property_title | title}}</span><span class="properties__address-city">{{all.address |title}}, {{state |title}}, Nigeria</span></a>
+                            <div class="properties__offer">
+                              <div class="properties__offer-column">
+                                <div class="properties__offer-label">Commision</div>
+                                <div class="properties__offer-value"><strong> {{all.commission}}%</strong>
+                                </div>
+                              </div>
+                              <div class="properties__offer-column">
+                                <div class="properties__offer-value"><strong>₦{{all.property_price | intcomma}}</strong><span class="properties__offer-period">/{{all.payment_condition | title}}</span>
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <!-- end of block .properties__info-->
+                      </div>
+                      <!-- end of block .properties__item-->
+                    </div>
+                    {%endfor%}
+                  </div>
+                </div>
+                <div id="tab-featured" class="tab-pane">
+                  <div class="listing listing--grid">
+                    {%for all in featured%}
+                    <div class="listing__item">
+                      <div class="properties properties--grid">
+                        <div class="properties__thumb"><a href="{% url 'property_details' all.slug %}" class="item-photo"><img style="height: 250px; object-fit: cover;" src="{{all.property_main_image.url}} " alt="{{all.property_title }}"/>
+                            <figure class="item-photo__hover item-photo__hover--params item-photo__hover--bottom"><span class="properties__param-type">Retail</span><span class="properties__param"><span class="properties__param-column"><span class="properties__param-label">Area:</span><span class="properties__param-value">377 m2</span></span><span class="properties__param-column"><span class="properties__param-label">Beds:</span><span class="properties__param-value">{{all.bedrooms}}</span></span><span class="properties__param-column"><span class="properties__param-label">Baths:</span><span class="properties__param-value">{{all.bathrooms}}</span></span></span></figure></a><span class="properties__ribon">For {{all.listing_type}}</span>
+                        </div>
+                        <!-- end of block .properties__thumb-->
+                        <div class="properties__details">
+                          <div class="properties__info"><a href="{% url 'property_details' all.slug %}" class="properties__address"><span class="properties__address-street">{{all.property_title | title}}</span><span class="properties__address-city">{{all.address | title}}, {{all.state | title}}, Nigeria</span></a>
+                            <div class="properties__offer">
+                              <div class="properties__offer-column">
+                                <div class="properties__offer-label">Commision</div>
+                                <div class="properties__offer-value"><strong> {{all.commission}}%</strong>
+                                </div>
+                              </div>
+                              <div class="properties__offer-column">
+                                <div class="properties__offer-value"><strong>₦{{all.property_price | intcomma}}</strong><span class="properties__offer-period">/{{all.payment_condition | title}}</span>
+                                </div>
+                              </div>
+                            </div>
+                             </div>
+                        </div>
+                        <!-- end of block .properties__info-->
+                      </div>
+                      <!-- end of block .properties__item-->
+                    </div>
+                    {%endfor%}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="widget__footer"><a href="{% url 'property_list' %}" class="widget__more">More properties</a></div>
+          </div>
+        </div>
+        <div class="widget js-widget">
+          <div class="widget__content">
+            <!-- BEGIN SECTION FEATURE-->
+            <section class="feature">
+              <div class="feature__picture"></div>
+              <!-- end of .feature__picture-->
+              <div class="container">
+                <div class="feature__content">
+                  <div class="feature__header">
+                    <h3 data-sr="enter right ease-in-out 150px" class="feature__title">Meet RoverEstate</h3>
+                    <h4 data-sr="enter right ease-in-out 250px" class="feature__headline">Our mission is to empower consumers with information to make smart decisions. RoverEstate is a real estate marketplace dedicated to helping homeowners, home buyers, sellers, renters and agents find and share information about homes, real estate and home improvement.</h4>
+                  </div>
+                  <!-- end of block .feature__header-->
+                  <div class="feature__list">
+                    <div data-sr="enter right ease 150px" class="feature__item">
+                      <svg class="feature__icon feature__icon--money-save">
+                        <use xlink:href="#icon-money-save"></use>
+                      </svg>
+                      <div class="feature__item-content">
+                        <h3 class="feature__item-title">Save money</h3>
+                        <div class="feature__text">
+                          <p>It starts with our living database of more than 110 million Nigeria. homes &ndash; including homes for sale, homes for rent and homes not currently on the market.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end of block .feature__item-->
+                    <div data-sr="enter right ease 250px" class="feature__item">
+                      <svg class="feature__icon feature__icon--good-sales">
+                        <use xlink:href="#icon-good-sales"></use>
+                      </svg>
+                      <div class="feature__item-content">
+                        <h3 class="feature__item-title">Good sales&amp;marketing</h3>
+                        <div class="feature__text">
+                          <p>In addition, RoverEstate operates the largest real estate and rental advertising networks in the U.S. in partnership with Livemile Homes!</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end of block .feature__item-->
+                    <div data-sr="enter right ease 150px" class="feature__item">
+                      <svg class="feature__icon">
+                        <use xlink:href="#icon-comfort"></use>
+                      </svg>
+                      <div class="feature__item-content">
+                        <h3 class="feature__item-title">Comfort</h3>
+                        <div class="feature__text">
+                          <p>We are transforming the way consumers make home-related decisions and connect with professionals.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end of block .feature__item-->
+                    <div data-sr="enter right ease 250px" class="feature__item">
+                      <svg class="feature__icon">
+                        <use xlink:href="#icon-easy"></use>
+                      </svg>
+                      <div class="feature__item-content">
+                        <h3 class="feature__item-title">Easy to find</h3>
+                        <div class="feature__text">
+                          <p>It starts with our living database of more than 110 million U.S. homes &ndash; including homes for sale, homes for rent and homes not currently on the market.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end of block .feature__item-->
+                  </div>
+                  <!-- end of block .feature__list-->
+                </div>
+                <!-- end of .feature__content-->
+              </div>
+            </section>
+            <!-- END SECTION FEATURE-->
+          </div>
+        </div>
+
+
+        <div class="widget js-widget widget--landing widget--gray">
+          <div class="widget__header">
+            <h2 class="widget__title">Our Agents</h2>
+            <h5 class="widget__headline">Our agents are licensed professionals that specialise in searching, evaluating and negotiating the purchase of property on behalf of the buyer. They will sell you real estate. Insights, tips & how-to guides on selling property and preparing your home or investment property for sale and working to maximise your sale price.</h5>
+          </div>
+          <div class="widget__content">
+            <!-- BEGIN SECTION WORKER INDEX-->
+            <div class="listing listing--grid listing--lg-4">
+              {%for staffs in staff %}
+              <div class="listing__item">
+                <div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--index">
+                  <div class="worker__photo"><a  class="item-photo item-photo--static"><img style="height: 250px; " src="{{staffs.staff_image.url}}" alt="{{staffs.staff_name}}" class="photo"/></a>
+                    
+                  </div>
+                  <div class="worker__info">
+                    <h4 class="worker__name fn">{{staffs.staff_name}}</h4><a href="tel:+234{{staffs.staff_phoneNumber}}" class="worker__tel uri">+234{{staffs.staff_phoneNumber}}</a><a> <strong>{{staffs.staff_position}}</strong> </a>
+                  </div>
+                  <!-- end of block .worker__info-->
+                </div>
+                <!-- end of block .worker-->
+              </div>
+             {%endfor%}
+            </div>
+            <!-- END SECTION WORKER INDEX-->
+          </div>
+        </div>
+        
+        <div class="widget js-widget widget--landing widget--gray">
+          <div class="widget__header">
+            <h2 class="widget__title">Recent Updated Properties</h2>
+          </div>
+          <div class="widget__content">
+            <!-- BEGIN PROPERTIES INDEX-->
+            <div class="tab tab--properties">
+              <!-- Nav tabs-->
+        
+              <!-- Tab panes-->
+              <div class="tab-content">
+                <div id="tab-popular" class="tab-pane in active">
+                  <div class="listing listing--grid">
+                    {%for r in recentx%}
+                    <div class="listing__item">
+                      <div class="properties properties--grid">
+                        <div class="properties__thumb"><a href="{% url 'property_details' r.slug %}" class="item-photo"><img src="{{r.property_main_image.url}} " style="height: 250px; object-fit: cover;" alt="{{r.property_title }}"/>
+                            <figure class="item-photo__hover item-photo__hover--params item-photo__hover--bottom"><span class="properties__param-type">Retail</span><span class="properties__param"><span class="properties__param-column"><span class="properties__param-label">Area:</span><span class="properties__param-value">377 m2</span></span><span class="properties__param-column"><span class="properties__param-label">Beds:</span><span class="properties__param-value">{{r.bedrooms}}</span></span><span class="properties__param-column"><span class="properties__param-label">Baths:</span><span class="properties__param-value">{{r.bathrooms}}</span></span></span></figure></a><span class="properties__ribon">For {{r.listing_type}}</span>
+                        </div>
+                        <!-- end of block .properties__thumb-->
+                        <div class="properties__details">
+                          <div class="properties__info"><a href="{% url 'property_details' r.slug %}" class="properties__address"><span class="properties__address-street">{{r.property_title | title}}</span><span class="properties__address-city">{{r.address | title}}, {{r.state | title}}, Nigeria</span></a>
+                            <div class="properties__offer">
+                              <div class="properties__offer-column">
+                                <div class="properties__offer-label">Commision</div>
+                                <div class="properties__offer-value"><strong> {{r.commission}}%</strong>
+                                </div>
+                              </div>
+                              <div class="properties__offer-column">
+                                <div class="properties__offer-value"><strong>₦{{r.property_price | intcomma}}</strong><span class="properties__offer-period">/{{r.payment_condition | title}}</span>
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <!-- end of block .properties__info-->
+                      </div>
+                      <!-- end of block .properties__item-->
+                    </div>
+                    {%endfor%}
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+           
+          </div>
+        </div>
+        <div class="widget js-widget widget--landing widget--achievement">
+          <div class="widget__content">
+            <!-- BEGIN SECTION ACHIEVEMENT-->
+            <div class="achievement">
+              <div class="container">
+                <div class="row">
+                  <div data-sr="enter right move 0 over 0 wait 0s" data-animate-callback="countUp" data-animate-end="achievement__item--animate-end" class="achievement__item">
+                    <svg class="achievement__icon">
+                      <use xlink:href="#icon-transactions"></use>
+                    </svg>
+                    <div data-count-end="755300" data-count-duration="1" class="achievement__counter achievement__counter--lg js-count-up"></div>
+                    <div class="achievement__counter">755 300</div>
+                    <div class="achievement__name">Transactions</div>
+                  </div>
+                  <div data-sr="enter right move 0 over 0 wait 0.5s" data-animate-callback="countUp" data-animate-end="achievement__item--animate-end" class="achievement__item">
+                    <svg class="achievement__icon">
+                      <use xlink:href="#icon-customers"></use>
+                    </svg>
+                    <div data-count-end="17620" data-count-duration="1" class="achievement__counter achievement__counter--lg js-count-up"></div>
+                    <div class="achievement__counter">17 620</div>
+                    <div class="achievement__name">Satisfied Customers</div>
+                  </div>
+                  <div data-sr="enter right move 0 over 0 wait 1s" data-animate-callback="countUp" data-animate-end="achievement__item--animate-end" class="achievement__item">
+                    <svg class="achievement__icon">
+                      <use xlink:href="#icon-agency"></use>
+                    </svg>
+                    <div data-count-end="790" data-count-duration="1" class="achievement__counter achievement__counter--lg js-count-up"></div>
+                    <div class="achievement__counter">790</div>
+                    <div class="achievement__name">Agencies</div>
+                  </div>
+                  <div data-sr="enter right move 0 over 0 wait 1.5s" data-animate-callback="countUp" data-animate-end="achievement__item--animate-end" class="achievement__item">
+                    <svg class="achievement__icon">
+                      <use xlink:href="#icon-sales"></use>
+                    </svg>
+                    <div data-count-end="1528715" data-count-duration="1" class="achievement__counter achievement__counter--lg js-count-up"></div>
+                    <div class="achievement__counter">1 528 715</div>
+                    <div class="achievement__name">Sales &amp; Rents</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END SECTION ACHIEVEMENT-->
+          </div>
+        </div>
+        <div class="widget js-widget widget--landing">
+          <div class="widget__header">
+            <h2 class="widget__title">Testimonials</h2>
+            <h5 class="widget__headline">Insights, tips & how-to guides on selling property and preparing your home or investment property for sale.</h5>
+          </div>
+          <div class="widget__content">
+            <!-- BEGIN SECTION REVIEW-->
+            <div id="review-slider" class="review review--wide">
+              <div class="review__slider js-slick-slider">
+                {%for client in testimonies %}
+                <div class="review__item">
+                  <div class="review__photo"><img src="{{client.client_image.url}}" alt="{{client.client_name}}" style="width: 30%;" class="review__photo-img"></div>
+                  <div class="review__details"><span class="review__name">{{client.client_name}}</span><span class="review__post">{{client.client_career}}</span>
+                    <div class="review__stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></div>
+                  </div>
+                  <div class="review__info">
+                    <div class="review__info-quote review__info-quote--open">&rdquo;</div>
+                    <p>{{client.client_comment}}.
+                    </p>
+                    <div class="review__info-quote review__info-quote--close">&ldquo;</div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <!-- end of block .review__item-->
+                </div>
+                {%endfor%}
+              </div>
+              <!-- end of block .review__list-->
+            </div>
+            <!-- END SECTION REVIEW-->
+          </div>
+        </div>
+        <div class="widget js-widget">
+          <div class="widget__content">
+            <!-- BEGIN BLOCK GO SUBMIT-->
+            <div data-sr="flip 45deg over 0.5s" class="gosubmit">
+              <div class="container">
+                <div class="gosubmit__title">
+                  <div class="gosubmit__title__row gosubmit__title__row--first">Looking to</div>
+                  <div class="gosubmit__title__row gosubmit__title__row--second"><span class="gosubmit__title__option">Sell</span>or<span class="gosubmit__title__option">Rent</span></div>
+                  <div class="gosubmit__title__row gosubmit__title__row--third">Your Property?</div>
+                </div>
+                <!-- end of block .gosubmit__title--><a href="/contact-us" class="gosubmit__btn">Contact Us Now</a>
+              </div>
+            </div>
+            <!-- END BLOCK GO SUBMIT-->
+          </div>
+        </div>
+        <div class="center">
+          <div class="container">
+          </div>
+        </div>
+        <!-- END CENTER SECTION-->
+        <!-- BEGIN AFTER CENTER SECTION-->
+        <div class="widget js-widget widget--landing">
+          <div class="widget__header">
+            <h2 class="widget__title"><span class="title-thin">Our</span> Partners</h2>
+            <h5 class="widget__headline">At RoverEstate, our partners make great digital experiences possible by offering our products, consulting expertise and the products of our technology partners</h5>
+          </div>
+          <div class="widget__content">
+            <!-- BEGIN PARTNERS-->
+           
+            <div id="partners-slider" class="partners">
+              <div class="partners__slider js-slick-slider">
+                {%for partners in partner %}
+                <a class="partners__item"><img style="width: 70%; height: 50px;" src="{{partners.partner_logo.url}}" alt="{{partners.partner_name | title }}"><span class="partners__name">{{partners.partner_name | title }}</span></a>
+                {%endfor%}
+              </div>
+              <div class="partners__controls">
+                <button class="partners__arrow partners__arrow--prev js-partners-prev"></button>
+                <button class="partners__arrow partners__arrow--next js-partners-next"></button>
+              </div>
+              <!-- end of block .partners__controls-->
+            </div>
+            
+            <!-- end of block .partners-->
+          </div>
+          
+        </div>
+        <!-- END PARTNERS-->
+        <div class="widget js-widget">
+          <div class="widget__content">
+            <!-- BEGIN SUBSCRIBE-->
+            <div class="subscribe">
+              <form action="" method="POST" class="subscribe__form js-subscribe-form">
+                {%csrf_token%}
+                <h4 class="subscribe__title">Newsletters</h4>
+                <div class="subscribe__group form-group">
+                  <label class="sr-only">Newsletters</label>
+                  <input type="email" placeholder="Input your e-mail" name="email" required data-parsley-trigger="change" class="subscribe__field form-control js-subscribe-email">
+                </div>
+                <button type="submit" class="btn--action subscribe__submit js-subscribe-submit">SUBMIT</button>
+              </form>
+              <!-- end of block .subscribe__form-->
+            </div>
+            <!-- END SUBSCRIBE-->
+          </div>
+        </div>
+        <!-- END AFTER CENTER SECTION-->
+        <!-- BEGIN FOOTER-->
+       {%include 'layout/footer.html'%}
+        <!-- end of block .footer-->
+        <!-- END FOOTER-->
+      </div>
+      {% endblock %}
+   
+    <!-- endinject -->
+    <!-- END SCRIPTS and INCLUDES-->
+  </body>
+
+<!-- Mirrored from demo.codefactory47.com/RoverEstate/index_slider_search.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jun 2020 23:36:11 GMT -->
+</html>

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     
+     {% block meta %}
+     {% endblock%}
+     {% include "layout/css.html" %}
+     
+      
+</head>
+<body class="index_slider_search menu-default hover-default scroll-animation slider--fadeInLeft ">
+      {% include "layout/header.html" %}
+      {% block content %}
+      {% endblock content %}
+
+      {% include "layout/js.html" %}
+</body>
+</html>

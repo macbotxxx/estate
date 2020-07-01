@@ -1,0 +1,137 @@
+{%load static %}
+<footer class="footer">
+      <div class="container">
+        <div class="footer__wrap">
+          <div class="footer__col footer__col--first">
+            <div class="widget js-widget widget--footer">
+              <div class="widget__header">
+                <h2 class="widget__title">Menu</h2>
+              </div>
+              <div class="widget__content">
+                <nav class="nav nav--footer"><a href="/">Home</a><a href="{%url 'featured-properties'%}">Featured Properties</a><a href="{%url 'featured-properties'%}">FAQ</a><a href="{%url 'customers-review'%}">Testimonies</a><a href="{%url 'about'%}">About Us </a><a href="{%url 'contact-us'%}">Contact Us </a></nav>
+                <!-- end of block .nav-footer-->
+              </div>
+            </div>
+            <div class="widget js-widget widget--footer">
+              <div class="widget__header">
+                <h2 class="widget__title">About</h2>
+              </div>
+              <div class="widget__content">
+                <aside class="widget_text">
+                  <div class="textwidget">
+                    RoverEstate is the leader in online real estate and operator of the WK of real estate web site for consumers and real estate professionals. Real Estate of websites captures more than 20 million monthly visitors
+                    <p>RoverEstate is the leader in online real estate and operator of the WK of real</p>
+                    <p><a>Read more</a></p>
+                  </div>
+                  
+                </aside>
+              </div>
+            </div>
+            <div class="widget js-widget widget--footer">
+              <div class="widget__header">
+                <h2 class="widget__title">Social</h2>
+              </div>
+              <div class="widget__content">
+                <div class="social social--footer">
+
+                     {%for com in companydetails %}
+                {%if com.company_facebook_link %}
+                <a href="{{com.company_facebook_link}}" class="social__item"><i class="fa fa-facebook"></i></a>
+                {%else%}
+                <a href="#" class="social__item"><i class="fa fa-facebook"></i></a>
+                {% endif %}
+                {% if com.company_twitter_link %}
+                <a href="{{com.company_twitter_link}}" class="social__item"><i class="fa fa-twitter"></i></a>
+                {%else%}
+                <a href="#" class="social__item"><i class="fa fa-twitter"></i></a>
+                {%endif%}
+                {%if com.company_whatsapp_link %}
+                <a href="{{com.company_whatsapp_link}}" class="social__item"><i class="fa fa-whatsapp"></i></a>
+                {%else%}
+                <a href="#" class="social__item"><i class="fa fa-whatsapp"></i></a>
+                {%endif%}
+                {%if com.company_instagram_link %}
+                <a href="{{com.company_instagram_link}}" class="social__item"><i class="fa fa-instagram"></i></a>
+                {%else%}
+                <a href="#" class="social__item"><i class="fa fa-instagram"></i></a>
+                {%endif%}
+                {%endfor%}
+                  
+                  </div>
+                <!-- end of block .social-footer-->
+              </div>
+            </div>
+          </div>
+          <!-- end of block .footer__col-first-->
+          <div class="footer__col footer__col--second">
+            <div class="widget js-widget widget--footer">
+              <div class="widget__header">
+                <h2 class="widget__title">Contact</h2>
+              </div>
+              <div class="widget__content">
+                <section class="address address--footer">
+                  <h4 class="address__headline">Our office</h4>
+                  {%for com in companydetails %}
+                  <address class="address__main"><span>{{com.company_address}}, {{com.company_state}}</span><span>08 - 17 mon-fr</span><a href="tel:+234{{com.company_phone_number1}}">{{com.company_phone_number1}}</a><a href="tel:+234{{com.company_phone_number2}}">{{com.company_phone_number2}}</a><a href="mailto:{{com.company_email}}">{{com.company_email}}</a></address>
+                  {%endfor%}
+                </section>
+                <!-- end of block .address-->
+              </div>
+            </div>
+            <div class="widget js-widget widget--footer">
+              <div class="widget__header">
+                <h2 class="widget__title">Feedback</h2>
+              </div>
+              <div class="widget__content">
+                <!-- BEGIN SECTION FEEDBACK-->
+                <form action="{%url 'request' %}" method="POST" class="form form--flex form--footer js-parsley">
+                  {%csrf_token%}
+                  <div class="row">
+                    <div class="form-group">
+                      <label for="in-email" class="sr-only control-label">E-mail</label>
+                      <input id="in-email" type="email" name="emailx" placeholder="E-mail" required data-parsley-trigger="change" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="in-message" class="sr-only control-label">Message for Us</label>
+                      <textarea id="in-message" name="messagex" placeholder="Message for Us" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="You need to enter at least a 20 caracters long comment.." class="form-control"></textarea>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button type="submit" class="form__submit">Send</button>
+                  </div>
+                </form>
+                <!-- end of block .form__wrap-->
+                <!-- END SECTION FEEDBACK-->
+              </div>
+            </div>
+          </div>
+          <!--end of block .footer__col-second-->
+          <div class="footer__col footer__col--third">
+            <div class="widget js-widget widget--footer">
+              <div class="widget__header">
+                <h2 class="widget__title">Latest Properties</h2>
+              </div>
+              <div class="widget__content">
+                <div class="listing listing--footer">
+                  {%for recents in recent %}
+                  <div class="listing__item">
+                    <!-- BEGIN SECTION ARTICLE-->
+                    <div class="article article--footer">
+                      <div class="article__details"><a href="{% url 'property_details' recents.slug %}" class="article__item-title">{{recents.property_title | title}}</a>
+                        <time datetime="2009-08-29" class="article__time">{{recents.time_uploaded | timesince }}</time>
+                      </div>
+                      <!-- end of block .article-->
+                    </div>
+                    <!-- END SECTION ARTICLE-->
+                  </div>
+                 {%endfor%}
+                </div><a href="{%url 'property_list' %}" class="widget__more"> More Properties</a>
+              </div>
+            </div>
+          </div>
+          <!-- end of block .footer__col-third-->
+          <div class="clearfix"></div><span class="footer__copyright">&copy; 2020 RoverEstate. All rights reserved</span>
+          <!-- end of block .footer__copyright-->
+        </div>
+      </div>
+    </footer>

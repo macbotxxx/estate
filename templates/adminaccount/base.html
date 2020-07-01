@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html michael>
+<html lang="en">
+<head>
+     
+     {% block meta %}
+     {% endblock%}
+     {% include "adminlayout/css.html" %}
+     
+      
+</head>
+<body>
+      {% include "adminlayout/nav.html" %}
+      {% block content %}
+      {% endblock content %}
+
+      {% include "adminlayout/js.html" %}
+</body>
+</html>

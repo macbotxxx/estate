@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from demo.codefactory47.com/realtyspace/agent_profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jun 2020 23:44:09 GMT -->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Realty Space - Real Estate Responsive HTML Theme</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1"><![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Loading Source Sans Pro font that is used in this theme-->
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7cSource+Sans+Pro:200,400,600,700,900,400italic,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <!-- Boostrap and other lib styles-->
+    <link rel="stylesheet" href="assets/css/vendor.min48e0.css?v=201603120801">
+    <!-- Font-awesome lib-->
+    <link rel="stylesheet" href="assets/css/font-awesome.min48e0.css?v=201603120801">
+    <!-- Theme styles, please replace "default" with other color scheme from the list available in template/css-->
+    <link rel="stylesheet" href="assets/css/theme-default.min48e0.css?v=201603120801">
+    <!-- Your styles should go in this file-->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <!-- Fixes for IE-->
+    <!--[if lt IE 11]>
+    <link rel="stylesheet" href="assets/css/ie-fix.css"><![endif]-->
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="agent_profile menu-default hover-default ">
+    
+    <!-- endinject -->
+    <div class="box js-box">
+      <!-- BEGIN HEADER-->
+      <header class="header header--brand">
+        <div class="container">
+          <div class="header__row"><a href="index.html" class="header__logo">
+              <svg>
+                <use xlink:href="#icon-logo--mob"></use>
+              </svg></a>
+            <div class="header__settings">
+              <div class="header__settings-column">
+                <div class="dropdown dropdown--header">
+                  <button data-toggle="dropdown" type="button" class="dropdown-toggle dropdown__btn">
+                    <svg class="header__settings-icon">
+                      <use xlink:href="#icon-money"></use>
+                    </svg>USD
+                  </button>
+                  <div class="dropdown__menu">
+                    <ul>
+                      <li class="dropdown__item"><a href="#" class="dropdown__link">EUR</a></li>
+                      <li class="dropdown__item"><a href="#" class="dropdown__link">RUB</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- end of block .header__settings-column-->
+              <div class="header__settings-column">
+                <div class="switch switch--header">
+                  <label>M <sup>2</sup>
+                    <input type="checkbox" checked><span class="lever"></span>Sq Ft
+                  </label>
+                </div>
+              </div>
+              <!-- end of block .header__settings-column-->
+              <div class="header__settings-column">
+                <div class="dropdown dropdown--header">
+                  <button data-toggle="dropdown" type="button" class="dropdown-toggle dropdown__btn">
+                    <svg class="header__settings-icon">
+                      <use xlink:href="#icon-earth"></use>
+                    </svg>Eng
+                  </button>
+                  <div class="dropdown__menu">
+                    <ul>
+                      <li class="dropdown__item"><a href="#" class="dropdown__link">Francais</a></li>
+                      <li class="dropdown__item"><a href="#" class="dropdown__link">Italian</a></li>
+                      <li class="dropdown__item"><a href="#" class="dropdown__link">Russian</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="header__contacts"><a href="tel:+12025550135" class="header__phone">
+                <svg class="header__phone-icon">
+                  <use xlink:href="#icon-phone"></use>
+                </svg><span class="header__span">+1 202 555 0135</span></a></div>
+            <!-- end of block .header__contacts-->
+            <div class="header__social">
+              <div class="social social--header social--circles"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
+            </div>
+            <div class="auth auth--header">
+              <ul class="auth__nav">
+                <li class="dropdown auth__nav-item">
+                  <div class="dropdown__menu auth__dropdown--restore">
+                    <!-- BEGIN AUTH RESTORE-->
+                    <h5 class="auth__title">Reset password</h5>
+                    <form action="#" class="form form--flex form--auth form--restore js-restore-form js-parsley">
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="restore-email-dropdown" class="control-label">Enter your User Name or Email</label>
+                          <input type="email" name="email" id="restore-email-dropdown" required class="form-control">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <button type="submit" class="form__submit">Reset password</button>
+                      </div>
+                      <div class="row">
+                        <div class="form__options">Back to
+                          <button type="button" class="js-user-login">Log In</button>or
+                          <button type="button" class="js-user-register">Registration</button>
+                        </div>
+                        <!-- end of block .auth__links-->
+                      </div>
+                    </form>
+                    <!-- end of block .auth__form-->
+                    <!-- END AUTH RESTORE-->
+                  </div>
+                </li>
+                <li class="dropdown auth__nav-item">
+                  <button data-toggle="dropdown" type="button" class="dropdown-toggle js-auth-nav-btn auth__nav-btn">
+                    <svg class="auth__icon-user">
+                      <use xlink:href="#icon-user"></use>
+                    </svg><span class="header__span"> Log in /</span>
+                  </button>
+                  <div class="dropdown__menu auth__dropdown--login">
+                    <!-- BEGIN AUTH LOGIN-->
+                    <h5 class="auth__title">Login in your account</h5>
+                    <form action="#" class="form form--flex form--auth js-login-form js-parsley">
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="login-username-dropdown" class="control-label">Username</label>
+                          <input type="text" name="username" id="login-username-dropdown" required data-parsley-trigger="keyup" data-parsley-minlength="6" data-parsley-validation-threshold="5" data-parsley-minlength-message="Login should be at least 6 chars" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="login-password-dropdown" class="control-label">Password</label>
+                          <input type="password" name="password" id="login-password-dropdown" required class="form-control">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form__options form__options--forgot">
+                          <button type="button" class="js-user-restore">Forgot password ?</button>
+                        </div>
+                        <button type="submit" class="form__submit">Sign in</button>
+                      </div>
+                      <div class="form__remember">
+                        <input type="checkbox" id="remember-in-dropdown" class="in-checkbox">
+                        <label for="remember-in-dropdown" class="in-label">Remember me</label>
+                      </div>
+                      <div class="row">
+                        <div class="form__options">Not a user yet?
+                          <button type="button" class="js-user-register">Get an account</button>
+                        </div>
+                      </div>
+                    </form>
+                    <!-- end of block .auth__form-->
+                    <!-- END AUTH LOGIN-->
+                  </div>
+                </li>
+                <li class="dropdown auth__nav-item">
+                  <button data-toggle="dropdown" type="button" class="dropdown-toggle auth__nav-btn"><span class="header__span">  Sign up</span></button>
+                  <div class="dropdown__menu auth__dropdown--register">
+                    <!-- BEGIN AUTH REGISTER-->
+                    <h5 class="auth__title">Sign up a new account</h5>
+                    <form action="#" class="form form--flex form--auth js-register-form js-parsley">
+                      <div class="row">
+                        <div class="form-group form-group--col-6">
+                          <label for="register-name-dropdown" class="control-label">First name</label>
+                          <input type="text" name="username" id="register-name-dropdown" required class="form-control">
+                        </div>
+                        <div class="form-group form-group--col-6">
+                          <label for="register-lastname-dropdown" class="control-label">Last name</label>
+                          <input type="text" name="name" id="register-lastname-dropdown" required class="form-control">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group form-group--col-6">
+                          <label for="register-email-dropdown" class="control-label">E-mail</label>
+                          <input type="email" name="email" id="register-email-dropdown" required class="form-control">
+                        </div>
+                        <div class="form-group form-group--col-6">
+                          <label for="register-password-dropdown" class="control-label">Password</label>
+                          <input type="password" name="password" id="register-password-dropdown" required class="form-control">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form__options">Back to
+                          <button type="button" class="js-user-login">Log In</button>
+                        </div>
+                        <button type="submit" class="form__submit">Sign up</button>
+                      </div>
+                    </form>
+                    <!-- end of block .auth__form-->
+                    <!-- END AUTH REGISTER-->
+                  </div>
+                </li>
+              </ul>
+              <!-- end of block .auth header-->
+            </div>
+            <button type="button" class="header__navbar-toggle js-navbar-toggle">
+              <svg class="header__navbar-show">
+                <use xlink:href="#icon-menu"></use>
+              </svg>
+              <svg class="header__navbar-hide">
+                <use xlink:href="#icon-menu-close"></use>
+              </svg>
+            </button>
+            <!-- end of block .header__navbar-toggle-->
+          </div>
+        </div>
+      </header>
+      <!-- END HEADER-->
+      <!-- BEGIN NAVBAR-->
+      <div id="header-nav-offset"></div>
+      <nav id="header-nav" class="navbar navbar--header">
+        <div class="container">
+          <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
+              <svg class="navbar__brand-logo">
+                <use xlink:href="#icon-logo"></use>
+              </svg></a>
+            <div id="navbar-collapse-1" class="navbar__wrap">
+              <ul class="navbar__nav">
+                <li class="navbar__item js-dropdown"><a class="navbar__link">Home
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem"><a href="index.html" class="navbar__sublink js-navbar-sublink">Banner & Search</a></li>
+                        <li class="navbar__subitem"><a href="index_slider.html" class="navbar__sublink js-navbar-sublink">Property slider</a></li>
+                        <li class="navbar__subitem"><a href="index_projects.html" class="navbar__sublink js-navbar-sublink">Property projects</a></li>
+                        <li class="navbar__subitem"><a href="index_slider_search.html" class="navbar__sublink js-navbar-sublink">Slider & Search</a></li>
+                        <li class="navbar__subitem"><a href="index_slider_auth.html" class="navbar__sublink js-navbar-sublink">Slider & Authorization</a></li>
+                        <li class="navbar__subitem"><a href="index_vmap_light.html" class="navbar__sublink js-navbar-sublink">Google Map & Light search</a></li>
+                        <li class="navbar__subitem"><a href="index_vmap_dark.html" class="navbar__sublink js-navbar-sublink">Google Map & Dark search</a></li>
+                        <li class="navbar__subitem"><a href="index_hmap_light.html" class="navbar__sublink js-navbar-sublink">Google Map & Horizontal search</a></li>
+                        <li class="navbar__subitem"><a href="feature_map_leaflet.html" class="navbar__sublink js-navbar-sublink">Openstreet Map & Filter</a></li>
+                        <li class="navbar__subitem"><a href="feature_vmap_fullscreen.html" class="navbar__sublink js-navbar-sublink">Fullscreen Google Map</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item js-dropdown"><a class="navbar__link">Properties
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-2">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <h5 class="navbar__subtitle">Details</h5>
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem"><a href="property_details.html" class="navbar__sublink js-navbar-sublink">Property</a></li>
+                        <li class="navbar__subitem"><a href="property_details_projected.html" class="navbar__sublink js-navbar-sublink">Property projected</a></li>
+                        <li class="navbar__subitem"><a href="property_details_agent.html" class="navbar__sublink js-navbar-sublink">Property & agent</a></li>
+                      </ul>
+                    </div>
+                    <div class="navbar__submenu">
+                      <h5 class="navbar__subtitle">Listing</h5>
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a class="navbar__sublink js-navbar-sublink">Grid
+                            <svg class="navbar__arrow">
+                              <use xlink:href="#icon-arrow-right"></use>
+                            </svg></a>
+                          <div class="navbar__submenu navbar__submenu--level">
+                            <button class="navbar__back js-navbar-submenu-back">
+                              <svg class="navbar__arrow">
+                                <use xlink:href="#icon-arrow-left"></use>
+                              </svg>Back
+                            </button>
+                            <ul class="navbar__subnav">
+                              <li class="navbar__subitem"><a href="feature_grid_large.html" class="navbar__sublink js-navbar-sub-sublink">Large</a></li>
+                              <li class="navbar__subitem"><a href="properties_listing_grid.html" class="navbar__sublink js-navbar-sub-sublink">Medium</a></li>
+                              <li class="navbar__subitem"><a href="feature_grid_small.html" class="navbar__sublink js-navbar-sub-sublink">Small</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="navbar__subitem"><a href="properties_listing_list.html" class="navbar__sublink js-navbar-sublink">List</a></li>
+                        <li class="navbar__subitem"><a href="properties_listing_table.html" class="navbar__sublink js-navbar-sublink">Table</a></li>
+                        <li class="navbar__subitem"><a href="properties_listing_empty.html" class="navbar__sublink js-navbar-sublink">Empty</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item js-dropdown active"><a class="navbar__link">Agents
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem active"><a href="agent_profile.html" class="navbar__sublink js-navbar-sub-sublink">Agent's profile</a></li>
+                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a href="agents_listing_list.html" class="navbar__sublink js-navbar-sublink">Agent's listing
+                            <svg class="navbar__arrow">
+                              <use xlink:href="#icon-arrow-right"></use>
+                            </svg></a>
+                          <div class="navbar__submenu navbar__submenu--level">
+                            <button class="navbar__back js-navbar-submenu-back">
+                              <svg class="navbar__arrow">
+                                <use xlink:href="#icon-arrow-left"></use>
+                              </svg>Back
+                            </button>
+                            <ul class="navbar__subnav">
+                              <li class="navbar__subitem"><a href="agents_listing_list.html" class="navbar__sublink js-navbar-sub-sublink">List</a></li>
+                              <li class="navbar__subitem"><a href="agents_listing_grid.html" class="navbar__sublink js-navbar-sub-sublink">Grid</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a href="agent_profile_blog_list.html" class="navbar__sublink js-navbar-sublink">Agent's blog
+                            <svg class="navbar__arrow">
+                              <use xlink:href="#icon-arrow-right"></use>
+                            </svg></a>
+                          <div class="navbar__submenu navbar__submenu--level">
+                            <button class="navbar__back js-navbar-submenu-back">
+                              <svg class="navbar__arrow">
+                                <use xlink:href="#icon-arrow-left"></use>
+                              </svg>Back
+                            </button>
+                            <ul class="navbar__subnav">
+                              <li class="navbar__subitem"><a href="agent_profile_blog_list.html" class="navbar__sublink js-navbar-sub-sublink">List</a></li>
+                              <li class="navbar__subitem"><a href="agent_profile_blog_grid.html" class="navbar__sublink js-navbar-sub-sublink">Grid</a></li>
+                              <li class="navbar__subitem"><a href="agent_profile_blog_details.html" class="navbar__sublink js-navbar-sub-sublink">Details</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a href="agent_profile_listing_list.html" class="navbar__sublink js-navbar-sublink">Agent's properties
+                            <svg class="navbar__arrow">
+                              <use xlink:href="#icon-arrow-right"></use>
+                            </svg></a>
+                          <div class="navbar__submenu navbar__submenu--level">
+                            <button class="navbar__back js-navbar-submenu-back">
+                              <svg class="navbar__arrow">
+                                <use xlink:href="#icon-arrow-left"></use>
+                              </svg>Back
+                            </button>
+                            <ul class="navbar__subnav">
+                              <li class="navbar__subitem"><a href="agent_profile_listing_list.html" class="navbar__sublink js-navbar-sub-sublink">List</a></li>
+                              <li class="navbar__subitem"><a href="agent_profile_listing_grid.html" class="navbar__sublink js-navbar-sub-sublink">Grid</a></li>
+                              <li class="navbar__subitem"><a href="agent_profile_listing_table.html" class="navbar__sublink js-navbar-sub-sublink">Table</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="navbar__subitem"><a href="agent_profile_testimonials.html" class="navbar__sublink js-navbar-sub-sublink">Agent's testimonials</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item js-dropdown"><a class="navbar__link">User
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-2">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <h5 class="navbar__subtitle">Pages</h5>
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem"><a href="my_listings.html" class="navbar__sublink js-navbar-sublink">My listings</a></li>
+                        <li class="navbar__subitem"><a href="my_listings_add_edit.html" class="navbar__sublink js-navbar-sublink">Property submit</a></li>
+                        <li class="navbar__subitem"><a href="my_profile.html" class="navbar__sublink js-navbar-sublink">Profile</a></li>
+                      </ul>
+                    </div>
+                    <div class="navbar__submenu">
+                      <h5 class="navbar__subtitle">Auth</h5>
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem"><a href="user_login.html" class="navbar__sublink js-navbar-sublink">Login</a></li>
+                        <li class="navbar__subitem"><a href="user_register.html" class="navbar__sublink js-navbar-sublink">Register</a></li>
+                        <li class="navbar__subitem"><a href="user_restore_pass.html" class="navbar__sublink js-navbar-sublink">Restore</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item js-dropdown"><a class="navbar__link">Blog
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem"><a href="blog.html" class="navbar__sublink js-navbar-sublink">Blog list</a></li>
+                        <li class="navbar__subitem"><a href="blog_details.html" class="navbar__sublink js-navbar-sublink">Blog details</a></li>
+                        <li class="navbar__subitem"><a href="blog_empty.html" class="navbar__sublink js-navbar-sublink">Blog empty</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item js-dropdown"><a class="navbar__link">Pages
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem"><a href="page.html" class="navbar__sublink js-navbar-sublink">Сontent page</a></li>
+                        <li class="navbar__subitem"><a href="faq.html" class="navbar__sublink js-navbar-sublink">Faq</a></li>
+                        <li class="navbar__subitem"><a href="reviews.html" class="navbar__sublink js-navbar-sublink">Testimonials</a></li>
+                        <li class="navbar__subitem"><a href="pricing.html" class="navbar__sublink js-navbar-sublink">Pricing</a></li>
+                        <li class="navbar__subitem"><a href="gallery.html" class="navbar__sublink js-navbar-sublink">Gallery</a></li>
+                        <li class="navbar__subitem"><a href="email.html" class="navbar__sublink js-navbar-sublink">Email template</a></li>
+                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a class="navbar__sublink js-navbar-sublink">Errors
+                            <svg class="navbar__arrow">
+                              <use xlink:href="#icon-arrow-right"></use>
+                            </svg></a>
+                          <div class="navbar__submenu navbar__submenu--level">
+                            <button class="navbar__back js-navbar-submenu-back">
+                              <svg class="navbar__arrow">
+                                <use xlink:href="#icon-arrow-left"></use>
+                              </svg>Back
+                            </button>
+                            <ul class="navbar__subnav">
+                              <li class="navbar__subitem"><a href="error_403.html" class="navbar__sublink js-navbar-sub-sublink">403 Error</a></li>
+                              <li class="navbar__subitem"><a href="error_404.html" class="navbar__sublink js-navbar-sub-sublink">404 Error</a></li>
+                              <li class="navbar__subitem"><a href="error_500.html" class="navbar__sublink js-navbar-sub-sublink">500 Error</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item"><a href="contacts.html" class="navbar__link">Contacts</a></li>
+                <li class="navbar__item js-dropdown"><a class="navbar__link">Dashboard
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem"><a href="dashboard.html" class="navbar__sublink">Dashboard</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_property_new.html" class="navbar__sublink">Add Listing</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_news.html" class="navbar__sublink">News Feed</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_profile.html" class="navbar__sublink">Profile</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_activity.html" class="navbar__sublink">Activity Log</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_favorites_listings.html" class="navbar__sublink">Favorite Listings</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_favorites_agents.html" class="navbar__sublink">Favorite Agents</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_favorites_search.html" class="navbar__sublink">Favorite search</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_financials.html" class="navbar__sublink">Financials</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_statistics.html" class="navbar__sublink">Statistics</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_property.html" class="navbar__sublink">Property management</a></li>
+                        <li class="navbar__subitem"><a href="dashboard_blog.html" class="navbar__sublink">Blog Management</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item js-dropdown"><a class="navbar__link">UI
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right navbar__dropdown--colls-2">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <h5 class="navbar__subtitle">Variations</h5>
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem"><a href="index_not_available.html" class="navbar__sublink js-navbar-sublink">Feature not available</a></li>
+                        <li class="navbar__subitem"><a href="feature_boxed.html" class="navbar__sublink js-navbar-sublink">Layout boxed</a></li>
+                        <li class="navbar__subitem"><a href="feature_left_sidebar.html" class="navbar__sublink js-navbar-sublink">Sidebar left</a></li>
+                      </ul>
+                    </div>
+                    <div class="navbar__submenu">
+                      <h5 class="navbar__subtitle">Elements</h5>
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem"><a href="feature_ui.html" class="navbar__sublink js-navbar-sublink">UI</a></li>
+                        <li class="navbar__subitem"><a href="feature_typography.html" class="navbar__sublink js-navbar-sublink">Typography</a></li>
+                        <li class="navbar__subitem"><a href="feature_loaders.html" class="navbar__sublink js-navbar-sublink">Feature loaders</a></li>
+                        <li class="navbar__subitem"><a href="bootstrap.html" class="navbar__sublink js-navbar-sublink">Twitter Bootstrap</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item navbar__item--mob js-dropdown"><a class="navbar__link">Language
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem active"><a href="#" class="navbar__sublink js-navbar-sublink">English</a></li>
+                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">Francais</a></li>
+                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">Italian</a></li>
+                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">Russian</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item navbar__item--mob js-dropdown"><a class="navbar__link">Currency
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <ul class="navbar__subnav">
+                        <li class="navbar__subitem active"><a href="#" class="navbar__sublink js-navbar-sublink">USD</a></li>
+                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">EURO</a></li>
+                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">RUB</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="navbar__item navbar__item--mob js-dropdown"><a class="navbar__link">Measures
+                    <svg class="navbar__arrow">
+                      <use xlink:href="#icon-arrow-right"></use>
+                    </svg></a>
+                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
+                    <button class="navbar__back js-navbar-submenu-back">
+                      <svg class="navbar__arrow">
+                        <use xlink:href="#icon-arrow-left"></use>
+                      </svg>Back
+                    </button>
+                    <div class="navbar__submenu">
+                      <div class="switch switch--menu">
+                        <label>M <sup>2</sup>
+                          <input type="checkbox" checked><span class="lever"></span>Sq Ft
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <!-- end of block  navbar__nav-->
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- END NAVBAR-->
+      <div class="site-wrap js-site-wrap">
+        <!-- BEGIN BREADCRUMBS-->
+        <nav class="breadcrumbs">
+          <div class="container">
+            <ul>
+              <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">Home</a></li>
+              <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">Agent Profile</a></li>
+            </ul>
+          </div>
+        </nav>
+        <!-- END BREADCRUMBS-->
+        <div class="center">
+          <div class="container">
+            <div class="row">
+              <!-- BEGIN site-->
+              <div class="site site--main">
+                <header class="site__header">
+                  <h1 class="site__title"><span class="title-thin">Agent</span> Profile</h1>
+                  <h2 class="site__headline">Christopher’s Profile</h2>
+                </header>
+                <div class="site__panel"><span class="site__header-text">An Agent Profile is your free profile page that enables you to build your personal brand and demonstrate your skills to potential Vendors and Landlords to attract your next site.</span></div>
+                <div class="site__main">
+                  <div class="widget js-widget widget--main">
+                    <div class="widget__content">
+                      <div data-sr="enter bottom move 80px, scale(0), over 0s" data-animate-end="animate-end" class="worker js-unhide-block vcard worker--list worker--details">
+                        <div class="worker__photo"><a href="agent_profile.html" class="item-photo item-photo--static"><img src="assets/media-demo/workers/worker-1.jpg" alt="Christopher Pakulla" class="photo"/>
+                            <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure></a></div>
+                        <div class="worker__intro">
+                          <div class="worker__intro-head">
+                            <div class="worker__intro-name">
+                              <h3 class="worker__name fn">Christopher Pakulla</h3>
+                              <div class="worker__post">Realtor, West USA Realty</div>
+                            </div>
+                            <div class="worker__intro-brand"><a class="worker__company"><img src="assets/media-demo/partners/logo-company-proera.png" alt="pro"/></a>
+                              <div class="worker__company-name">Pro Era West Realty</div>
+                            </div>
+                            <!-- end of block .worker__listings-->
+                          </div>
+                          <button type="button" class="worker__show js-unhide">Contact agent</button>
+                          <div class="worker__intro-row">
+                            <div class="worker__intro-col">
+                              <div class="worker__contacts">
+                                <div class="tel"><span class="type">Tel.</span><a href="tel:+44(0)2035102390" class="uri value">+44 (0) 20 3510 2390</a></div>
+                                <div class="tel"><span class="type">Mob.</span><a href="tel:+44(0)30345207210" class="uri value">+44 (0) 303 4520 7210</a></div>
+                                <div class="email"><span class="type">Email</span><a href="mailto:rs@realtyspace.com" class="uri value">rs@realtyspace.com</a></div>
+                                <div class="skype"><span class="type">Skype</span><a href="skype:Walkenboy?call" class="uri value">Walkenboy</a></div>
+                              </div>
+                              <!-- end of block .worker__contacts-->
+                            </div>
+                            <div class="worker__intro-col">
+                              <div class="social social--worker"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-linkedin"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
+                            </div>
+                          </div>
+                          <div class="worker__intro-row">
+                            <div class="worker__descr">
+                              <p>
+                                I&apos;m an entrepreneur who loves to travel and splits time between New York and Los Angeles. Believer in the golden rule: Do unto others as you would have them do unto you. Favorite destinations include Cabo San Lucas, Costa Rica, Turks &amp; Caicos...sunny beaches are ideal vacation spots
+                                We recognize you have a choice when it comes to working with a real estate professional. We look forward to earning your trust and helping you discover the smarter way to buy or sell a home.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                      <!-- end of block .worker-->
+                    </div>
+                  </div>
+                                    <div class="widget js-widget widget--main">
+                                      <div class="widget__header">
+                                        <h2 class="widget__title">Last from the Blog</h2>
+                                      </div>
+                                      <div class="widget__content">
+                                        <!-- BEGIN SECTION ARTICLE-->
+                                        <section class="listing listing--grid">
+                                          <div class="listing__item">
+                                            <article class="article article--grid"><a href="blog_details.html" class="article__photo"><img src="assets/media-demo/news/news-1.jpg" alt="News title" class="article__photo-img">
+                                                <time datetime="2009-08-29" class="article__time">OCT<strong>27</strong></time></a>
+                                              <div class="article__details"><a href="blog_details.html" class="article__item-title">Sustainable architecture &amp; design.</a>
+                                                <div class="article__intro">
+                                                  <p>With the current state of the global climate and the depletion of natural  resources ...</p>
+                                                </div><a href="blog_details.html" class="article__more">Read more</a>
+                                              </div>
+                                            </article>
+                                            <!-- end of block .article-->
+                                          </div>
+                                          <div class="listing__item">
+                                            <article class="article article--grid"><a href="blog_details.html" class="article__photo"><img src="assets/media-demo/news/news-2.jpg" alt="News title" class="article__photo-img">
+                                                <time datetime="2009-08-29" class="article__time">SEP<strong>02</strong></time></a>
+                                              <div class="article__details"><a href="blog_details.html" class="article__item-title">You’ve been approved for a rental home.</a>
+                                                <div class="article__intro">
+                                                  <p>If you bought a home in these four areas during the downturn, you’ll make a tidy ...</p>
+                                                </div><a href="blog_details.html" class="article__more">Read more</a>
+                                              </div>
+                                            </article>
+                                            <!-- end of block .article-->
+                                          </div>
+                                          <div class="listing__item">
+                                            <article class="article article--grid"><a href="blog_details.html" class="article__photo"><img src="assets/media-demo/news/news-3.jpg" alt="News title" class="article__photo-img">
+                                                <time datetime="2009-08-29" class="article__time">AUG<strong>11</strong></time></a>
+                                              <div class="article__details"><a href="blog_details.html" class="article__item-title">The Block Glasshouse winners.</a>
+                                                <div class="article__intro">
+                                                  <p>The low-slung ranch house has been reborn. These minimalist designs have high ...</p>
+                                                </div><a href="blog_details.html" class="article__more">Read more</a>
+                                              </div>
+                                            </article>
+                                            <!-- end of block .article-->
+                                          </div>
+                                        </section>
+                                        <!-- END SECTION ARTICLE-->
+                                        <div class="widget__footer"><a href="#" class="widget__more">More articles</a></div>
+                                      </div>
+                                    </div>
+                  <div class="widget js-widget widget--main">
+                    <div class="widget__header">
+                      <h2 class="widget__title">Testimonials</h2>
+                    </div>
+                    <div class="widget__content">
+                      <div class="listing listing--list">
+                        <div class="listing__item">
+                          <div class="review review--list">
+                            <div class="review__item">
+                              <div class="review__photo"><img src="assets/media-demo/testimonials/01.jpg" alt="ALT" class="review__photo-img"></div>
+                              <div class="review__details"><span class="review__name">Vanessa Kasinsky</span><span class="review__post">Brand Manager</span>
+                                <div class="review__stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></div>
+                              </div>
+                              <div class="review__info">
+                                <div class="review__info-quote review__info-quote--open">&rdquo;</div>
+                                <p>Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.
+                                </p>
+                                <div class="review__info-quote review__info-quote--close">&ldquo;</div>
+                              </div>
+                              <div class="clearfix"></div>
+                              <!-- end of block .review__item-->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="listing__item">
+                          <div class="review review--list">
+                            <div class="review__item">
+                              <div class="review__photo"><img src="assets/media-demo/testimonials/02.jpg" alt="ALT" class="review__photo-img"></div>
+                              <div class="review__details"><span class="review__name">Joseph Ryan</span><span class="review__post">Brand Manager</span>
+                                <div class="review__stars"><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></div>
+                              </div>
+                              <div class="review__info">
+                                <div class="review__info-quote review__info-quote--open">&rdquo;</div>
+                                <p>Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.Mariusz always addressed my questions professionally and in a very timely manner. Working with him was a pleasure and would come with my recommendation.
+                                </p>
+                                <div class="review__info-quote review__info-quote--close">&ldquo;</div>
+                              </div>
+                              <div class="clearfix"></div>
+                              <!-- end of block .review__item-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <form class="form form--flex form--review">
+                        <div class="row">
+                          <div class="form-group form-group--col-12">
+                            <label for="in-testimonial" class="control-label">Post a testimonial</label>
+                            <textarea id="in-testimonial" class="form-control">Working with him was a pleasure and would come with my recommendation. This summer helper is smokin' hot! Porter is a multi-purpose BBQ tray that eliminates extra trips between your kitchen and grill. Containers with lids keep raw food safely separated. If you need a realtor that is knowledgeable, flexible and great to work with, Chris Pakulla is your man!</textarea>
+                          </div>
+                          <div class="form-group form-group--inline form-group--col-9">
+                            <label class="control-label">Your rating:</label>
+                            <ul class="form__check">
+                              <li>
+                                <input type="radio" name="agent" id="in-rating-0" class="in-radio">
+                                <label for="in-rating-0" class="in-label">0</label>
+                              </li>
+                              <li>
+                                <input type="radio" name="agent" id="in-rating-1" class="in-radio">
+                                <label for="in-rating-1" class="in-label">1</label>
+                              </li>
+                              <li>
+                                <input type="radio" name="agent" id="in-rating-2" class="in-radio">
+                                <label for="in-rating-2" class="in-label">2</label>
+                              </li>
+                              <li>
+                                <input type="radio" name="agent" id="in-rating-3" class="in-radio">
+                                <label for="in-rating-3" class="in-label">3</label>
+                              </li>
+                              <li>
+                                <input type="radio" name="agent" id="in-rating-4" class="in-radio">
+                                <label for="in-rating-4" class="in-label">4</label>
+                              </li>
+                              <li>
+                                <input type="radio" name="agent" id="in-rating-5" class="in-radio">
+                                <label for="in-rating-5" class="in-label">5</label>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="form-group form-group--col-4 form-group--right">
+                            <button type="button" class="form__reset">Reset</button>
+                            <button type="submit" class="form__submit">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                      <div class="widget__footer"><a href="#" class="widget__more">More testimonials</a></div>
+                    </div>
+                  </div>
+                  <div class="widget js-widget widget--main">
+                    <div class="widget__header">
+                      <h2 class="widget__title">Listings</h2>
+                    </div>
+                    <div class="widget__content">
+                      <div class="listing listing--grid js-properties-list">
+                        <div class="listing__item">
+                          <div class="properties properties--grid">
+                            <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="assets/media-demo/properties/554x360/02.jpg" alt=""/>
+                                <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span><span class="properties__intro">My home is bright and spacious. Very good transport links. Close to the Olympic village, Westfiel...</span><span class="properties__time">Added date: 5 days ago</span><span class="properties__more">View details</span>
+                                </figure></a><span class="properties__ribon">For rent</span>
+                            </div>
+                            <!-- end of block .properties__thumb-->
+                            <div class="properties__details">
+                              <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">649 West Adams Boulevard</span><span class="properties__address-city">Los Angeles, CA 90007, USA</span></a>
+                                <div class="properties__offer">
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-label">Commision</div>
+                                    <div class="properties__offer-value"><strong> $79</strong>
+                                    </div>
+                                  </div>
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong>$4,555</strong><span class="properties__offer-period">/month</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 110 Sq Ft</span></div>
+                              </div>
+                            </div>
+                            <!-- end of block .properties__info-->
+                          </div>
+                          <!-- end of block .properties__item-->
+                        </div>
+                        <div class="listing__item">
+                          <div class="properties properties--grid">
+                            <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="assets/img/no-image--554x360.jpg" alt=""/>
+                                <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 205 Sq Ft</span><span class="properties__params">Land Size - 310 Sq Ft</span><span class="properties__intro">It was all finished, the Owl, as a last resource, she put them into a pig,' Alice quietly said, j...</span><span class="properties__time">Added date: 6 days ago</span><span class="properties__more">View details</span>
+                                </figure></a><span class="properties__ribon">For sale</span>
+                            </div>
+                            <!-- end of block .properties__thumb-->
+                            <div class="properties__details">
+                              <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">958 Dewey Avenue</span><span class="properties__address-city">Los Angeles, CA 90006, USA</span></a>
+                                <div class="properties__offer">
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-label">Commision</div>
+                                    <div class="properties__offer-value"><strong> 5%</strong>
+                                    </div>
+                                  </div>
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong>$86,723</strong>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 205 Sq Ft</span><span class="properties__params">Land Size - 310 Sq Ft</span></div>
+                              </div>
+                            </div>
+                            <!-- end of block .properties__info-->
+                          </div>
+                          <!-- end of block .properties__item-->
+                        </div>
+                        <div class="listing__item">
+                          <div class="properties properties--grid">
+                            <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="assets/media-demo/properties/554x360/04.jpg" alt=""/>
+                                <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 120 Sq Ft</span><span class="properties__intro">Footman's head: it just grazed his nose, you know?' 'It's the oldest rule in the sea. But they HA...</span><span class="properties__time">Added date: 8 days ago</span><span class="properties__more">View details</span>
+                                </figure></a><span class="properties__ribon">For sale</span>
+                            </div>
+                            <!-- end of block .properties__thumb-->
+                            <div class="properties__details">
+                              <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">1026 Ohio Avenue</span><span class="properties__address-city">Long Beach, CA 90804, USA</span></a>
+                                <div class="properties__offer">
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-label">Commision</div>
+                                    <div class="properties__offer-value"><strong> $179</strong>
+                                    </div>
+                                  </div>
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong>$511,789</strong>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 65 Sq Ft</span><span class="properties__params">Land Size - 120 Sq Ft</span></div>
+                              </div>
+                            </div>
+                            <!-- end of block .properties__info-->
+                          </div>
+                          <!-- end of block .properties__item-->
+                        </div>
+                        <div class="listing__item">
+                          <div class="properties properties--grid">
+                            <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="assets/img/no-image--554x360.jpg" alt=""/>
+                                <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 90 Sq Ft</span><span class="properties__intro">I am so VERY wide, but she got to do,' said the Hatter. 'You MUST remember,' remarked the King, '...</span><span class="properties__time">Added date: 10 days ago</span><span class="properties__more">View details</span>
+                                </figure></a><span class="properties__ribon">For sale</span>
+                            </div>
+                            <!-- end of block .properties__thumb-->
+                            <div class="properties__details">
+                              <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">514 East Myrtle Street</span><span class="properties__address-city">Santa Ana, CA 92701, USA</span></a>
+                                <div class="properties__offer">
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-label">Commision</div>
+                                    <div class="properties__offer-value"><strong> 8%</strong>
+                                    </div>
+                                  </div>
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong>$79,560</strong>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 90 Sq Ft</span></div>
+                              </div>
+                            </div>
+                            <!-- end of block .properties__info-->
+                          </div>
+                          <!-- end of block .properties__item-->
+                        </div>
+                        <div class="listing__item">
+                          <div class="properties properties--grid">
+                            <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="assets/media-demo/properties/554x360/06.jpg" alt=""/>
+                                <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 505 Sq Ft</span><span class="properties__params">Land Size - 1010 Sq Ft</span><span class="properties__intro">I needn't be afraid of them!' 'And who is to France Then turn not pale, beloved snail, but come a...</span><span class="properties__time">Added date: 12 days ago</span><span class="properties__more">View details</span>
+                                </figure></a><span class="properties__ribon">For rent</span>
+                            </div>
+                            <!-- end of block .properties__thumb-->
+                            <div class="properties__details">
+                              <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">1230 Martin Luther King</span><span class="properties__address-city">Los Angeles, CA 90037, USA</span></a>
+                                <div class="properties__offer">
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-label">Commision</div>
+                                    <div class="properties__offer-value"><strong> $550</strong>
+                                    </div>
+                                  </div>
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong>$2,255</strong><span class="properties__offer-period">/month</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 505 Sq Ft</span><span class="properties__params">Land Size - 1010 Sq Ft</span></div>
+                              </div>
+                            </div>
+                            <!-- end of block .properties__info-->
+                          </div>
+                          <!-- end of block .properties__item-->
+                        </div>
+                        <div class="listing__item">
+                          <div class="properties properties--grid">
+                            <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="assets/media-demo/properties/554x360/07.jpg" alt=""/>
+                                <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 153 Sq Ft</span><span class="properties__intro">My home is bright and spacious. Very good transport links. Close to the Olympic village, Westfiel...</span><span class="properties__time">Added date: 15 days ago</span><span class="properties__more">View details</span>
+                                </figure></a><span class="properties__ribon">For sale</span>
+                            </div>
+                            <!-- end of block .properties__thumb-->
+                            <div class="properties__details">
+                              <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">401 South Sycamore Street</span><span class="properties__address-city">Santa Ana, CA 92701, USA</span></a>
+                                <div class="properties__offer">
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-label">Commision</div>
+                                    <div class="properties__offer-value"><strong> $790</strong>
+                                    </div>
+                                  </div>
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong>$6,218,780</strong>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 153 Sq Ft</span></div>
+                              </div>
+                            </div>
+                            <!-- end of block .properties__info-->
+                          </div>
+                          <!-- end of block .properties__item-->
+                        </div>
+                        <div class="listing__item">
+                          <div class="properties properties--grid">
+                            <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="assets/media-demo/properties/554x360/08.jpg" alt=""/>
+                                <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 61 Sq Ft</span><span class="properties__params">Land Size - 150 Sq Ft</span><span class="properties__intro">I needn't be afraid of them!' 'And who is to France Then turn not pale, beloved snail, but come a...</span><span class="properties__time">Added date: 18 days ago</span><span class="properties__more">View details</span>
+                                </figure></a><span class="properties__ribon">For rent</span>
+                            </div>
+                            <!-- end of block .properties__thumb-->
+                            <div class="properties__details">
+                              <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">649 West Adams Boulevard</span><span class="properties__address-city">Los Angeles, CA 90007, USA</span></a>
+                                <div class="properties__offer">
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-label">Commision</div>
+                                    <div class="properties__offer-value"><strong> 4%</strong>
+                                    </div>
+                                  </div>
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong>$3,100</strong><span class="properties__offer-period">/month</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 61 Sq Ft</span><span class="properties__params">Land Size - 150 Sq Ft</span></div>
+                              </div>
+                            </div>
+                            <!-- end of block .properties__info-->
+                          </div>
+                          <!-- end of block .properties__item-->
+                        </div>
+                        <div class="listing__item">
+                          <div class="properties properties--grid">
+                            <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="assets/media-demo/properties/554x360/09.jpg" alt=""/>
+                                <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 35 Sq Ft</span><span class="properties__params">Land Size - 150 Sq Ft</span><span class="properties__intro">It was all finished, the Owl, as a last resource, she put them into a pig,' Alice quietly said, j...</span><span class="properties__time">Added date: 2 days ago</span><span class="properties__more">View details</span>
+                                </figure></a>
+                            </div>
+                            <!-- end of block .properties__thumb-->
+                            <div class="properties__details">
+                              <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">958 Dewey Avenue</span><span class="properties__address-city">Los Angeles, CA 90006, USA</span></a>
+                                <div class="properties__offer">
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-label">Commision</div>
+                                    <div class="properties__offer-value"><strong> 3%</strong>
+                                    </div>
+                                  </div>
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong>$23,351</strong>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 35 Sq Ft</span><span class="properties__params">Land Size - 150 Sq Ft</span></div>
+                              </div>
+                            </div>
+                            <!-- end of block .properties__info-->
+                          </div>
+                          <!-- end of block .properties__item-->
+                        </div>
+                        <div class="listing__item">
+                          <div class="properties properties--grid">
+                            <div class="properties__thumb"><a href="property_details.html" class="item-photo"><img src="assets/media-demo/properties/554x360/10.jpg" alt=""/>
+                                <figure class="item-photo__hover item-photo__hover--params"><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 164 Sq Ft</span><span class="properties__intro">Footman's head: it just grazed his nose, you know?' 'It's the oldest rule in the sea. But they HA...</span><span class="properties__time">Added date: 19 days ago</span><span class="properties__more">View details</span>
+                                </figure></a><span class="properties__ribon">For rent</span>
+                            </div>
+                            <!-- end of block .properties__thumb-->
+                            <div class="properties__details">
+                              <div class="properties__info"><a href="property_details.html" class="properties__address"><span class="properties__address-street">1026 Ohio Avenue</span><span class="properties__address-city">Long Beach, CA 90804, USA</span></a>
+                                <div class="properties__offer">
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-label">Commision</div>
+                                    <div class="properties__offer-value"><strong> 1%</strong>
+                                    </div>
+                                  </div>
+                                  <div class="properties__offer-column">
+                                    <div class="properties__offer-value"><strong>$2750</strong><span class="properties__offer-period">/month</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="properties__params--mob"><a href="#" class="properties__more">View details</a><span class="properties__params">Built-Up - 85 Sq Ft</span><span class="properties__params">Land Size - 164 Sq Ft</span></div>
+                              </div>
+                            </div>
+                            <!-- end of block .properties__info-->
+                          </div>
+                          <!-- end of block .properties__item-->
+                        </div>
+                      </div>
+                      <div class="widget__footer"><a href="#" class="widget__more">More listings</a></div>
+                    </div>
+                  </div>
+                  <div class="widget js-widget widget--main">
+                    <div class="widget__header">
+                      <h2 class="widget__title">Total Listing</h2>
+                    </div>
+                    <div class="widget__content">
+                      <section class="info info--statistics">
+                        <div class="info__about">
+                              <h4 class="info__about-title">For Sale: 18<br>Total of Selling Price: RM 29,270,800.00</h4>
+                              <div class="info__table-wrap">
+                                <table class="table info__table">
+                                  <thead>
+                                    <tr>
+                                      <th>Category</th>
+                                      <th>No. of Listing</th>
+                                      <th>Total of Selling Price</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Vacant</td>
+                                      <td>18</td>
+                                      <td>29,270,800.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Tenanted</td>
+                                      <td>0</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Sale &amp; Leaseback</td>
+                                      <td>0</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Built-to-suit</td>
+                                      <td>0</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Sale By Tender</td>
+                                      <td>0</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div class="info__table-wrap">
+                                <table class="table table--stripped info__table">
+                                  <thead>
+                                    <tr>
+                                      <th>Category</th>
+                                      <th>No. of Listing</th>
+                                      <th>Total of Selling Price</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Residential</td>
+                                      <td>18</td>
+                                      <td>29,270,800.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Commercial</td>
+                                      <td>0</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Land</td>
+                                      <td>0</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Industrial</td>
+                                      <td>0</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Others</td>
+                                      <td>0</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Condominium</td>
+                                      <td>15</td>
+                                      <td>15,250,800.00</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <div class="widget js-widget widget--main">
+                    <div class="widget__header">
+                      <h2 class="widget__title">Graph</h2>
+                    </div>
+                    <div class="widget__content">
+                      <section class="info info--statistics">
+                        <div class="info__chart info__chart--profile">
+                          <canvas id="profile-statistics" class="info__chart-profile"></canvas>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                  <div class="widget js-widget widget--main">
+                    <div class="widget__header">
+                      <h2 class="widget__title">Contact Christopher</h2>
+                    </div>
+                    <div class="widget__content">
+                      <form action="#" method="POST" class="form form--flex js-contact-form form--workers">
+                        <div class="row">
+                          <div class="form-group required">
+                            <label for="in-form-name" class="control-label">Your Name</label>
+                            <input id="in-form-name" type="text" name="name" required class="form-control">
+                          </div>
+                          <div class="form-group form-group--col-6">
+                            <label for="in-form-phone" class="control-label">Telephone</label>
+                            <input id="in-form-phone" type="text" name="phone" class="form-control">
+                          </div>
+                          <div class="form-group form-group--col-6 required">
+                            <label for="in-form-email" class="control-label">E-mail</label>
+                            <input id="in-form-email" type="email" name="email" required data-parsley-trigger="change" class="form-control">
+                          </div>
+                          <div class="form-group required">
+                            <label for="in-form-message" class="control-label">Message</label>
+                            <textarea id="in-form-message" name="message" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="You need to enter at least a 20 caracters long comment.." class="form-control"></textarea>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <button type="submit" class="form__submit">Submit</button>
+                        </div>
+                      </form>
+                      <!-- end of block form-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END site-->
+              <!-- BEGIN SIDEBAR-->
+              <div class="sidebar">
+                <div class="widget js-widget widget--sidebar">
+                  <div class="widget__header">
+                    <h2 class="widget__title">Filter</h2>
+                    <h5 class="widget__headline">Find your apartment or house on the exact key parameters.</h5><a class="widget__btn js-widget-btn widget__btn--toggle">Show filter</a>
+                  </div>
+                  <div class="widget__content">
+                    <!-- BEGIN SEARCH-->
+                    <form action="http://demo.codefactory47.com/realtyspace/properties_listing_list.html" class="form form--flex form--search js-search-form form--sidebar">
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="in-keyword" class="control-label">Keyword</label>
+                          <input type="text" id="in-keyword" placeholder="Text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="in-contract-type" class="control-label">Listing Type</label>
+                          <select id="in-contract-type" data-placeholder="---" class="form-control">
+                            <option label=" "></option>
+                            <option>Sale</option>
+                            <option>Rent</option>
+                          </select>
+                        </div>
+                        <div class="form-group"><span class="control-label">Property type</span>
+                          <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="---" class="dropdown-toggle js-select-checkboxes-btn">---</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                              <ul>
+                                <li>
+                                  <input id="checkbox_type_1" type="checkbox" name="checkbox_type_1" class="in-checkbox">
+                                  <label for="checkbox_type_1" data-toggle="tooltip" data-placement="left" title="Tooltip on top" class="in-label">Privat apartment</label>
+                                </li>
+                                <li>
+                                  <input id="checkbox_type_2" type="checkbox" name="checkbox_type_2" class="in-checkbox">
+                                  <label for="checkbox_type_2" data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="in-label">Apartment</label>
+                                </li>
+                                <li>
+                                  <input id="checkbox_type_3" type="checkbox" name="checkbox_type_3" class="in-checkbox">
+                                  <label for="checkbox_type_3" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Cottage</label>
+                                </li>
+                                <li>
+                                  <input id="checkbox_type_4" type="checkbox" name="checkbox_type_4" class="in-checkbox">
+                                  <label for="checkbox_type_4" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Flat</label>
+                                </li>
+                                <li>
+                                  <input id="checkbox_type_5" type="checkbox" name="checkbox_type_5" class="in-checkbox">
+                                  <label for="checkbox_type_5" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">House</label>
+                                </li>
+                                <li>
+                                  <input id="checkbox_type_6" type="checkbox" name="checkbox_type_6" class="in-checkbox">
+                                  <label for="checkbox_type_6" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Condominium</label>
+                                </li>
+                                <li>
+                                  <input id="checkbox_type_7" type="checkbox" name="checkbox_type_7" class="in-checkbox">
+                                  <label for="checkbox_type_7" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Cottage</label>
+                                </li>
+                                <li>
+                                  <input id="checkbox_type_8" type="checkbox" name="checkbox_type_8" class="in-checkbox">
+                                  <label for="checkbox_type_8" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Flat</label>
+                                </li>
+                                <li>
+                                  <input id="checkbox_type_9" type="checkbox" name="checkbox_type_9" class="in-checkbox">
+                                  <label for="checkbox_type_9" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Cottage</label>
+                                </li>
+                                <li>
+                                  <input id="checkbox_type_10" type="checkbox" name="checkbox_type_10" class="in-checkbox">
+                                  <label for="checkbox_type_10" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" class="in-label">Condominium</label>
+                                </li>
+                              </ul>
+                              <!-- end of block .dropdown-menu-->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="in-tenure-type" class="control-label">Tenure</label>
+                          <select id="in-tenure-type" data-placeholder="Any tenure" class="form-control">
+                            <option label=" "></option>
+                            <option>Tenure</option>
+                            <option>Tenure</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="in-bedrooms-type" class="control-label">Bedrooms</label>
+                          <select id="in-bedrooms-type" data-placeholder="---" class="form-control">
+                            <option label=" "></option>
+                            <option>1</option>
+                            <option>2</option>
+                          </select>
+                        </div>
+                        <div class="form-group"><span class="control-label">Location level 1</span>
+                          <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="States" class="dropdown-toggle js-select-checkboxes-btn">States</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                              <div class="region-select">
+                                <ul class="js-checkboxes-tree bonsai region-select__list">
+                                  <li>
+                                    <input type="checkbox" name="location[]" value="Fresno" id="region-select-states-0" class="in-checkbox">
+                                    <label for="region-select-states-0" data-toggle="tooltip" data-placement="top" title="Fresno" class="in-label">Fresno</label>
+                                    <ul>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Clovis" id="region-select-states-1" class="in-checkbox">
+                                        <label for="region-select-states-1" data-toggle="tooltip" data-placement="top" title="Clovis" class="in-label">Clovis</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Fresno" id="region-select-states-2" class="in-checkbox">
+                                        <label for="region-select-states-2" data-toggle="tooltip" data-placement="top" title="Fresno" class="in-label">Fresno</label>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-states-3" class="in-checkbox">
+                                    <label for="region-select-states-3" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Los Angeles</label>
+                                    <ul>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Glendale" id="region-select-states-4" class="in-checkbox">
+                                        <label for="region-select-states-4" data-toggle="tooltip" data-placement="top" title="Glendale" class="in-label">Glendale</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Long Beach" id="region-select-states-5" class="in-checkbox">
+                                        <label for="region-select-states-5" data-toggle="tooltip" data-placement="top" title="Long Beach" class="in-label">Long Beach</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-states-6" class="in-checkbox">
+                                        <label for="region-select-states-6" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Los Angeles</label>
+                                        <ul>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Bel Air" id="region-select-states-7" class="in-checkbox">
+                                            <label for="region-select-states-7" data-toggle="tooltip" data-placement="top" title="Bel Air" class="in-label">Bel Air</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Brentwood" id="region-select-states-8" class="in-checkbox">
+                                            <label for="region-select-states-8" data-toggle="tooltip" data-placement="top" title="Brentwood" class="in-label">Brentwood</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Holywood Hills" id="region-select-states-9" class="in-checkbox">
+                                            <label for="region-select-states-9" data-toggle="tooltip" data-placement="top" title="Holywood Hills" class="in-label">Holywood Hills</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Mar Vista" id="region-select-states-10" class="in-checkbox">
+                                            <label for="region-select-states-10" data-toggle="tooltip" data-placement="top" title="Mar Vista" class="in-label">Mar Vista</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Silver Lake" id="region-select-states-11" class="in-checkbox">
+                                            <label for="region-select-states-11" data-toggle="tooltip" data-placement="top" title="Silver Lake" class="in-label">Silver Lake</label>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Santa Ana" id="region-select-states-12" class="in-checkbox">
+                                        <label for="region-select-states-12" data-toggle="tooltip" data-placement="top" title="Santa Ana" class="in-label">Santa Ana</label>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <input type="checkbox" name="location[]" value="Santa Clara" id="region-select-states-13" class="in-checkbox">
+                                    <label for="region-select-states-13" data-toggle="tooltip" data-placement="top" title="Santa Clara" class="in-label">Santa Clara</label>
+                                    <ul>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Cupertino" id="region-select-states-14" class="in-checkbox">
+                                        <label for="region-select-states-14" data-toggle="tooltip" data-placement="top" title="Cupertino" class="in-label">Cupertino</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Mountain View" id="region-select-states-15" class="in-checkbox">
+                                        <label for="region-select-states-15" data-toggle="tooltip" data-placement="top" title="Mountain View" class="in-label">Mountain View</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Palo Alto" id="region-select-states-16" class="in-checkbox">
+                                        <label for="region-select-states-16" data-toggle="tooltip" data-placement="top" title="Palo Alto" class="in-label">Palo Alto</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="San Jose" id="region-select-states-17" class="in-checkbox">
+                                        <label for="region-select-states-17" data-toggle="tooltip" data-placement="top" title="San Jose" class="in-label">San Jose</label>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                                <div class="region-select__buttons">
+                                  <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Clear</button>
+                                  <button type="button" class="region-select__btn js-select-checkboxes-accept">Accept</button>
+                                </div>
+                              </div>
+                              <!-- end of block .region-select-->
+                            </div>
+                            <!-- end of block .dropdown-menu-->
+                          </div>
+                        </div>
+                        <div class="form-group"><span class="control-label">Location level 2</span>
+                          <div class="dropdown dropdown--select">
+                            <button type="button" data-toggle="dropdown" data-placeholder="Location" class="dropdown-toggle js-select-checkboxes-btn">Locations</button>
+                            <div class="dropdown-menu js-dropdown-menu js-select-checkboxes">
+                              <div class="region-select">
+                                <ul class="js-checkboxes-tree bonsai region-select__list">
+                                  <li>
+                                    <input type="checkbox" name="location[]" value="Fresno" id="region-select-location-18" class="in-checkbox">
+                                    <label for="region-select-location-18" data-toggle="tooltip" data-placement="top" title="Fresno" class="in-label">Fresno</label>
+                                    <ul>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Clovis" id="region-select-location-19" class="in-checkbox">
+                                        <label for="region-select-location-19" data-toggle="tooltip" data-placement="top" title="Clovis" class="in-label">Clovis</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Fresno" id="region-select-location-20" class="in-checkbox">
+                                        <label for="region-select-location-20" data-toggle="tooltip" data-placement="top" title="Fresno" class="in-label">Fresno</label>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-location-21" class="in-checkbox">
+                                    <label for="region-select-location-21" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Los Angeles</label>
+                                    <ul>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Glendale" id="region-select-location-22" class="in-checkbox">
+                                        <label for="region-select-location-22" data-toggle="tooltip" data-placement="top" title="Glendale" class="in-label">Glendale</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Long Beach" id="region-select-location-23" class="in-checkbox">
+                                        <label for="region-select-location-23" data-toggle="tooltip" data-placement="top" title="Long Beach" class="in-label">Long Beach</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Los Angeles" id="region-select-location-24" class="in-checkbox">
+                                        <label for="region-select-location-24" data-toggle="tooltip" data-placement="top" title="Los Angeles" class="in-label">Los Angeles</label>
+                                        <ul>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Bel Air" id="region-select-location-25" class="in-checkbox">
+                                            <label for="region-select-location-25" data-toggle="tooltip" data-placement="top" title="Bel Air" class="in-label">Bel Air</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Brentwood" id="region-select-location-26" class="in-checkbox">
+                                            <label for="region-select-location-26" data-toggle="tooltip" data-placement="top" title="Brentwood" class="in-label">Brentwood</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Holywood Hills" id="region-select-location-27" class="in-checkbox">
+                                            <label for="region-select-location-27" data-toggle="tooltip" data-placement="top" title="Holywood Hills" class="in-label">Holywood Hills</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Mar Vista" id="region-select-location-28" class="in-checkbox">
+                                            <label for="region-select-location-28" data-toggle="tooltip" data-placement="top" title="Mar Vista" class="in-label">Mar Vista</label>
+                                          </li>
+                                          <li>
+                                            <input type="checkbox" name="location[]" value="Silver Lake" id="region-select-location-29" class="in-checkbox">
+                                            <label for="region-select-location-29" data-toggle="tooltip" data-placement="top" title="Silver Lake" class="in-label">Silver Lake</label>
+                                          </li>
+                                        </ul>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Santa Ana" id="region-select-location-30" class="in-checkbox">
+                                        <label for="region-select-location-30" data-toggle="tooltip" data-placement="top" title="Santa Ana" class="in-label">Santa Ana</label>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                  <li>
+                                    <input type="checkbox" name="location[]" value="Santa Clara" id="region-select-location-31" class="in-checkbox">
+                                    <label for="region-select-location-31" data-toggle="tooltip" data-placement="top" title="Santa Clara" class="in-label">Santa Clara</label>
+                                    <ul>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Cupertino" id="region-select-location-32" class="in-checkbox">
+                                        <label for="region-select-location-32" data-toggle="tooltip" data-placement="top" title="Cupertino" class="in-label">Cupertino</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Mountain View" id="region-select-location-33" class="in-checkbox">
+                                        <label for="region-select-location-33" data-toggle="tooltip" data-placement="top" title="Mountain View" class="in-label">Mountain View</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="Palo Alto" id="region-select-location-34" class="in-checkbox">
+                                        <label for="region-select-location-34" data-toggle="tooltip" data-placement="top" title="Palo Alto" class="in-label">Palo Alto</label>
+                                      </li>
+                                      <li>
+                                        <input type="checkbox" name="location[]" value="San Jose" id="region-select-location-35" class="in-checkbox">
+                                        <label for="region-select-location-35" data-toggle="tooltip" data-placement="top" title="San Jose" class="in-label">San Jose</label>
+                                      </li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                                <div class="region-select__buttons">
+                                  <button type="button" class="region-select__btn region-select__btn--reset js-select-checkboxes-reset">Clear</button>
+                                  <button type="button" class="region-select__btn js-select-checkboxes-accept">Accept</button>
+                                </div>
+                              </div>
+                              <!-- end of block .region-select-->
+                            </div>
+                            <!-- end of block .dropdown-menu-->
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="in-favorites-search-type" class="control-label">Favorite searches</label>
+                          <select id="in-favorites-search-type" data-placeholder="---" class="form-control">
+                            <option label=" "></option>
+                            <option>Kuala Lumpur - 1 flat</option>
+                            <option>2</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="in-favorites-categories-type" class="control-label">Favorite categories</label>
+                          <select id="in-favorites-categories-type" data-placeholder="---" class="form-control">
+                            <option label=" "></option>
+                            <option>Luxury</option>
+                            <option>2</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="in-favorites-users-type" class="control-label">Favourite users</label>
+                          <select id="in-favorites-users-type" data-placeholder="---" class="form-control">
+                            <option label=" "></option>
+                            <option>Josh Hartnett</option>
+                            <option>2</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="in-datetime" class="control-label">Date Range</label>
+                          <input type="text" id="in-datetime" data-start-date="12/03/2015" data-end-date="12/22/2015" data-time-picker="true" data-single-picker="false" class="js-datetimerange form-control">
+                        </div>
+                        <div class="form-group">
+                          <div class="form__mode">
+                            <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
+                          </div>
+                          <label for="range_price" class="control-label">Price</label>
+                          <div class="form__ranges">
+                            <input id="range_price" class="js-search-range form__ranges-in">
+                          </div>
+                          <div class="form__inputs js-search-inputs">
+                            <input type="text" id="in-price-from" placeholder="From" data-input-type="from" class="form-control js-field-range">
+                            <input type="text" id="in-price-to" placeholder="To" data-input-type="to" class="form-control js-field-range">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="form__mode">
+                            <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
+                          </div>
+                          <label for="range_area" class="control-label">Area</label>
+                          <div class="form__ranges">
+                            <input id="range_area" class="js-search-range form__ranges-in">
+                          </div>
+                          <div class="form__inputs js-search-inputs">
+                            <input type="text" id="in-area-from" placeholder="From" data-input-type="from" class="form-control js-field-range">
+                            <input type="text" id="in-area-to" placeholder="To" data-input-type="to" class="form-control js-field-range">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="form__mode">
+                            <button type="button" data-mode="percent" class="form__mode-btn js-input-commision">Percent</button>
+                            <button type="button" data-mode="input" class="form__mode-btn js-input-mode">Input</button>
+                          </div>
+                          <label for="range_area" class="control-label">Commision</label>
+                          <div class="form__ranges">
+                            <input id="range_commision" class="js-search-range form__ranges-in">
+                          </div>
+                          <div class="form__inputs js-search-inputs">
+                            <input type="text" id="in-commision-from" placeholder="From" data-input-type="from" class="form-control js-field-range">
+                            <input type="text" id="in-commision-to" placeholder="To" data-input-type="to" class="form-control js-field-range">
+                          </div>
+                        </div>
+                        <div class="form__buttons form__buttons--double">
+                          <button type="button" class="form__reset js-form-reset">Reset</button>
+                          <button type="submit" class="form__submit">Search</button>
+                          <button type="button" class="form__favorite">Add search to favorites</button>
+                        </div>
+                      </div>
+                    </form>
+                    <!-- end of block-->
+                    <!-- END SEARCH-->
+                  </div>
+                </div>
+              </div>
+              <!-- END SIDEBAR-->
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+        <!-- END CENTER SECTION-->
+        <!-- BEGIN AFTER CENTER SECTION-->
+        <!-- END AFTER CENTER SECTION-->
+        <!-- BEGIN FOOTER-->
+        <footer class="footer">
+          <div class="container">
+            <div class="footer__wrap">
+              <div class="footer__col footer__col--first">
+                <div class="widget js-widget widget--footer">
+                  <div class="widget__header">
+                    <h2 class="widget__title">Menu</h2>
+                  </div>
+                  <div class="widget__content">
+                    <nav class="nav nav--footer"><a href="index.html">Home</a><a href="properties_listing_grid.html">Realty</a><a href="agents_listing_grid.html">Agents</a><a href="gallery.html">Gallery</a><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="contacts.html">Contacts</a><a href="feature_ui.html">UI</a></nav>
+                    <!-- end of block .nav-footer-->
+                  </div>
+                </div>
+                <div class="widget js-widget widget--footer">
+                  <div class="widget__header">
+                    <h2 class="widget__title">About</h2>
+                  </div>
+                  <div class="widget__content">
+                    <aside class="widget_text">
+                      <div class="textwidget">
+                        RealtySpace is the leader in online real estate and operator of the WK of real estate web site for consumers and real estate professionals. Real Estate of websites captures more than 20 million monthly visitors
+                        <p>RealtySpace is the leader in online real estate and operator of the WK of real</p>
+                        <p><a>Read more</a></p>
+                      </div>
+                      
+                    </aside>
+                  </div>
+                </div>
+                <div class="widget js-widget widget--footer">
+                  <div class="widget__header">
+                    <h2 class="widget__title">Social</h2>
+                  </div>
+                  <div class="widget__content">
+                    <div class="social social--footer"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
+                    <!-- end of block .social-footer-->
+                  </div>
+                </div>
+              </div>
+              <!-- end of block .footer__col-first-->
+              <div class="footer__col footer__col--second">
+                <div class="widget js-widget widget--footer">
+                  <div class="widget__header">
+                    <h2 class="widget__title">Contact</h2>
+                  </div>
+                  <div class="widget__content">
+                    <section class="address address--footer">
+                      <h4 class="address__headline">Our office</h4>
+                      <address class="address__main"><span>1950 New York, NY, Ave NW, California, DC 3000600, USA</span><span>08 - 17 mon-fr</span><a href="tel:+442240052225">+1 202 555 0135</a><a href="tel:+442240052225">+1 202 555 0135</a><span>Fax: +1 202 555 0135</span><a href="mailto:hello@example.com">hello@example.com</a></address>
+                    </section>
+                    <!-- end of block .address-->
+                  </div>
+                </div>
+                <div class="widget js-widget widget--footer">
+                  <div class="widget__header">
+                    <h2 class="widget__title">Feedback</h2>
+                  </div>
+                  <div class="widget__content">
+                    <!-- BEGIN SECTION FEEDBACK-->
+                    <form action="#" class="form form--flex form--footer js-parsley">
+                      <div class="row">
+                        <div class="form-group">
+                          <label for="in-email" class="sr-only control-label">E-mail</label>
+                          <input id="in-email" type="email" name="email" placeholder="E-mail" required data-parsley-trigger="change" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="in-message" class="sr-only control-label">Message for Us</label>
+                          <textarea id="in-message" name="message" placeholder="Message for Us" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="You need to enter at least a 20 caracters long comment.." class="form-control"></textarea>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <button type="submit" class="form__submit">Send</button>
+                      </div>
+                    </form>
+                    <!-- end of block .form__wrap-->
+                    <!-- END SECTION FEEDBACK-->
+                  </div>
+                </div>
+              </div>
+              <!--end of block .footer__col-second-->
+              <div class="footer__col footer__col--third">
+                <div class="widget js-widget widget--footer">
+                  <div class="widget__header">
+                    <h2 class="widget__title">Latest Articles</h2>
+                  </div>
+                  <div class="widget__content">
+                    <div class="listing listing--footer">
+                      <div class="listing__item">
+                        <!-- BEGIN SECTION ARTICLE-->
+                        <div class="article article--footer">
+                          <div class="article__details"><a href="blog_details.html" class="article__item-title">Sustainable architecture &amp; design.</a>
+                            <time datetime="2009-08-29" class="article__time">Mon - 3 Sep - 3:17 PM</time>
+                          </div>
+                          <!-- end of block .article-->
+                        </div>
+                        <!-- END SECTION ARTICLE-->
+                      </div>
+                      <div class="listing__item">
+                        <!-- BEGIN SECTION ARTICLE-->
+                        <div class="article article--footer">
+                          <div class="article__details"><a href="blog_details.html" class="article__item-title">You’ve been approved for a rental home.</a>
+                            <time datetime="2009-08-29" class="article__time">Mon - 3 Sep - 3:17 PM</time>
+                          </div>
+                          <!-- end of block .article-->
+                        </div>
+                        <!-- END SECTION ARTICLE-->
+                      </div>
+                      <div class="listing__item">
+                        <!-- BEGIN SECTION ARTICLE-->
+                        <div class="article article--footer">
+                          <div class="article__details"><a href="blog_details.html" class="article__item-title">The Block Glasshouse winners.</a>
+                            <time datetime="2009-08-29" class="article__time">Mon - 3 Sep - 3:17 PM</time>
+                          </div>
+                          <!-- end of block .article-->
+                        </div>
+                        <!-- END SECTION ARTICLE-->
+                      </div>
+                    </div><a href="blog.html" class="widget__more"> More articles</a>
+                  </div>
+                </div>
+              </div>
+              <!-- end of block .footer__col-third-->
+              <div class="clearfix"></div><span class="footer__copyright">&copy; 2016 RealtySpace. All rights reserved</span>
+              <!-- end of block .footer__copyright-->
+            </div>
+          </div>
+        </footer>
+        <!-- end of block .footer-->
+        <!-- END FOOTER-->
+      </div>
+    </div>
+    <button type="button" class="scrollup js-scrollup"></button>
+    <!-- end of block .scrollup-->
+    <!-- BEGIN SCRIPTS and INCLUDES-->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places,drawing,geometry"></script>
+    <script type="text/javascript" src="../../cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+    <!--
+    Contains vendor libraries (Bootstrap3, Jquery, Chosen, etc) already compiled into a single file, with
+    versions that are verified to work with our theme. Normally, you should not edit that file.
+    -->
+    <script src="assets/js/vendor.min48e0.js?v=201603120801"></script>
+    <!--
+    This file is used for demonstration purposes and contains example property items, that are mostly used to
+    render markers on the map. You can safely delete this file, after you've adapted the demo.js code
+    to use your own data.
+    -->
+    <script src="assets/js/demodata.min48e0.js?v=201603120801"></script>
+    <!--
+    The library code that Realtyspace theme relies on, in order to function properly.
+    Normally, you should not edit this file or add your own code there.
+    -->
+    <script src="assets/js/app.min48e0.js?v=201603120801"></script>
+    <!--
+    the main file, that you should modify. It contains lots of examples of
+    plugin usage, with detailed comments about specific sections of the code.
+    -->
+    <script src="assets/js/demo.min48e0.js?v=201603120801"></script>
+<!-- inject:ga  -->
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73880621-1', 'auto');
+ga('send', 'pageview');
+</script>
+    <!-- endinject -->
+    <!-- END SCRIPTS and INCLUDES-->
+  </body>
+
+<!-- Mirrored from demo.codefactory47.com/realtyspace/agent_profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jun 2020 23:44:09 GMT -->
+</html>
