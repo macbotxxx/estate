@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import UploadProperties, HomePageImages, Companyinformation, Testmonials , Workers
+from .models import UploadProperties, HomePageImages, Companyinformation, Testmonials , Workers, Partners
 
 class UploadProperty(ModelForm):
       class Meta:
@@ -36,3 +36,7 @@ class WorkersDetails(ModelForm):
             model = Workers
             fields = '__all__'
 
+class PartnerLogo(ModelForm):
+      class Meta:
+            model = Partners
+            fields = '__all__'
