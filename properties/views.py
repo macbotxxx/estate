@@ -6,7 +6,7 @@ from django.template.loader import get_template
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import UploadProperty
+from .forms import UploadProperty,CompanyDetails,CompanyLogo
 from django.contrib import messages
 from django.core.paginator import Paginator
 
@@ -278,6 +278,7 @@ def featured(request):
 
 @login_required()
 def adminhome(request):
+      companyDetailz = Companyinformation.objects.all()
       property_count = UploadProperties.objects.count()
       property_feature =  UploadProperties.objects.filter(tag='featured').count()
       subcribers = Newsletters.objects.count()
@@ -287,11 +288,14 @@ def adminhome(request):
             'xx': xx,
             'property_feature':property_feature,
             'property_count':property_count,
+            'companyDetailz':companyDetailz,
+
       }
       return render(request,"adminaccount/index.html",context)
 
 @login_required()
 def upload(request):
+      companyDetailz = Companyinformation.objects.all()
       form = UploadProperty()
       if request.method == "POST":
             form = UploadProperty(request.POST, request.FILES)
@@ -299,21 +303,27 @@ def upload(request):
                   form.save()
                   return redirect('property-list')
       context = {
-            'form':form
+            'form':form,
+            'companyDetailz':companyDetailz,
+
       }
       return render(request,"adminaccount/upload_property.html",context)
 
 @login_required()
 def propertyListAd(request):
+      companyDetailz = Companyinformation.objects.all()
       list = UploadProperties.objects.all()
       context = {
-            'list':list
+            'list':list,
+            'companyDetailz':companyDetailz,
+
       }
 
       return render(request,"adminaccount/property_list.html",context)
 
 @login_required()
 def propertyEdit(request, pk):
+      companyDetailz = Companyinformation.objects.all()
       property = UploadProperties.objects.get(id=pk)
       form = UploadProperty(instance=property)
       if request.method == "POST":
@@ -322,18 +332,85 @@ def propertyEdit(request, pk):
                   form.save()
                   return redirect('property-list')
       context = {
-            'form':form
+            'form':form,
+            'companyDetailz':companyDetailz,
+
       }
       return render(request,"adminaccount/upload_property.html",context)
 
 
 @login_required()
 def deleteProrperty(request,pk):
+      companyDetailz = Companyinformation.objects.all()
+
       property = UploadProperties.objects.get(id=pk)
       if request.method == "POST":
             property.delete()
             return redirect('property-list')
       context = {
-            'property':property
+            'property':property,
+            'companyDetailz':companyDetailz,
+
       }
       return render(request,"adminaccount/delete.html",context)
+
+
+@login_required()
+def companydetails(request):
+      companyDetailz = Companyinformation.objects.all()
+      context = {
+            'companyDetailz':companyDetailz,
+            # 'form':form,
+      }
+      return render(request,"adminaccount/company_details.html",context)
+
+@login_required()
+def editcompanyDetails(request,pk):
+      companyDetailz = Companyinformation.objects.all()
+      companyDetail = Companyinformation.objects.get(id=pk)
+      form = CompanyDetails(instance=companyDetail)
+      if request.method == "POST":
+            form = CompanyDetails(request.POST,instance=companyDetail)
+            if form.is_valid():
+                  form.save()
+                  com_name = form.cleaned_data.get('company_name')
+                  messages.success(request, com_name + ' company details have been uploaded successfully  ')
+                  return redirect('company_details')
+      context = {
+            'form':form,
+            'companyDetailz':companyDetailz,
+      }
+      return render(request,"adminaccount/edit_company_details.html",context)
+      
+
+
+@login_required()
+def companylogo(request):
+      companyDetailz = Companyinformation.objects.all()
+      context = {
+            'companyDetailz':companyDetailz,
+            # 'form':form,
+      }
+      return render(request,"adminaccount/company_logo.html",context)
+
+
+
+@login_required()
+def companylogoedit(request,pk):
+      companyDetailz = Companyinformation.objects.all()
+      companylogoz = Companyinformation.objects.get(id=pk)
+      form = CompanyLogo(instance=companylogoz)
+      if request.method == "POST":
+            form = CompanyLogo(request.POST,request.FILES,instance=companylogoz)
+            if form.is_valid():
+                  form.save()
+                  # com_name = form.cleaned_data.get('company_name')
+                  messages.success(request,'👍 Your company logo have been changed successfully  ')
+                  return redirect('company_logo')
+      context = {
+            'form':form,
+            'companyDetailz':companyDetailz,
+      }
+      return render(request,"adminaccount/edit_company_logo.html",context)
+
+

@@ -18,22 +18,22 @@
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Properties</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li class="breadcrumb-item active">
-                                <a href="/upload" active><i class="fa fa-circle"></i>
+                                <a href="{%url 'upload'%}" active><i class="fa fa-circle"></i>
                                     <span>Upload Property</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="/property-list"><i class="fa fa-circle"></i>
+                                <a href="{%url 'property-list'%}"><i class="fa fa-circle"></i>
                                     <span>Property List</span> 
                                 </a>
                                
                             </li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href="#"><i data-feather="dollar-sign"></i><span>Sales</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href="#"><i data-feather="box"></i><span>Company Details</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="order.html"><i class="fa fa-circle"></i>Orders</a></li>
-                            <li><a href="transactions.html"><i class="fa fa-circle"></i>Transactions</a></li>
+                            <li><a href="{%url 'company_details'%}"><i class="fa fa-circle"></i>Company Info</a></li>
+                            <li><a href="{%url 'company_logo'%}"><i class="fa fa-circle"></i>Company Logo</a></li>
                         </ul>
                     </li>
                    

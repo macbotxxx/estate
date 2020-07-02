@@ -4,7 +4,9 @@
       <!-- Page Header Start-->
       <div class="page-main-header">
           <div class="main-header-left">
-              <div class="logo-wrapper"><a href="index.html"><img class="blur-up lazyloaded" src="{% static "assetss/images/layout-2/logo/logo.png" %} " alt=""></a></div>
+              {%for com in companyDetailz%}
+              <div class="logo-wrapper"><a href="{%url 'managerdesk'%}"><img class="blur-up lazyloaded" src="{{com.company_logo_dark.url}} " alt=""></a></div>
+              {%endfor%}
           </div>
           <div class="main-header-right row">
               <div class="mobile-sidebar">

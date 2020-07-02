@@ -1,8 +1,9 @@
 {% extends 'adminaccount/base.html' %}
-  {%load static %}
-  {%load humanize %}
-  {%block content %}
-  <div class="page-body-wrapper">
+{%load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- Page Body Start-->
+<div class="page-body-wrapper">
 
       <!-- Page Sidebar Start-->
       <div class="page-sidebar">
@@ -118,86 +119,42 @@
       <!-- Right sidebar Ends-->
 
       <div class="page-body">
+            {% for message in messages %}
 
+            <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                 {{message}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+     
+            {% endfor %}
           <!-- Container-fluid starts-->
-         
+          {%for com in companyDetailz%}
           <!-- Container-fluid Ends-->
-
-          <!-- Container-fluid starts-->
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-xl-8">
-                      <div class="card tab2-card">
-                          <div class="card-body">
-                              <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
-                                  <li class="nav-item"><a class="nav-link active" id="top-profile-tab" data-toggle="tab" href="#top-profile" role="tab" aria-controls="top-profile" aria-selected="true"><i data-feather="home" class="mr-2"></i>Property Details</a>
-                                  </li>
-                                  
-                              </ul>
-                              <div class="tab-content" id="top-tabContent">
-                                  <div class="tab-pane fade show active" id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
-                                    <div style="color:seashell;" class="btn btn-danger">
-                                    <p>
-                                        <h2> <strong>WARNING ⚠️</strong></h2> DELETING THE FOLLOWING PROPERTY WILL BE PERMANENTLY BE DELETED FROM THE DATABASE 
-                                    </p></div>
-                                      <div class="table-responsive profile-table">
-                                          <table class="table table-responsive">
-                                              <tbody>
-                                              <tr>
-                                                  <td> <strong>Property Name:</strong> </td>
-                                                  <td>{{property.property_title | title}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <td><strong>Property Listing Type:</strong></td>
-                                                  <td>{{property.listing_type | title}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <td><strong>Property Price:</strong></td>
-                                                  <td> ₦ {{property.property_price | intcomma}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <td><strong>Uploaded Time:</strong></td>
-                                                  <td>{{property.time_uploaded | timesince}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <td><strong>Property Address</strong></td>
-                                                  <td>{{property.address | title}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <td><strong>State</strong></td>
-                                                  <td>{{property.state | title}}</td>
-                                              </tr>
-                                              <tr>
-                                                  <td><strong>Property Image's</strong></td>
-                                                  {%if property.property_main_image %}
-                                                  <td><img style="width: 100%;height: 200px;" src="{{property.property_main_image.url}}" alt="" srcset=""></td>
-                                                  {%endif%}
-                                                  {%if property.property_image2 %}
-                                                  <td><img style="width: 100%; height: 200px;" src="{{property.property_image2.url}}" alt="" srcset=""></td>
-                                                  {%endif%}
-                                                  {%if property.property_image3 %}
-                                                  <td><img style="width: 100%;height: 200px;" src="{{property.property_image3.url}}" alt="" srcset=""></td>
-                                                  {%endif%}
-                                                 
-                                              </tr>
-                                              </tbody>
-                                              
-                                          </table>
-                                          
-                                      </div>
-                                      <form action="" method="post" style="float: right;">
-                                          {% csrf_token %}
-                                            <a class="btn btn-secondary" href="{%url 'property-list' %} ">Go Back </a>
-                                          <button class="btn btn-danger" type="submit">Delete Property</button>
-                                    </form>
-                                  </div>
-                                  
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+          <div class="jumbotron text-center">
+                <img src="{{com.company_logo_dark.url}}" alt="">
+            <h1>{{com.company_name | title}}</h1>
+            <p>Edit the company details here !</p>
+            <h3 class="btn btn-danger"><strong> <h2> WARNING ⚠️</h2></strong> Download the default logo and design your company logo according to the present width and height to maintain the beauty of the project</h3>
+           
           </div>
+        
+          <form class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="" enctype="multipart/form-data">
+            {%csrf_token%}
+            
+            <img src="{{com.company_logo_dark.url}}" alt="" srcset=""><br>
+            {{form.company_logo_dark}} <br><br>
+            <img style="background-color: black;" src="{{com.company_logo_light.url}}" alt="" srcset=""><br>
+            {{form.company_logo_light}}
+            <br><br>
+        <div class="pull-right">
+                <button type="submit" class="btn btn-primary">UPDATE COMPANY LOGO > </button>
+        </div>
+      </form>
+          {%endfor%}
+          <!-- Container-fluid starts-->
+          
           <!-- Container-fluid Ends-->
 
       </div>
@@ -218,4 +175,5 @@
       <!-- footer end-->
 
   </div>
-  {%endblock%}
+{% endblock %}
+

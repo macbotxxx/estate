@@ -1,5 +1,6 @@
 {% extends 'adminaccount/base.html' %}
 {%load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 <!-- Page Body Start-->
 <div class="page-body-wrapper">
@@ -23,7 +24,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{%url 'property-list'%}"><i class="fa fa-circle"></i>
+                            <a href="{%url 'property_list'%}"><i class="fa fa-circle"></i>
                                 <span>Property List</span> 
                             </a>
                            
@@ -33,7 +34,7 @@
                 <li><a class="sidebar-header" href="#"><i data-feather="box"></i><span>Company Details</span><i class="fa fa-angle-right pull-right"></i></a>
                     <ul class="sidebar-submenu">
                         <li><a href="{%url 'company_details'%}"><i class="fa fa-circle"></i>Company Info</a></li>
-                        <li><a href="{%url 'company_logo'%}"><i class="fa fa-circle"></i>Company Logo</a></li>
+                        <li><a href="transactions.html"><i class="fa fa-circle"></i>Transactions</a></li>
                     </ul>
                 </li>
                
@@ -120,9 +121,14 @@
       <div class="page-body">
 
           <!-- Container-fluid starts-->
-         
+         {%for com in companyDetailz %}
           <!-- Container-fluid Ends-->
-
+          <div class="jumbotron text-center">
+            <img src="{{com.company_logo_dark.url}}" alt="">
+            <h1>{{com.company_name | title}}</h1>
+            <p>Edit the company details here !</p>
+            </div>
+            {%endfor%}
           <!-- Container-fluid starts-->
           <div class="container-fluid">
               <div class="row">
@@ -137,7 +143,7 @@
                                   <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
                                       <form class="needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
                                             {%csrf_token%}
-                                            {{form.as_p}}
+                                            {{form | crispy }}
                                           <!-- <h4>Property Details</h4>
                                           <label class="col-form-label"><span>*</span> Property Title</label>
                                             {%for error in form.property_title.errors %}
@@ -334,9 +340,9 @@
                                               {%endfor%}
                                             {{form.description}}
                                           </div> -->
-                                          
+                                          <br><br><br>
                                         <div class="pull-right">
-                                                <button type="submit" class="btn btn-primary">Upload Property</button>
+                                                <button type="submit" class="btn btn-primary">UPDATE COMPANY DETAILS > </button>
                                         </div>
                                       </form>
                                   </div>

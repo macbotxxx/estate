@@ -150,7 +150,9 @@
         <div class="container">
           <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
             <svg role="img" class="navbar__brand-logo">
-              <img style="width:50%; height: 70px; float: left; margin-top: 0px;" src="{% static 'assets/anotherlogo1.png' %} ">
+              {% for com in companydetails%}
+              <img style="width:50%; height: 70px; float: left; margin-top: 0px;" src="{{com.company_logo_dark.url}} ">
+              {%endfor%}
             </svg></a>
               <div id="navbar-collapse-1" class="navbar__wrap">
                 <ul class="navbar__nav">
