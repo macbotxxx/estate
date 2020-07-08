@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models.signals import pre_save
 from estate.utils import unique_slug_generator
 from django.contrib.auth import get_user_model
+from tinymce.models import HTMLField
+
 
 User = get_user_model()
 
@@ -194,7 +196,7 @@ class UploadProperties(models.Model):
       office_space = models.CharField(max_length=400,null=True)
       state = models.CharField(choices=STATES,max_length=40,null=True)
       security = models.CharField(choices=SECURITY,max_length=10,null=True)
-      description = models.TextField(null=True)
+      description = HTMLField(null=True)
       time_uploaded = models.DateTimeField(auto_now_add=True, null=True)
       property_main_image = models.ImageField(upload_to='properties_images/',null=True,blank=True)
       property_image2 = models.ImageField(upload_to='properties_images/',null=True,blank=True)
@@ -205,6 +207,8 @@ class UploadProperties(models.Model):
 
       def __str__(self):
             return self.property_title
+
+            
       
 
 def slug_generator(sender, instance, *args, **kwargs):
@@ -250,7 +254,7 @@ class Testmonials(models.Model):
       client_name = models.CharField(max_length=200,null=True)
       client_career = models.CharField(max_length=200,null=True)
       client_image = models.ImageField(default="img.png",upload_to= 'clients_images/',null=True)
-      client_comment = models.TextField(null=True)
+      client_comment = HTMLField(null=True)
 
       def __str__(self):
             return self.client_name
@@ -270,6 +274,24 @@ class Partners(models.Model):
 
       def __str__(self):
             return self.partner_name
+
+
+class Fqa(models.Model):
+      question = models.CharField(max_length=400, null=True)
+      answer = models.CharField(max_length=400, null=True)
+
+      def __str__(self):
+            return self.question 
+
+
+class About(models.Model):
+      about = models.TextField(null=True)
+      company_image = models.ImageField(upload_to='about_image/',null=True)
+
+      def __str__(self):
+            return self.about
+
+
 
 
 

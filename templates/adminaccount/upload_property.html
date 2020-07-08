@@ -33,7 +33,8 @@
                 <li><a class="sidebar-header" href="#"><i data-feather="box"></i><span>Company Details</span><i class="fa fa-angle-right pull-right"></i></a>
                     <ul class="sidebar-submenu">
                         <li><a href="{%url 'company_details'%}"><i class="fa fa-circle"></i>Company Info</a></li>
-                        <li><a href="{%url 'company_logo'%}"><i class="fa fa-circle"></i>Company Logo</a></li>
+                        <li><a href="{%url 'company_logo_edit' 2%}"><i class="fa fa-circle"></i>Change Company Logo</a></li>
+                        <li><a href="{%url 'edit_image_slide' 1%}"><i class="fa fa-circle"></i>Change Home Slide Image</a></li>
                     </ul>
                 </li>
                
@@ -137,8 +138,8 @@
                                   <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
                                       <form class="needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
                                             {%csrf_token%}
-                                            {{form.as_p}}
-                                          <!-- <h4>Property Details</h4>
+                                            
+                                          <h4>Property Details</h4>
                                           <label class="col-form-label"><span>*</span> Property Title</label>
                                             {%for error in form.property_title.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
@@ -160,9 +161,7 @@
                                             {%for error in form.payment_condition.errors %}
                                             <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                             {%endfor%}
-                                            <select class="custom-select" required="">
-                                                <option value="{{form.payment_condition}}">{{form.payment_condition}}</option>
-                                            </select>
+                                            {{form.payment_condition}}
                                         </div>
 
                                           <div class="form-group">
@@ -170,9 +169,7 @@
                                             {%for error in form.commission.errors %}
                                             <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                             {%endfor%}
-                                            <select class="custom-select" required="">
-                                                <option value="{{form.commission}}">{{form.commission}}</option>
-                                            </select>
+                                          {{form.commission}}
                                         </div>
                                         
                                     
@@ -181,9 +178,7 @@
                                                 {%for error in form.tag.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                                 {%endfor%}
-                                                <select class="custom-select" required="">
-                                                    <option value="{{form.tag}}">{{form.tag}}</option>
-                                                </select>
+                                                {{form.tag}}
                                             </div>
 
                                             <div class="form-group">
@@ -191,9 +186,7 @@
                                                 {%for error in form.listing_type.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                                 {%endfor%}
-                                                <select class="custom-select" required="">
-                                                    <option value="{{form.listing_type}}">{{form.listing_type}}</option>
-                                                </select>
+                                                {{form.listing_type}}
                                             </div>
                                             
                                             <div class="form-group">
@@ -201,9 +194,7 @@
                                                 {%for error in form.property_type.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                                 {%endfor%}
-                                                <select class="custom-select" required="">
-                                                    <option value="{{form.property_type}}">{{form.property_type}}</option>
-                                                </select>
+                                                {{form.property_type}}
                                             </div>
 
                                             <div class="form-group">
@@ -211,9 +202,7 @@
                                                 {%for error in form.bedrooms.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                                 {%endfor%}
-                                                <select class="custom-select" required="">
-                                                    <option value="{{form.bedrooms}}">{{form.bedrooms}}</option>
-                                                </select>
+                                                {{form.bedrooms}}
                                             </div>
 
                                             <div class="form-group">
@@ -221,9 +210,7 @@
                                                 {%for error in form.bedrooms.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                                 {%endfor%}
-                                                <select class="custom-select" required="">
-                                                    <option value="{{form.bedrooms}}">{{form.bedrooms}}</option>
-                                                </select>
+                                                {{form.bedrooms}}
                                             </div>
 
                                             <div class="form-group">
@@ -231,9 +218,7 @@
                                                 {%for error in form.toilet.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                                 {%endfor%}
-                                                <select class="custom-select" required="">
-                                                    <option value="{{form.toilet}}">{{form.toilet}}</option>
-                                                </select>
+                                                {{form.toilet}}
                                             </div>
 
                                             <div class="form-group">
@@ -241,9 +226,7 @@
                                                 {%for error in form.garage.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                                 {%endfor%}
-                                                <select class="custom-select" required="">
-                                                    <option value="{{form.garage}}">{{form.garage}}</option>
-                                                </select>
+                                                {{form.garage}}
                                             </div>
 
                                             <label class="col-form-label"><span>*</span> Plot Of Land</label>
@@ -266,9 +249,7 @@
                                             {%for error in form.state.errors %}
                                             <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                             {%endfor%}
-                                            <select class="custom-select" required="">
-                                                <option value="{{form.state}}">{{form.state}}</option>
-                                            </select>
+                                            {{form.state}}
                                         </div>
 
                                         <div class="form-group">
@@ -276,9 +257,7 @@
                                             {%for error in form.security.errors %}
                                             <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                             {%endfor%}
-                                            <select class="custom-select" required="">
-                                                <option value="{{form.security}}">{{form.security}}</option>
-                                            </select>
+                                            {{form.security}}
                                         </div>
 
                                         <div class="form-group">
@@ -333,8 +312,8 @@
                                         <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                               {%endfor%}
                                             {{form.description}}
-                                          </div> -->
-                                          
+                                          </div>
+                                          <br><br><br>
                                         <div class="pull-right">
                                                 <button type="submit" class="btn btn-primary">Upload Property</button>
                                         </div>

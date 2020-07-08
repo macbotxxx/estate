@@ -6,7 +6,7 @@ from django.template.loader import get_template
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import UploadProperty,CompanyDetails,CompanyLogo
+from .forms import UploadProperty,CompanyDetails,CompanyLogo,HomePageImage, QuestionAnswer, CompanyAbout
 from django.contrib import messages
 from django.core.paginator import Paginator
 
@@ -384,16 +384,6 @@ def editcompanyDetails(request,pk):
       
 
 
-@login_required()
-def companylogo(request):
-      companyDetailz = Companyinformation.objects.all()
-      context = {
-            'companyDetailz':companyDetailz,
-            # 'form':form,
-      }
-      return render(request,"adminaccount/company_logo.html",context)
-
-
 
 @login_required()
 def companylogoedit(request,pk):
@@ -406,7 +396,7 @@ def companylogoedit(request,pk):
                   form.save()
                   # com_name = form.cleaned_data.get('company_name')
                   messages.success(request,'👍 Your company logo have been changed successfully  ')
-                  return redirect('company_logo')
+                  return redirect('/company_logo_edit/2/')
       context = {
             'form':form,
             'companyDetailz':companyDetailz,
@@ -414,3 +404,32 @@ def companylogoedit(request,pk):
       return render(request,"adminaccount/edit_company_logo.html",context)
 
 
+
+@login_required()
+def companyimg(request,pk):
+      companyDetailz = Companyinformation.objects.all()
+      companylogo = HomePageImages.objects.all()
+      companylogoz = HomePageImages.objects.get(id=pk)
+      form = HomePageImage(instance=companylogoz)
+      if request.method == "POST":
+            form = HomePageImage(request.POST,request.FILES,instance=companylogoz)
+            if form.is_valid():
+                  form.save()
+                  # com_name = form.cleaned_data.get('company_name')
+                  messages.success(request,'👍 Your company logo have been changed successfully  ')
+                  return redirect('/edit_image_slide/1/')
+      context = {
+            'companylogo':companylogo,
+            'form':form,
+            'companyDetailz':companyDetailz,
+      }
+      return render(request,"adminaccount/edit_home_slide.html",context)
+
+
+@login_required()
+def companyQues(request):
+      form = QuestionAnswer()
+      context = {
+            'form':form,
+      }
+      return render(request,"adminaccount/edit_home_slide.html",context)

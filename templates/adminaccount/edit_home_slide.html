@@ -1,9 +1,8 @@
 {% extends 'adminaccount/base.html' %}
 {%load static %}
-{% load humanize %}
-
-
-{%block content %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- Page Body Start-->
 <div class="page-body-wrapper">
 
       <!-- Page Sidebar Start-->
@@ -121,94 +120,59 @@
       <!-- Right sidebar Ends-->
 
       <div class="page-body">
+        {% for message in messages %}
 
+            <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                 {{message}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+     
+{% endfor %}
           <!-- Container-fluid starts-->
-         
+          {%for com in companyDetailz%}
           <!-- Container-fluid Ends-->
-
-          <!-- Container-fluid starts-->
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-sm-12">
-                      <div class="card">
-                          <div class="card-header">
-                              <h5>Uploaded Property List </h5>
-                          </div>
-                          <div class="card-body order-datatable">
-                              <table class="display" id="basic-1">
-                                  <thead>
-                                  <tr>
-                                      <th>Property Id</th>
-                                      <th>Property Image</th>
-                                      <th>Property Address</th>
-                                      <th>State</th>
-                                      <th>Property Status</th>
-                                      <th>Price</th>
-                                      <th>Uploaded</th>
-                                      <th>Edit</th>
-                                      <th>Delete</th>
-                                      
-                                  </tr>
-                                  </thead>
-                                  <tbody>
-                                  {%for Plist in list %}
-                                  <tr>
-                                      <td>PDS{{Plist.id}}</td>
-                                      <td>
-                                          <div class="d-flex">
-                                              {%if Plist.property_main_image %}
-                                              <img src="{{Plist.property_main_image.url}}" alt="" class="img-fluid img-30 mr-2 blur-up lazyloaded">
-                                              {%endif%}
-                                              {%if Plist.property_image2 %}
-                                              <img src="{{Plist.property_image2.url}}" alt="" class="img-fluid img-30 mr-2 blur-up lazyloaded">
-                                              {%endif%}
-                                              {%if Plist.property_image3 %}
-                                              <img src="{{Plist.property_image3.url}}" alt="" class="img-fluid img-30 mr-2 blur-up lazyloaded">
-                                              {%endif%}
-
-                                          </div>
-                                      </td>
-                                      <td>{{Plist.property_title}}</td>
-                                      <td>{{Plist.state}}</td>
-                                      <td>
-                                            {%if Plist.listing_type == 'sale' %}
-                                            <span class="badge badge-danger">{{Plist.listing_type | title}}</span>
-                                            {% else %}
-                                            <span class="badge badge-info">{{Plist.listing_type | title}}</span>
-                                            {%endif%}
-                                       </td>
-                                      <td><strong> ₦</strong> {{Plist.property_price | intcomma}}</td>
-                                      <td> {{Plist.time_uploaded | timesince }}</td>
-                                      <td><a href="{%url 'property-edit' Plist.pk %}" class="btn btn-info">Edit Property</a></td>
-                                      <td><a href="{%url 'delete-property' Plist.pk %}" class="btn btn-danger">Delete Property</a></td>
-                                      
-                                  </tr>
-                                  {%endfor%}
-                                  </tbody>
-                              </table>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+          <div class="jumbotron text-center">
+                <img src="{{com.company_logo_dark.url}}" alt="">
+            <h1>{{com.company_name | title}}</h1>
+            <p>Edit the company details here !</p>
           </div>
+          {%endfor%}
+        
+          {%for image in companylogo %}
+        
+          <br><br><br>                  
+
+          <form class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
+            {%csrf_token%}
+            <img style="width: 30%; height: 200px;" src="{{image.slide_image1.url}}" alt="" srcset=""><br>
+            {{form.slide_image1}}
+            <br><br>
+            <img style="width: 30%; height: 200px;" src="{{image.slide_image2.url}}" alt="" srcset=""><br>
+            {{form.slide_image2}}
+            <br><br>
+            <img style="width: 30%; height: 200px;" src="{{image.slide_image3.url}}" alt="" srcset=""><br>
+            {{form.slide_image3}}
+            <br><br>
+            <img style="width: 30%; height: 200px;" src="{{image.slide_image4.url}}" alt="" srcset=""><br>
+            {{form.slide_image4}}
+            <br><br>
+        <div class="pull-right">
+                <button type="submit" class="btn btn-primary">UPDATE IMAGE SLIDE  > </button>
+        </div>
+      </form>
+      {%endfor%}
+          <!-- Container-fluid starts-->
+          
           <!-- Container-fluid Ends-->
 
       </div>
 
       <!-- footer start-->
-      <footer class="footer">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-md-6 footer-copyright">
-                      <p class="mb-0">Copyright 2019 © Bigdeal All rights reserved.</p>
-                  </div>
-                  <div class="col-md-6">
-                      <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
-                  </div>
-              </div>
-          </div>
-      </footer>
+      
       <!-- footer end-->
 
-</div>
-{%endblock%}
+  </div>
+{% endblock %}
+

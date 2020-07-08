@@ -2,18 +2,19 @@ from django.urls import path
 from .views import ( 
       home,propertiesDetails,propertylist,properties,listingType,
       adminhome, upload, propertyListAd, propertyEdit, deleteProrperty,
-      contact, aboutUs, testimonies, featured,request,contactus, companydetails,editcompanyDetails, companylogo,companylogoedit
+      contact, aboutUs, testimonies, featured,request,contactus, companydetails,editcompanyDetails,companylogoedit
+      ,companyimg
       )
 
 urlpatterns = [
       path('',home, name="home"),
       path('sending-request/',request, name="request"),
-      path('company_logo/',companylogo, name="company_logo"),
       path('company_logo_edit/<pk>/',companylogoedit, name="company_logo_edit"),
       path('contactus/',contactus, name="contactus"),
       path('contact-us/',contact, name="contact-us"),
       path('company_details/',companydetails, name="company_details"),
       path('about/',aboutUs, name="about"),
+      path('edit_image_slide/<pk>/',companyimg, name="edit_image_slide"),
       path('customers-review/',testimonies, name="customers-review"),
       path('featured-properties/',featured, name="featured-properties"),
       path('property_details/<slug>/',propertiesDetails, name="property_details"),

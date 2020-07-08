@@ -34,7 +34,8 @@
                 <li><a class="sidebar-header" href="#"><i data-feather="box"></i><span>Company Details</span><i class="fa fa-angle-right pull-right"></i></a>
                     <ul class="sidebar-submenu">
                         <li><a href="{%url 'company_details'%}"><i class="fa fa-circle"></i>Company Info</a></li>
-                        <li><a href="{%url 'company_logo'%}"><i class="fa fa-circle"></i>Company Logo</a></li>
+                        <li><a href="{%url 'company_logo_edit' 2%}"><i class="fa fa-circle"></i>Change Company Logo</a></li>
+                        <li><a href="{%url 'edit_image_slide' 1%}"><i class="fa fa-circle"></i>Change Home Slide Image</a></li>
                     </ul>
                 </li>
                
@@ -119,7 +120,7 @@
       <!-- Right sidebar Ends-->
 
       <div class="page-body">
-            {% for message in messages %}
+        {% for message in messages %}
 
             <div class="alert alert-secondary alert-dismissible fade show" role="alert">
                  {{message}}
@@ -128,7 +129,7 @@
                   </button>
             </div>
      
-            {% endfor %}
+{% endfor %}
           <!-- Container-fluid starts-->
           {%for com in companyDetailz%}
           <!-- Container-fluid Ends-->
@@ -136,14 +137,63 @@
                 <img src="{{com.company_logo_dark.url}}" alt="">
             <h1>{{com.company_name | title}}</h1>
             <p>Edit the company details here !</p>
-            <form class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="" enctype="multipart/form-data">
-                {%csrf_token%}
-            <div class="pull-right">
-                    <a href="{%url 'company_logo_edit' com.pk %}" type="submit" class="btn btn-primary">EDIT COMPANY LOGO > </a>
-            </div>
           </div>
-        
-         
+          
+          <div class="container">
+            <div class="row">
+                 
+                  <div class="col-sm-4">
+                    <h5>Company Name :</h5>
+                    <p>{{com.company_name | title}}</p>
+                  </div>
+                  <div class="col-sm-4">
+                        <h5>Company Address :</h5>
+                        <p>{{com.company_address | title}}</p>
+                  </div>
+                  <div class="col-sm-4">
+                        <h5>Company State :</h5>
+                        <p>{{com.company_state | title}}</p>
+                  </div>
+                  <br><br><br>                  
+                  <div class="col-sm-4">
+                        <h5>Company Main Phone-Number :</h5>
+                        <p>{{com.company_phone_number1 | title}}</p>
+                  </div>
+                  <div class="col-sm-4">
+                        <h5>Company Second Phone-Number :</h5>
+                        <p>{{com.company_phone_number2 | title}}</p>
+                  </div>
+                  <div class="col-sm-4">
+                        <h5>Company Email :</h5>
+                        <p>{{com.company_email}}</p>
+                  </div>
+                  <br><br><br>                  
+                  <div class="col-sm-4">
+                        <h5>Company FaceBook Link :</h5>
+                        <p>{{com.company_facebook_link}}</p>
+                  </div>
+                  <div class="col-sm-4">
+                        <h5>Company Instagram Link :</h5>
+                        <p>{{com.company_instagram_link}}</p>
+                  </div>
+                  <div class="col-sm-4">
+                        <h5>Company Whatsapp Link :</h5>
+                        <p>{{com.company_whatsapp_link}}</p>
+                  </div>
+                  <br><br><br>                  
+                  <div class="col-sm-4">
+                        <h5>Company Instagram Link :</h5>
+                        <p>{{com.company_instagram_link}}</p>
+                  </div>
+                </div>
+                
+          </div>
+          <form class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
+            {%csrf_token%}
+          
+        <div class="pull-right">
+                <a href="{%url 'company-edit' com.pk %}" type="submit" class="btn btn-primary">EDIT COMPANY DETAILS > </a>
+        </div>
       </form>
           {%endfor%}
           <!-- Container-fluid starts-->
