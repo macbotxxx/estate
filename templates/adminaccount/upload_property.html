@@ -138,7 +138,7 @@
                                   <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
                                       <form class="needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
                                             {%csrf_token%}
-                                            
+
                                           <h4>Property Details</h4>
                                           <label class="col-form-label"><span>*</span> Property Title</label>
                                             {%for error in form.property_title.errors %}
@@ -147,7 +147,7 @@
                                           <div class="form-group">
                                               {{form.property_title}}
                                           </div>
-                                          
+
                                           <label class="col-form-label"><span>*</span> Property Price</label>
                                             {%for error in form.property_price.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
@@ -155,7 +155,7 @@
                                           <div class="form-group">
                                               {{form.property_price}}
                                           </div>
-                                          
+
                                           <div class="form-group">
                                             <label class="col-form-label"><span>*</span> Payment Condition</label>
                                             {%for error in form.payment_condition.errors %}
@@ -171,8 +171,8 @@
                                             {%endfor%}
                                           {{form.commission}}
                                         </div>
-                                        
-                                    
+
+
                                             <div class="form-group">
                                                 <label class="col-form-label"><span>*</span> Property Tag</label>
                                                 {%for error in form.tag.errors %}
@@ -188,7 +188,7 @@
                                                 {%endfor%}
                                                 {{form.listing_type}}
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <label class="col-form-label"><span>*</span> Property Type</label>
                                                 {%for error in form.property_type.errors %}
@@ -207,10 +207,10 @@
 
                                             <div class="form-group">
                                                 <label class="col-form-label"><span>*</span> Bathrooms</label>
-                                                {%for error in form.bedrooms.errors %}
+                                                {%for error in form.bathrooms.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                                 {%endfor%}
-                                                {{form.bedrooms}}
+                                                {{form.bathrooms}}
                                             </div>
 
                                             <div class="form-group">
@@ -244,6 +244,14 @@
                                               {{form.office_space}}
                                           </div>
 
+                                          <label class="col-form-label"><span>*</span>Property Address</label>
+                                            {%for error in form.address.errors %}
+                                                <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
+                                            {%endfor%}
+                                          <div class="form-group">
+                                              {{form.address}}
+                                          </div>
+
                                           <div class="form-group">
                                             <label class="col-form-label"><span>*</span> State</label>
                                             {%for error in form.state.errors %}
@@ -266,7 +274,7 @@
                                             <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                             {%endfor%}
                                             {{form.amentities}}
-                                        
+
                                         </div>
 
                                         <label class="col-form-label"><span>*</span> Property Main Image</label>
@@ -282,7 +290,7 @@
                                         <div class="form-group">
                                             {{form.property_image2}}
                                         </div>
-                                        
+
                                         <label class="col-form-label"><span>*</span> Property Third Image</label>
                                         {%for error in form.property_image3.errors %}
                                             <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
@@ -307,11 +315,11 @@
                                       {{form.property_image5}}
                                   </div>
                                           <div class="form-group">
-                                            <label class="col-form-label">Property Description ( copy and paste here )</label>
+                                            <label class="col-form-label">Property Description ( copy and paste here )</label> <br>
                                             {%for error in form.description.errors %}
                                         <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                               {%endfor%}
-                                            {{form.description}}
+                                            {{form.description | safe }}
                                           </div>
                                           <br><br><br>
                                         <div class="pull-right">

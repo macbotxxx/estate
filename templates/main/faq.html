@@ -1,3 +1,6 @@
+{%load static %}
+{%load humanize%}
+
 <!DOCTYPE html>
 <html>
   
@@ -10,19 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, shrink-to-fit=no">
     <meta name="format-detection" content="telephone=no">
     <!-- Loading Source Sans Pro font that is used in this theme-->
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7cSource+Sans+Pro:200,400,600,700,900,400italic,700italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <!-- Boostrap and other lib styles-->
-    <link rel="stylesheet" href="assets/css/vendor.min48e0.css?v=201603120801">
-    <!-- Font-awesome lib-->
-    <link rel="stylesheet" href="assets/css/font-awesome.min48e0.css?v=201603120801">
-    <!-- Theme styles, please replace "default" with other color scheme from the list available in template/css-->
-    <link rel="stylesheet" href="assets/css/theme-default.min48e0.css?v=201603120801">
-    <!-- Your styles should go in this file-->
-    <link rel="stylesheet" href="assets/css/custom.css">
-    <!-- Fixes for IE-->
-    <!--[if lt IE 11]>
-    <link rel="stylesheet" href="assets/css/ie-fix.css"><![endif]-->
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    {%include 'layout/css.html'%}
   </head>
   <body class="faq_page menu-default hover-default ">
     <!--
@@ -51,167 +42,97 @@
       <!-- BEGIN HEADER-->
       <header class="header header--brand">
         <div class="container">
-          <div class="header__row"><a href="index.html" class="header__logo">
+          <div class="header__row"><a href="/" class="header__logo">
               <svg>
                 <use xlink:href="#icon-logo--mob"></use>
               </svg></a>
             <div class="header__settings">
               <div class="header__settings-column">
-                <div class="dropdown dropdown--header">
-                  <button data-toggle="dropdown" type="button" class="dropdown-toggle dropdown__btn">
-                    <svg class="header__settings-icon">
-                      <use xlink:href="#icon-money"></use>
-                    </svg>USD
-                  </button>
-                  <div class="dropdown__menu">
-                    <ul>
-                      <li class="dropdown__item"><a href="#" class="dropdown__link">EUR</a></li>
-                      <li class="dropdown__item"><a href="#" class="dropdown__link">RUB</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <!-- end of block .header__settings-column-->
-              <div class="header__settings-column">
                 <div class="switch switch--header">
-                  <label>M <sup>2</sup>
-                    <input type="checkbox" checked><span class="lever"></span>Sq Ft
+                  <label>
+                    </span>
+                    <svg class="header__settings-icon">
+                      <use xlink:href="#icon-earth"></use>
+                    </svg>
+                    {%for com in companydetails %}
+                    {% if com.company_address %}
+                    {{ com.company_address }}, {{com.company_state}}, Nigeria
+                    {%else%}
+                    45 Tony umeh street awada ,onitsha, anambra state ,nigeria
+                    {%endif%}
+                    {%endfor%}
                   </label>
                 </div>
               </div>
               <!-- end of block .header__settings-column-->
               <div class="header__settings-column">
-                <div class="dropdown dropdown--header">
-                  <button data-toggle="dropdown" type="button" class="dropdown-toggle dropdown__btn">
+                <div class="switch switch--header">
+                  <label>
+                    </span>
                     <svg class="header__settings-icon">
                       <use xlink:href="#icon-earth"></use>
-                    </svg>Eng
-                  </button>
-                  <div class="dropdown__menu">
-                    <ul>
-                      <li class="dropdown__item"><a href="#" class="dropdown__link">Francais</a></li>
-                      <li class="dropdown__item"><a href="#" class="dropdown__link">Italian</a></li>
-                      <li class="dropdown__item"><a href="#" class="dropdown__link">Russian</a></li>
-                    </ul>
-                  </div>
+                    </svg>
+                    {%for com in companydetails %}
+                    {%if com.company_email%}
+                    {{com.company_email}}
+                    {%else%}
+                    assanamamichael@gmail.com
+                    {%endif%}
+                    {%endfor%}
+                  </label>
                 </div>
               </div>
+              <!-- end of block .header__settings-column-->
+              <div class="header__settings-column">
+               
+              </div>
             </div>
-            <div class="header__contacts"><a href="tel:+12025550135" class="header__phone">
-                <svg class="header__phone-icon">
-                  <use xlink:href="#icon-phone"></use>
-                </svg><span class="header__span">+1 202 555 0135</span></a></div>
+            {%for com in companydetails %}
+            {%if companydetails.company_phone_number1 %}
+            <div class="header__contacts"><a href="tel:{{companydetails.company_phone_number1}}" class="header__phone"></a>
+              <svg class="header__phone-icon">
+                <use xlink:href="#icon-phone"></use>
+              </svg><span class="header__span">
+                  {{companydetails.company_phone_number1}}
+              </span></a>
+            </div>
+            {%else%}
+            <div class="header__contacts"><a href="tel:+2347067679537" class="header__phone"></a>
+              <svg class="header__phone-icon">
+                <use xlink:href="#icon-phone"></use>
+              </svg><span class="header__span"> 
+               +2347067679537
+              </span></a>
+            </div>
+            {%endif%}
+            {%endfor%}
+                
             <!-- end of block .header__contacts-->
             <div class="header__social">
-              <div class="social social--header social--circles"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
-            </div>
-            <div class="auth auth--header">
-              <ul class="auth__nav">
-                <li class="dropdown auth__nav-item">
-                  <div class="dropdown__menu auth__dropdown--restore">
-                    <!-- BEGIN AUTH RESTORE-->
-                    <h5 class="auth__title">Reset password</h5>
-                    <form action="#" class="form form--flex form--auth form--restore js-restore-form js-parsley">
-                      <div class="row">
-                        <div class="form-group">
-                          <label for="restore-email-dropdown" class="control-label">Enter your User Name or Email</label>
-                          <input type="email" name="email" id="restore-email-dropdown" required class="form-control">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <button type="submit" class="form__submit">Reset password</button>
-                      </div>
-                      <div class="row">
-                        <div class="form__options">Back to
-                          <button type="button" class="js-user-login">Log In</button>or
-                          <button type="button" class="js-user-register">Registration</button>
-                        </div>
-                        <!-- end of block .auth__links-->
-                      </div>
-                    </form>
-                    <!-- end of block .auth__form-->
-                    <!-- END AUTH RESTORE-->
-                  </div>
-                </li>
-                <li class="dropdown auth__nav-item">
-                  <button data-toggle="dropdown" type="button" class="dropdown-toggle js-auth-nav-btn auth__nav-btn">
-                    <svg class="auth__icon-user">
-                      <use xlink:href="#icon-user"></use>
-                    </svg><span class="header__span"> Log in /</span>
-                  </button>
-                  <div class="dropdown__menu auth__dropdown--login">
-                    <!-- BEGIN AUTH LOGIN-->
-                    <h5 class="auth__title">Login in your account</h5>
-                    <form action="#" class="form form--flex form--auth js-login-form js-parsley">
-                      <div class="row">
-                        <div class="form-group">
-                          <label for="login-username-dropdown" class="control-label">Username</label>
-                          <input type="text" name="username" id="login-username-dropdown" required data-parsley-trigger="keyup" data-parsley-minlength="6" data-parsley-validation-threshold="5" data-parsley-minlength-message="Login should be at least 6 chars" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label for="login-password-dropdown" class="control-label">Password</label>
-                          <input type="password" name="password" id="login-password-dropdown" required class="form-control">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="form__options form__options--forgot">
-                          <button type="button" class="js-user-restore">Forgot password ?</button>
-                        </div>
-                        <button type="submit" class="form__submit">Sign in</button>
-                      </div>
-                      <div class="form__remember">
-                        <input type="checkbox" id="remember-in-dropdown" class="in-checkbox">
-                        <label for="remember-in-dropdown" class="in-label">Remember me</label>
-                      </div>
-                      <div class="row">
-                        <div class="form__options">Not a user yet?
-                          <button type="button" class="js-user-register">Get an account</button>
-                        </div>
-                      </div>
-                    </form>
-                    <!-- end of block .auth__form-->
-                    <!-- END AUTH LOGIN-->
-                  </div>
-                </li>
-                <li class="dropdown auth__nav-item">
-                  <button data-toggle="dropdown" type="button" class="dropdown-toggle auth__nav-btn"><span class="header__span">  Sign up</span></button>
-                  <div class="dropdown__menu auth__dropdown--register">
-                    <!-- BEGIN AUTH REGISTER-->
-                    <h5 class="auth__title">Sign up a new account</h5>
-                    <form action="#" class="form form--flex form--auth js-register-form js-parsley">
-                      <div class="row">
-                        <div class="form-group form-group--col-6">
-                          <label for="register-name-dropdown" class="control-label">First name</label>
-                          <input type="text" name="username" id="register-name-dropdown" required class="form-control">
-                        </div>
-                        <div class="form-group form-group--col-6">
-                          <label for="register-lastname-dropdown" class="control-label">Last name</label>
-                          <input type="text" name="name" id="register-lastname-dropdown" required class="form-control">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="form-group form-group--col-6">
-                          <label for="register-email-dropdown" class="control-label">E-mail</label>
-                          <input type="email" name="email" id="register-email-dropdown" required class="form-control">
-                        </div>
-                        <div class="form-group form-group--col-6">
-                          <label for="register-password-dropdown" class="control-label">Password</label>
-                          <input type="password" name="password" id="register-password-dropdown" required class="form-control">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="form__options">Back to
-                          <button type="button" class="js-user-login">Log In</button>
-                        </div>
-                        <button type="submit" class="form__submit">Sign up</button>
-                      </div>
-                    </form>
-                    <!-- end of block .auth__form-->
-                    <!-- END AUTH REGISTER-->
-                  </div>
-                </li>
-              </ul>
-              <!-- end of block .auth header-->
+              <div class="social social--header social--circles">
+                {%for com in companydetails %}
+                {%if com.company_facebook_link %}
+                <a href="{{com.company_facebook_link}}" class="social__item"><i class="fa fa-facebook"></i></a>
+                {%else%}
+                <a href="#" class="social__item"><i class="fa fa-facebook"></i></a>
+                {% endif %}
+                {% if com.company_twitter_link %}
+                <a href="{{com.company_twitter_link}}" class="social__item"><i class="fa fa-twitter"></i></a>
+                {%else%}
+                <a href="#" class="social__item"><i class="fa fa-twitter"></i></a>
+                {%endif%}
+                {%if com.company_whatsapp_link %}
+                <a href="{{com.company_whatsapp_link}}" class="social__item"><i class="fa fa-whatsapp"></i></a>
+                {%else%}
+                <a href="#" class="social__item"><i class="fa fa-whatsapp"></i></a>
+                {%endif%}
+                {%if com.company_instagram_link %}
+                <a href="{{com.company_instagram_link}}" class="social__item"><i class="fa fa-instagram"></i></a>
+                {%else%}
+                <a href="#" class="social__item"><i class="fa fa-instagram"></i></a>
+                {%endif%}
+                {%endfor%}
+              </div>
             </div>
             <button type="button" class="header__navbar-toggle js-navbar-toggle">
               <svg class="header__navbar-show">
@@ -231,83 +152,21 @@
       <nav id="header-nav" class="navbar navbar--header">
         <div class="container">
           <div class="navbar__row js-navbar-row"><a href="index.html" class="navbar__brand">
-              <svg class="navbar__brand-logo">
-                <use xlink:href="#icon-logo"></use>
-              </svg></a>
-            <div id="navbar-collapse-1" class="navbar__wrap">
-              <ul class="navbar__nav">
-                <li class="navbar__item js-dropdown"><a class="navbar__link">Home
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                    <button class="navbar__back js-navbar-submenu-back">
+            <svg role="img" class="navbar__brand-logo">
+              <img style="width:50%; height: 70px; float: left; margin-top: 0px;" src="{% static 'assets/anotherlogo1.png' %} ">
+            </svg></a>
+              <div id="navbar-collapse-1" class="navbar__wrap">
+                <ul class="navbar__nav">
+                  <li class="navbar__item js-dropdown"><a href="/" class="navbar__link">Home
                       <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="index.html" class="navbar__sublink js-navbar-sublink">Banner & Search</a></li>
-                        <li class="navbar__subitem"><a href="index_slider.html" class="navbar__sublink js-navbar-sublink">Property slider</a></li>
-                        <li class="navbar__subitem"><a href="index_projects.html" class="navbar__sublink js-navbar-sublink">Property projects</a></li>
-                        <li class="navbar__subitem"><a href="index_slider_search.html" class="navbar__sublink js-navbar-sublink">Slider & Search</a></li>
-                        <li class="navbar__subitem"><a href="index_slider_auth.html" class="navbar__sublink js-navbar-sublink">Slider & Authorization</a></li>
-                        <li class="navbar__subitem"><a href="index_vmap_light.html" class="navbar__sublink js-navbar-sublink">Google Map & Light search</a></li>
-                        <li class="navbar__subitem"><a href="index_vmap_dark.html" class="navbar__sublink js-navbar-sublink">Google Map & Dark search</a></li>
-                        <li class="navbar__subitem"><a href="index_hmap_light.html" class="navbar__sublink js-navbar-sublink">Google Map & Horizontal search</a></li>
-                        <li class="navbar__subitem"><a href="feature_map_leaflet.html" class="navbar__sublink js-navbar-sublink">Openstreet Map & Filter</a></li>
-                        <li class="navbar__subitem"><a href="feature_vmap_fullscreen.html" class="navbar__sublink js-navbar-sublink">Fullscreen Google Map</a></li>
-                      </ul>
+                        
+                      </svg></a>
+                    <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
+                     
+                      
                     </div>
-                  </div>
-                </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">Properties
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-2">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <h5 class="navbar__subtitle">Details</h5>
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="property_details.html" class="navbar__sublink js-navbar-sublink">Property</a></li>
-                        <li class="navbar__subitem"><a href="property_details_projected.html" class="navbar__sublink js-navbar-sublink">Property projected</a></li>
-                        <li class="navbar__subitem"><a href="property_details_agent.html" class="navbar__sublink js-navbar-sublink">Property & agent</a></li>
-                      </ul>
-                    </div>
-                    <div class="navbar__submenu">
-                      <h5 class="navbar__subtitle">Listing</h5>
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a class="navbar__sublink js-navbar-sublink">Grid
-                            <svg class="navbar__arrow">
-                              <use xlink:href="#icon-arrow-right"></use>
-                            </svg></a>
-                          <div class="navbar__submenu navbar__submenu--level">
-                            <button class="navbar__back js-navbar-submenu-back">
-                              <svg class="navbar__arrow">
-                                <use xlink:href="#icon-arrow-left"></use>
-                              </svg>Back
-                            </button>
-                            <ul class="navbar__subnav">
-                              <li class="navbar__subitem"><a href="feature_grid_large.html" class="navbar__sublink js-navbar-sub-sublink">Large</a></li>
-                              <li class="navbar__subitem"><a href="properties_listing_grid.html" class="navbar__sublink js-navbar-sub-sublink">Medium</a></li>
-                              <li class="navbar__subitem"><a href="feature_grid_small.html" class="navbar__sublink js-navbar-sub-sublink">Small</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li class="navbar__subitem"><a href="properties_listing_list.html" class="navbar__sublink js-navbar-sublink">List</a></li>
-                        <li class="navbar__subitem"><a href="properties_listing_table.html" class="navbar__sublink js-navbar-sublink">Table</a></li>
-                        <li class="navbar__subitem"><a href="properties_listing_empty.html" class="navbar__sublink js-navbar-sublink">Empty</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">Agents
+                  </li>
+                  <li class="navbar__item js-dropdown "><a class="navbar__link">Properties
                     <svg class="navbar__arrow">
                       <use xlink:href="#icon-arrow-right"></use>
                     </svg></a>
@@ -319,267 +178,44 @@
                     </button>
                     <div class="navbar__submenu">
                       <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="agent_profile.html" class="navbar__sublink js-navbar-sub-sublink">Agent's profile</a></li>
-                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a href="agents_listing_list.html" class="navbar__sublink js-navbar-sublink">Agent's listing
-                            <svg class="navbar__arrow">
-                              <use xlink:href="#icon-arrow-right"></use>
-                            </svg></a>
-                          <div class="navbar__submenu navbar__submenu--level">
-                            <button class="navbar__back js-navbar-submenu-back">
-                              <svg class="navbar__arrow">
-                                <use xlink:href="#icon-arrow-left"></use>
-                              </svg>Back
-                            </button>
-                            <ul class="navbar__subnav">
-                              <li class="navbar__subitem"><a href="agents_listing_list.html" class="navbar__sublink js-navbar-sub-sublink">List</a></li>
-                              <li class="navbar__subitem"><a href="agents_listing_grid.html" class="navbar__sublink js-navbar-sub-sublink">Grid</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a href="agent_profile_blog_list.html" class="navbar__sublink js-navbar-sublink">Agent's blog
-                            <svg class="navbar__arrow">
-                              <use xlink:href="#icon-arrow-right"></use>
-                            </svg></a>
-                          <div class="navbar__submenu navbar__submenu--level">
-                            <button class="navbar__back js-navbar-submenu-back">
-                              <svg class="navbar__arrow">
-                                <use xlink:href="#icon-arrow-left"></use>
-                              </svg>Back
-                            </button>
-                            <ul class="navbar__subnav">
-                              <li class="navbar__subitem"><a href="agent_profile_blog_list.html" class="navbar__sublink js-navbar-sub-sublink">List</a></li>
-                              <li class="navbar__subitem"><a href="agent_profile_blog_grid.html" class="navbar__sublink js-navbar-sub-sublink">Grid</a></li>
-                              <li class="navbar__subitem"><a href="agent_profile_blog_details.html" class="navbar__sublink js-navbar-sub-sublink">Details</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a href="agent_profile_listing_list.html" class="navbar__sublink js-navbar-sublink">Agent's properties
-                            <svg class="navbar__arrow">
-                              <use xlink:href="#icon-arrow-right"></use>
-                            </svg></a>
-                          <div class="navbar__submenu navbar__submenu--level">
-                            <button class="navbar__back js-navbar-submenu-back">
-                              <svg class="navbar__arrow">
-                                <use xlink:href="#icon-arrow-left"></use>
-                              </svg>Back
-                            </button>
-                            <ul class="navbar__subnav">
-                              <li class="navbar__subitem"><a href="agent_profile_listing_list.html" class="navbar__sublink js-navbar-sub-sublink">List</a></li>
-                              <li class="navbar__subitem"><a href="agent_profile_listing_grid.html" class="navbar__sublink js-navbar-sub-sublink">Grid</a></li>
-                              <li class="navbar__subitem"><a href="agent_profile_listing_table.html" class="navbar__sublink js-navbar-sub-sublink">Table</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li class="navbar__subitem"><a href="agent_profile_testimonials.html" class="navbar__sublink js-navbar-sub-sublink">Agent's testimonials</a></li>
+                        {%for L in list %}
+                        <li class="navbar__subitem"><a href="{%url 'property' L.tag %}" class="navbar__sublink js-navbar-sub-sublink">For {{L.tag | title}}</a></li>
+                        {%endfor%}
                       </ul>
                     </div>
                   </div>
                 </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">User
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-2">
-                    <button class="navbar__back js-navbar-submenu-back">
+                  <li class="navbar__item js-dropdown "><a href="/featured-properties" class="navbar__link">Featured
                       <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <h5 class="navbar__subtitle">Pages</h5>
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="my_listings.html" class="navbar__sublink js-navbar-sublink">My listings</a></li>
-                        <li class="navbar__subitem"><a href="my_listings_add_edit.html" class="navbar__sublink js-navbar-sublink">Property submit</a></li>
-                        <li class="navbar__subitem"><a href="my_profile.html" class="navbar__sublink js-navbar-sublink">Profile</a></li>
-                      </ul>
-                    </div>
-                    <div class="navbar__submenu">
-                      <h5 class="navbar__subtitle">Auth</h5>
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="user_login.html" class="navbar__sublink js-navbar-sublink">Login</a></li>
-                        <li class="navbar__subitem"><a href="user_register.html" class="navbar__sublink js-navbar-sublink">Register</a></li>
-                        <li class="navbar__subitem"><a href="user_restore_pass.html" class="navbar__sublink js-navbar-sublink">Restore</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">Blog
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                    <button class="navbar__back js-navbar-submenu-back">
+                        
+                      </svg></a>
+                   
+                  </li>
+                  <li class="navbar__item js-dropdown"><a href="/customers-review" class="navbar__link">Testimonies
                       <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="blog.html" class="navbar__sublink js-navbar-sublink">Blog list</a></li>
-                        <li class="navbar__subitem"><a href="blog_details.html" class="navbar__sublink js-navbar-sublink">Blog details</a></li>
-                        <li class="navbar__subitem"><a href="blog_empty.html" class="navbar__sublink js-navbar-sublink">Blog empty</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item js-dropdown active"><a class="navbar__link">Pages
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                    <button class="navbar__back js-navbar-submenu-back">
+                        
+                      </svg></a>
+                   
+                  </li>
+                  <li class="navbar__item js-dropdown"><a href="/about" class="navbar__link">About Us
                       <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="page.html" class="navbar__sublink js-navbar-sublink">Сontent page</a></li>
-                        <li class="navbar__subitem active"><a href="faq.html" class="navbar__sublink js-navbar-sublink">Faq</a></li>
-                        <li class="navbar__subitem"><a href="reviews.html" class="navbar__sublink js-navbar-sublink">Testimonials</a></li>
-                        <li class="navbar__subitem"><a href="pricing.html" class="navbar__sublink js-navbar-sublink">Pricing</a></li>
-                        <li class="navbar__subitem"><a href="gallery.html" class="navbar__sublink js-navbar-sublink">Gallery</a></li>
-                        <li class="navbar__subitem"><a href="email.html" class="navbar__sublink js-navbar-sublink">Email template</a></li>
-                        <li class="navbar__subitem navbar__subitem-dropdown js-dropdown"><a class="navbar__sublink js-navbar-sublink">Errors
-                            <svg class="navbar__arrow">
-                              <use xlink:href="#icon-arrow-right"></use>
-                            </svg></a>
-                          <div class="navbar__submenu navbar__submenu--level">
-                            <button class="navbar__back js-navbar-submenu-back">
-                              <svg class="navbar__arrow">
-                                <use xlink:href="#icon-arrow-left"></use>
-                              </svg>Back
-                            </button>
-                            <ul class="navbar__subnav">
-                              <li class="navbar__subitem"><a href="error_403.html" class="navbar__sublink js-navbar-sub-sublink">403 Error</a></li>
-                              <li class="navbar__subitem"><a href="error_404.html" class="navbar__sublink js-navbar-sub-sublink">404 Error</a></li>
-                              <li class="navbar__subitem"><a href="error_500.html" class="navbar__sublink js-navbar-sub-sublink">500 Error</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item"><a href="contacts.html" class="navbar__link">Contacts</a></li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">Dashboard
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--colls-1">
-                    <button class="navbar__back js-navbar-submenu-back">
+                        
+                      </svg></a>
+                   
+                  </li>
+                  <li class="navbar__item js-dropdown"><a href="/contact-us" class="navbar__link">Contact
                       <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="dashboard.html" class="navbar__sublink">Dashboard</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_property_new.html" class="navbar__sublink">Add Listing</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_news.html" class="navbar__sublink">News Feed</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_profile.html" class="navbar__sublink">Profile</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_activity.html" class="navbar__sublink">Activity Log</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_favorites_listings.html" class="navbar__sublink">Favorite Listings</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_favorites_agents.html" class="navbar__sublink">Favorite Agents</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_favorites_search.html" class="navbar__sublink">Favorite search</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_financials.html" class="navbar__sublink">Financials</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_statistics.html" class="navbar__sublink">Statistics</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_property.html" class="navbar__sublink">Property management</a></li>
-                        <li class="navbar__subitem"><a href="dashboard_blog.html" class="navbar__sublink">Blog Management</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item js-dropdown"><a class="navbar__link">UI
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right navbar__dropdown--colls-2">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <h5 class="navbar__subtitle">Variations</h5>
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="index_not_available.html" class="navbar__sublink js-navbar-sublink">Feature not available</a></li>
-                        <li class="navbar__subitem"><a href="feature_boxed.html" class="navbar__sublink js-navbar-sublink">Layout boxed</a></li>
-                        <li class="navbar__subitem"><a href="feature_left_sidebar.html" class="navbar__sublink js-navbar-sublink">Sidebar left</a></li>
-                      </ul>
-                    </div>
-                    <div class="navbar__submenu">
-                      <h5 class="navbar__subtitle">Elements</h5>
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem"><a href="feature_ui.html" class="navbar__sublink js-navbar-sublink">UI</a></li>
-                        <li class="navbar__subitem"><a href="feature_typography.html" class="navbar__sublink js-navbar-sublink">Typography</a></li>
-                        <li class="navbar__subitem"><a href="feature_loaders.html" class="navbar__sublink js-navbar-sublink">Feature loaders</a></li>
-                        <li class="navbar__subitem"><a href="bootstrap.html" class="navbar__sublink js-navbar-sublink">Twitter Bootstrap</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item navbar__item--mob js-dropdown"><a class="navbar__link">Language
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem active"><a href="#" class="navbar__sublink js-navbar-sublink">English</a></li>
-                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">Francais</a></li>
-                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">Italian</a></li>
-                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">Russian</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item navbar__item--mob js-dropdown"><a class="navbar__link">Currency
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <ul class="navbar__subnav">
-                        <li class="navbar__subitem active"><a href="#" class="navbar__sublink js-navbar-sublink">USD</a></li>
-                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">EURO</a></li>
-                        <li class="navbar__subitem"><a href="#" class="navbar__sublink js-navbar-sublink">RUB</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-                <li class="navbar__item navbar__item--mob js-dropdown"><a class="navbar__link">Measures
-                    <svg class="navbar__arrow">
-                      <use xlink:href="#icon-arrow-right"></use>
-                    </svg></a>
-                  <div role="menu" class="js-dropdown-menu navbar__dropdown navbar__dropdown--right">
-                    <button class="navbar__back js-navbar-submenu-back">
-                      <svg class="navbar__arrow">
-                        <use xlink:href="#icon-arrow-left"></use>
-                      </svg>Back
-                    </button>
-                    <div class="navbar__submenu">
-                      <div class="switch switch--menu">
-                        <label>M <sup>2</sup>
-                          <input type="checkbox" checked><span class="lever"></span>Sq Ft
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <!-- end of block  navbar__nav-->
-            </div>
+                        
+                      </svg></a>
+                   
+                  </li>
+                  
+                 
+                  
+                 
+                </ul>
+                <!-- end of block  navbar__nav-->
+              </div>
           </div>
         </div>
       </nav>
@@ -604,112 +240,23 @@
                   <h1 class="site__title">Faq</h1>
                   <h2 class="site__headline">Find answers to recurring questions and myths about RealtySpace</h2>
                 </header>
-                <div class="site__panel"><span class="site__header-text">This is a short list of our most frequently asked questions. For more information about RealtySpace, or if you need support, please call our<a href="#">support center.</a></span></div>
+                <div class="site__panel"><span class="site__header-text">This is a short list of our most frequently asked questions. For more information about RoverEstate, or if you need support, please call <a href="tel:+23407067679537">+23407067679537</a> or message us<a href="/contact-us">support center.</a></span></div>
                 <div class="site__main">
                   <div class="widget js-widget widget--main">
                     <div class="widget__content">
                       <!-- BEGIN FAQ-->
                       <div role="tablist" aria-multiselectable="true" class="faq">
+                      {%for faq in faqs %}
                         <dl class="faq__item">
-                          <dt id="heading-0" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-0" aria-expanded="true" aria-controls="collapse-0" class="faq__expander collapsed">How do we determine how much we can afford to pay for a home?</a></dt>
+                          <dt id="heading-0" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-0" aria-expanded="true" aria-controls="collapse-0" class="faq__expander collapsed">{{faq.question }}</a></dt>
                           <dd id="collapse-0" role="tabpanel" aria-labelledby="heading-0" class="faq__content collapse">
                             <div class="faq__body">
-                              <p>In order to determine how much you can afford, we need to understand debt to income ratios. First, we must determine what your gross annual income is and divide that income by 12. (12 months). Second, we must determine your long term debt. For example: home mortgage (principal &amp; interest), taxes &amp; insurance (T &amp; I), school loan, car loan, credit card debt, etc. and calculate the monthly payments. Third, the debt to income ratio is established by dividing the monthly debt by the monthly income. The debt to income ratio should, in most cases not exceed 35%.     Forth, if the debt to income ratio is 35% or less and your credit rating is decent, there is a good chance you will be able to get approved for a mortgage loan.</p>
+                              <p>{{faq.answer}}</p>
                             </div>
                             <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-0" aria-controls="collapse-0" class="faq__close">Close</a></div>
                           </dd>
                         </dl>
-                        <!-- end of block .faq__item-->
-                        <dl class="faq__item">
-                          <dt id="heading-1" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1" class="faq__expander collapsed">How can I determine my housing needs before I begin the search?</a></dt>
-                          <dd id="collapse-1" role="tabpanel" aria-labelledby="heading-1" class="faq__content collapse">
-                            <div class="faq__body">
-                              <p>Your home should fit the way you live, with spaces and features that appeal to the entire family. Before you begin looking at homes, make a list of your priorities: location, size, lot, amenities, etc. Establish a set of minimum requirements and a &quot;wish list&quot;. Minimum requirements are things that a house must have for you to consider it, while a &quot;wish list&quot; covers things that you'd like to have but aren't essential.</p>
-                            </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-controls="collapse-1" class="faq__close">Close</a></div>
-                          </dd>
-                        </dl>
-                        <!-- end of block .faq__item-->
-                        <dl class="faq__item">
-                          <dt id="heading-2" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-expanded="true" aria-controls="collapse-2" class="faq__expander collapsed">How Does Purchasing a Home Compare with Renting?</a></dt>
-                          <dd id="collapse-2" role="tabpanel" aria-labelledby="heading-2" class="faq__content collapse">
-                            <div class="faq__body">
-                              <p>The two don't really compare at all. The one advantage of renting is being generally free of most maintenance responsibilities. But by renting, you lose the chance to build equity, take advantage of tax benefits, and protect yourself against rent increases. Also, you may not be free to decorate without permission and may be at the mercy of the landlord for housing. Owning a home has many benefits. When you make a mortgage payment, you are building equity. And that's an investment. Owning a home also qualifies you for tax breaks that assist you in dealing with your new financial responsibilities- like insurance, real estate taxes, and upkeep- which can be substantial. But given the freedom, stability, and security of owning your own home, they are worth it.</p>
-                            </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-2" aria-controls="collapse-2" class="faq__close">Close</a></div>
-                          </dd>
-                        </dl>
-                        <!-- end of block .faq__item-->
-                        <dl class="faq__item">
-                          <dt id="heading-3" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-expanded="true" aria-controls="collapse-3" class="faq__expander collapsed">How Does the Lender Decide the Maximum Loal Amount that Can Afford?</a></dt>
-                          <dd id="collapse-3" role="tabpanel" aria-labelledby="heading-3" class="faq__content collapse">
-                            <div class="faq__body">
-                              <p>The lender considers your debt-to-income ratio, which is a comparison of your gross (pre-tax) income to housing and non-housing expenses. Non-housing expenses include such long-term debts as car or student loan payments, alimony, or child support. The lender also considers cash available for down payment and closing costs, credit history, etc. when determining your maximum loan amount.</p>
-                            </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-3" aria-controls="collapse-3" class="faq__close">Close</a></div>
-                          </dd>
-                        </dl>
-                        <!-- end of block .faq__item-->
-                        <dl class="faq__item">
-                          <dt id="heading-4" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-expanded="true" aria-controls="collapse-4" class="faq__expander collapsed">What Questions Should I Ask When Looking at Homes?</a></dt>
-                          <dd id="collapse-4" role="tabpanel" aria-labelledby="heading-4" class="faq__content collapse">
-                            <div class="faq__body">
-                              <p>Many of your questions should focus on potential problems and maintenance issues. Does anything need to be replaced? What things require ongoing maintenance (e.g., paint, roof, HVAC, appliances, carpet)? Also ask about the house and neighborhood, focusing on quality of life issues. Be sure the seller's or real estate agent's answers are clear and complete. Ask questions until you understand all of the information they've given. Making a list of questions ahead of time will help you organize your thoughts and arrange all of the information you receive.</p>
-                            </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-4" aria-controls="collapse-4" class="faq__close">Close</a></div>
-                          </dd>
-                        </dl>
-                        <!-- end of block .faq__item-->
-                        <dl class="faq__item">
-                          <dt id="heading-5" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-expanded="true" aria-controls="collapse-5" class="faq__expander collapsed">How Many Homes Should I Consider Before Choosing One?</a></dt>
-                          <dd id="collapse-5" role="tabpanel" aria-labelledby="heading-5" class="faq__content collapse">
-                            <div class="faq__body">
-                              <p>There isn't a set number of houses you should see before you decide. Visit as many as it takes to find the one you want. On average, homebuyers see 15 houses before choosing one. Just be sure to communicate often with your real estate agent about everything you're looking for. It will help avoid wasting your time.</p>
-                            </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-5" aria-controls="collapse-5" class="faq__close">Close</a></div>
-                          </dd>
-                        </dl>
-                        <!-- end of block .faq__item-->
-                        <dl class="faq__item">
-                          <dt id="heading-6" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-expanded="true" aria-controls="collapse-6" class="faq__expander collapsed">Do I Need to Be There for the Inspection?</a></dt>
-                          <dd id="collapse-6" role="tabpanel" aria-labelledby="heading-6" class="faq__content collapse">
-                            <div class="faq__body">
-                              <p>It's not required, but it's a good idea. Following the inspection, the home inspector will be able to answer questions about the report and any problem areas. This is also an opportunity to hear an objective opinion on the home you'd like to purchase and it is a good time to ask general, maintenance questions.</p>
-                            </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-6" aria-controls="collapse-6" class="faq__close">Close</a></div>
-                          </dd>
-                        </dl>
-                        <!-- end of block .faq__item-->
-                        <dl class="faq__item">
-                          <dt id="heading-7" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-7" aria-expanded="true" aria-controls="collapse-7" class="faq__expander collapsed">How Do I Make an Offer?</a></dt>
-                          <dd id="collapse-7" role="tabpanel" aria-labelledby="heading-7" class="faq__content collapse">
-                            <div class="faq__body">
-                              <p>Listen to your real estate agent's advice, but follow your own instincts on deciding a fair price. Calculating your offer should involve several factors: what homes sell for in the area, the home's condition, how long it's been on the market, financing terms, and the seller's situation. By the time you're ready to make an offer, you should have a good idea of what the home is worth and what you can afford. And, be prepared for give-and-take negotiation, which is very common when buying a home. The buyer and seller may often go back and forth until they can agree on a price.</p>
-                            </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-7" aria-controls="collapse-7" class="faq__close">Close</a></div>
-                          </dd>
-                        </dl>
-                        <!-- end of block .faq__item-->
-                        <dl class="faq__item">
-                          <dt id="heading-8" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-8" aria-expanded="true" aria-controls="collapse-8" class="faq__expander collapsed">What is Earnest Money? How Much Should I Set Aside?</a></dt>
-                          <dd id="collapse-8" role="tabpanel" aria-labelledby="heading-8" class="faq__content collapse">
-                            <div class="faq__body">
-                              <p>Earnest money is money put down to demonstrate your seriousness about buying a home. It must be substantial enough to demonstrate good faith and is usually between 1-5% of the purchase price (though the amount can vary with local customs and conditions). If your offer is accepted, the earnest money becomes part of your down payment or closing costs. If the offer is rejected, your money is returned to you. If you back out of a deal, you may forfeit the entire amount.</p>
-                            </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-8" aria-controls="collapse-8" class="faq__close">Close</a></div>
-                          </dd>
-                        </dl>
-                        <!-- end of block .faq__item-->
-                        <dl class="faq__item">
-                          <dt id="heading-9" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-9" aria-expanded="true" aria-controls="collapse-9" class="faq__expander collapsed">What are Homes Warranties? Should I Consider Them?</a></dt>
-                          <dd id="collapse-9" role="tabpanel" aria-labelledby="heading-9" class="faq__content collapse">
-                            <div class="faq__body">
-                              <p>Home warranties offer you protection for a specific period of time (e.g., one year) against potentially costly problems, like unexpected repairs on appliances or home systems, which are not covered by homeowner's insurance. Warranties are becoming more popular because they offer protection during the time immediately following the purchase of a home, a time when many people find themselves cash-strapped.</p>
-                            </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-9" aria-controls="collapse-9" class="faq__close">Close</a></div>
-                          </dd>
-                        </dl>
-                        <!-- end of block .faq__item-->
+                      {%endfor%}
                       </div>
                       <!-- END FAQ-->
                     </div>
@@ -821,173 +368,11 @@
         <!-- BEGIN AFTER CENTER SECTION-->
         <!-- END AFTER CENTER SECTION-->
         <!-- BEGIN FOOTER-->
-        <footer class="footer">
-          <div class="container">
-            <div class="footer__wrap">
-              <div class="footer__col footer__col--first">
-                <div class="widget js-widget widget--footer">
-                  <div class="widget__header">
-                    <h2 class="widget__title">Menu</h2>
-                  </div>
-                  <div class="widget__content">
-                    <nav class="nav nav--footer"><a href="index.html">Home</a><a href="properties_listing_grid.html">Realty</a><a href="agents_listing_grid.html">Agents</a><a href="gallery.html">Gallery</a><a href="blog.html">Blog</a><a href="pricing.html">Pricing</a><a href="contacts.html">Contacts</a><a href="feature_ui.html">UI</a></nav>
-                    <!-- end of block .nav-footer-->
-                  </div>
-                </div>
-                <div class="widget js-widget widget--footer">
-                  <div class="widget__header">
-                    <h2 class="widget__title">About</h2>
-                  </div>
-                  <div class="widget__content">
-                    <aside class="widget_text">
-                      <div class="textwidget">
-                        RealtySpace is the leader in online real estate and operator of the WK of real estate web site for consumers and real estate professionals. Real Estate of websites captures more than 20 million monthly visitors
-                        <p>RealtySpace is the leader in online real estate and operator of the WK of real</p>
-                        <p><a>Read more</a></p>
-                      </div>
-                      
-                    </aside>
-                  </div>
-                </div>
-                <div class="widget js-widget widget--footer">
-                  <div class="widget__header">
-                    <h2 class="widget__title">Social</h2>
-                  </div>
-                  <div class="widget__content">
-                    <div class="social social--footer"><a href="#" class="social__item"><i class="fa fa-facebook"></i></a><a href="#" class="social__item"><i class="fa fa-twitter"></i></a><a href="#" class="social__item"><i class="fa fa-google-plus"></i></a></div>
-                    <!-- end of block .social-footer-->
-                  </div>
-                </div>
-              </div>
-              <!-- end of block .footer__col-first-->
-              <div class="footer__col footer__col--second">
-                <div class="widget js-widget widget--footer">
-                  <div class="widget__header">
-                    <h2 class="widget__title">Contact</h2>
-                  </div>
-                  <div class="widget__content">
-                    <section class="address address--footer">
-                      <h4 class="address__headline">Our office</h4>
-                      <address class="address__main"><span>1950 New York, NY, Ave NW, California, DC 3000600, USA</span><span>08 - 17 mon-fr</span><a href="tel:+442240052225">+1 202 555 0135</a><a href="tel:+442240052225">+1 202 555 0135</a><span>Fax: +1 202 555 0135</span><a href="mailto:hello@example.com">hello@example.com</a></address>
-                    </section>
-                    <!-- end of block .address-->
-                  </div>
-                </div>
-                <div class="widget js-widget widget--footer">
-                  <div class="widget__header">
-                    <h2 class="widget__title">Feedback</h2>
-                  </div>
-                  <div class="widget__content">
-                    <!-- BEGIN SECTION FEEDBACK-->
-                    <form action="#" class="form form--flex form--footer js-parsley">
-                      <div class="row">
-                        <div class="form-group">
-                          <label for="in-email" class="sr-only control-label">E-mail</label>
-                          <input id="in-email" type="email" name="email" placeholder="E-mail" required data-parsley-trigger="change" class="form-control">
-                        </div>
-                        <div class="form-group">
-                          <label for="in-message" class="sr-only control-label">Message for Us</label>
-                          <textarea id="in-message" name="message" placeholder="Message for Us" required data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-validation-threshold="10" data-parsley-minlength-message="You need to enter at least a 20 caracters long comment.." class="form-control"></textarea>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <button type="submit" class="form__submit">Send</button>
-                      </div>
-                    </form>
-                    <!-- end of block .form__wrap-->
-                    <!-- END SECTION FEEDBACK-->
-                  </div>
-                </div>
-              </div>
-              <!--end of block .footer__col-second-->
-              <div class="footer__col footer__col--third">
-                <div class="widget js-widget widget--footer">
-                  <div class="widget__header">
-                    <h2 class="widget__title">Latest Articles</h2>
-                  </div>
-                  <div class="widget__content">
-                    <div class="listing listing--footer">
-                      <div class="listing__item">
-                        <!-- BEGIN SECTION ARTICLE-->
-                        <div class="article article--footer">
-                          <div class="article__details"><a href="blog_details.html" class="article__item-title">Sustainable architecture &amp; design.</a>
-                            <time datetime="2009-08-29" class="article__time">Mon - 3 Sep - 3:17 PM</time>
-                          </div>
-                          <!-- end of block .article-->
-                        </div>
-                        <!-- END SECTION ARTICLE-->
-                      </div>
-                      <div class="listing__item">
-                        <!-- BEGIN SECTION ARTICLE-->
-                        <div class="article article--footer">
-                          <div class="article__details"><a href="blog_details.html" class="article__item-title">You’ve been approved for a rental home.</a>
-                            <time datetime="2009-08-29" class="article__time">Mon - 3 Sep - 3:17 PM</time>
-                          </div>
-                          <!-- end of block .article-->
-                        </div>
-                        <!-- END SECTION ARTICLE-->
-                      </div>
-                      <div class="listing__item">
-                        <!-- BEGIN SECTION ARTICLE-->
-                        <div class="article article--footer">
-                          <div class="article__details"><a href="blog_details.html" class="article__item-title">The Block Glasshouse winners.</a>
-                            <time datetime="2009-08-29" class="article__time">Mon - 3 Sep - 3:17 PM</time>
-                          </div>
-                          <!-- end of block .article-->
-                        </div>
-                        <!-- END SECTION ARTICLE-->
-                      </div>
-                    </div><a href="blog.html" class="widget__more"> More articles</a>
-                  </div>
-                </div>
-              </div>
-              <!-- end of block .footer__col-third-->
-              <div class="clearfix"></div><span class="footer__copyright">&copy; 2016 RealtySpace. All rights reserved</span>
-              <!-- end of block .footer__copyright-->
-            </div>
-          </div>
-        </footer>
+        {%include 'layout/footer.html' %}
         <!-- end of block .footer-->
         <!-- END FOOTER-->
       </div>
-    </div>
-    <button type="button" class="scrollup js-scrollup"></button>
-    <!-- end of block .scrollup-->
-    <!-- BEGIN SCRIPTS and INCLUDES-->
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places,drawing,geometry"></script>
-    <script type="text/javascript" src="../../cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
-    <!--
-    Contains vendor libraries (Bootstrap3, Jquery, Chosen, etc) already compiled into a single file, with
-    versions that are verified to work with our theme. Normally, you should not edit that file.
-    -->
-    <script src="assets/js/vendor.min48e0.js?v=201603120801"></script>
-    <!--
-    This file is used for demonstration purposes and contains example property items, that are mostly used to
-    render markers on the map. You can safely delete this file, after you've adapted the demo.js code
-    to use your own data.
-    -->
-    <script src="assets/js/demodata.min48e0.js?v=201603120801"></script>
-    <!--
-    The library code that Realtyspace theme relies on, in order to function properly.
-    Normally, you should not edit this file or add your own code there.
-    -->
-    <script src="assets/js/app.min48e0.js?v=201603120801"></script>
-    <!--
-    the main file, that you should modify. It contains lots of examples of
-    plugin usage, with detailed comments about specific sections of the code.
-    -->
-    <script src="assets/js/demo.min48e0.js?v=201603120801"></script>
-<!-- inject:ga  -->
-    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-73880621-1', 'auto');
-ga('send', 'pageview');
-</script>
-    <!-- endinject -->
-    <!-- END SCRIPTS and INCLUDES-->
+    {%include 'layout/js.html'%}
   </body>
 
 <!-- Mirrored from demo.codefactory47.com/realtyspace/faq.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jun 2020 23:45:12 GMT -->

@@ -8,6 +8,7 @@ urlpatterns = [
     path('admindeveloper/', admin.site.urls),
     path('', include('properties.urls')),
     path('accounts/', include('allauth.urls')),
+    
 ]
 
 

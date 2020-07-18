@@ -46,9 +46,13 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'tinymce',
-
-    
+    'ckeditor',
+   
+    'django_summernote',
 ]
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
