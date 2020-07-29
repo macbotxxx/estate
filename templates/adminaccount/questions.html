@@ -138,8 +138,9 @@
             <h1>{{com.company_name | title}}</h1>
             <p>Edit the company details here !</p>
           </div>
-          
-        
+
+
+ 
           <form class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
             {%csrf_token%}
             {%for error in form.question.errors %}
@@ -157,6 +158,32 @@
                 <button  type="submit" class="btn btn-primary">EDIT COMPANY DETAILS > </button>
         </div>
       </form>
+          
+           <br> <br><br><br>
+           {%for getfaqs in getfaq %}
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{getfaqs.id}}" aria-expanded="true" aria-controls="collapseOne{{getfaqs.id}}">
+                    {{getfaqs.question | title}}
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne{{getfaqs.id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                 {{getfaqs.answer}}
+                </div>
+                <form action="" method="POST">
+                <a href="" class="btn btn-primary">Edit</a>
+                <a href="{% url 'deletefaq' getfaqs.pk %}" class="btn btn-danger">Delete</a>
+            </form>
+              </div>
+            
+           {%endfor%}
+          
+            
+          
+       
           {%endfor%}
           <!-- Container-fluid starts-->
           

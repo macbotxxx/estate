@@ -1,6 +1,5 @@
 {% extends 'adminaccount/base.html' %}
 {%load static %}
-{% load crispy_forms_tags %}
 {% block content %}
 <!-- Page Body Start-->
 <div class="page-body-wrapper">
@@ -120,59 +119,83 @@
       <!-- Right sidebar Ends-->
 
       <div class="page-body">
-            {% for message in messages %}
 
-            <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                 {{message}}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-            </div>
-     
-            {% endfor %}
           <!-- Container-fluid starts-->
-          {%for com in companyDetailz%}
+         
           <!-- Container-fluid Ends-->
-          <div class="jumbotron text-center">
-                <img src="{{com.company_logo_dark.url}}" alt="">
-            <h1>{{com.company_name | title}}</h1>
-            <p>Edit the company details here !</p>
-            <h3 class="btn btn-danger"><strong> <h2> WARNING ⚠️</h2></strong> Download the default logo and design your company logo according to the present width and height to maintain the beauty of the project</h3>
-           
-          </div>
-        
-          <form runat="server" class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="" enctype="multipart/form-data">
-            {%csrf_token%}
-            
-            <img  src="{{com.company_logo_dark.url}}" alt="" srcset=""><br>
-            {{form.company_logo_dark}} <br><br>
-            <img style="background-color: black;" src="{{com.company_logo_light.url}}" alt="" srcset=""><br>
-            {{form.company_logo_light}}
-            <br><br>
-        <div class="pull-right">
-                <button type="submit" class="btn btn-primary">UPDATE COMPANY LOGO > </button>
-        </div>
-      </form>
-          {%endfor%}
+
           <!-- Container-fluid starts-->
-          
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="card tab2-card">
+                          <div class="card-header">
+                              <h5> Add Property</h5>
+                          </div>
+                          <div class="card-body">
+                             
+                              <div class="tab-content" id="myTabContent">
+                                  <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
+                                      <form runat="server" class="needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
+                                            {%csrf_token%}
+                                          <h4>Client Name</h4>
+                                          <label class="col-form-label"><span>*</span> Client Name</label>
+                                            {%for error in form.client_name.errors %}
+                                                <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
+                                            {%endfor%}
+                                          <div class="form-group">
+                                              {{form.client_name}}
+                                          </div>
+
+                                          <h4>Client Career</h4>
+                                          <label class="col-form-label"><span>*</span> Client Career</label>
+                                            {%for error in form.client_career.errors %}
+                                                <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
+                                            {%endfor%}
+                                          <div class="form-group">
+                                              {{form.client_career}}
+                                          </div>
+
+                                          <h4>Client Image</h4>
+                                          <label class="col-form-label"><span>*</span> Property Title</label>
+                                            {%for error in form.client_name.errors %}
+                                                <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
+                                            {%endfor%}
+                                        
+                                            <img  id="blah" src="{{form.clients_images.url}}" class="img-fluid" style="width: 30%; height: 250px;">
+                                         
+                                          <div class="form-group">
+                                              {{form.client_image}}
+                                          </div>
+                                            
+                                         
+                                          <div class="form-group">
+                                            <label class="col-form-label">Property client_comment ( copy and paste here )</label> <br>
+                                            {%for error in form.client_comment.errors %}
+                                        <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
+                                              {%endfor%}
+                                            {{form.client_comment | safe }}
+                                          </div>
+                                          <br><br><br>
+                                        <div class="pull-right">
+                                                <a href="{%url "cusR"%}" class="btn btn-danger">Exit</a>
+                                                <button type="submit" class="btn btn-primary">Upload Property</button>
+                                        </div>
+                                      </form>
+                                  </div>
+                               </div>
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
           <!-- Container-fluid Ends-->
 
       </div>
 
       <!-- footer start-->
-      <footer class="footer">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-md-6 footer-copyright">
-                      <p class="mb-0">Copyright 2019 © Bigdeal All rights reserved.</p>
-                  </div>
-                  <div class="col-md-6">
-                      <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
-                  </div>
-              </div>
-          </div>
-      </footer>
+     
       <!-- footer end-->
 
   </div>

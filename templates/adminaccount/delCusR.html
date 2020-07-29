@@ -1,8 +1,9 @@
 {% extends 'adminaccount/base.html' %}
 {%load static %}
-{% load crispy_forms_tags %}
-{% block content %}
-<!-- Page Body Start-->
+{% load humanize %}
+
+
+{%block content %}
 <div class="page-body-wrapper">
 
       <!-- Page Sidebar Start-->
@@ -120,61 +121,38 @@
       <!-- Right sidebar Ends-->
 
       <div class="page-body">
-            {% for message in messages %}
 
-            <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                 {{message}}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-            </div>
-     
-            {% endfor %}
           <!-- Container-fluid starts-->
-          {%for com in companyDetailz%}
+         
           <!-- Container-fluid Ends-->
-          <div class="jumbotron text-center">
-                <img src="{{com.company_logo_dark.url}}" alt="">
-            <h1>{{com.company_name | title}}</h1>
-            <p>Edit the company details here !</p>
-            <h3 class="btn btn-danger"><strong> <h2> WARNING ⚠️</h2></strong> Download the default logo and design your company logo according to the present width and height to maintain the beauty of the project</h3>
-           
-          </div>
-        
-          <form runat="server" class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="" enctype="multipart/form-data">
-            {%csrf_token%}
-            
-            <img  src="{{com.company_logo_dark.url}}" alt="" srcset=""><br>
-            {{form.company_logo_dark}} <br><br>
-            <img style="background-color: black;" src="{{com.company_logo_light.url}}" alt="" srcset=""><br>
-            {{form.company_logo_light}}
-            <br><br>
-        <div class="pull-right">
-                <button type="submit" class="btn btn-primary">UPDATE COMPANY LOGO > </button>
-        </div>
-      </form>
-          {%endfor%}
           <!-- Container-fluid starts-->
-          
+        <br><br><br><br>
+        
+          <div class="container">
+            <div class="card text-center">
+                  <div class="card-header">
+                    DELETING A REVIEW
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">{{CusR.client_name}} Company Review</h5>
+                    <p class="card-text">You are about to delete <strong>{{CusR.client_name}}</strong> review for the company</p>
+                    <br>
+                    <form action="" method="POST">
+                        {%csrf_token%}
+                    <button type="submit" class="btn btn-danger">Delete Anywhere</button>
+                    </form>
+                  </div>
+                  
+                </div>
+         </div>
+         
           <!-- Container-fluid Ends-->
 
       </div>
 
       <!-- footer start-->
-      <footer class="footer">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-md-6 footer-copyright">
-                      <p class="mb-0">Copyright 2019 © Bigdeal All rights reserved.</p>
-                  </div>
-                  <div class="col-md-6">
-                      <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
-                  </div>
-              </div>
-          </div>
-      </footer>
+      
       <!-- footer end-->
 
-  </div>
-{% endblock %}
-
+</div>
+{%endblock%}

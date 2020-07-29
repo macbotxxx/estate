@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import UploadProperties, Amentities, Tag, Newsletters, Manager, HomePageImages, Testmonials, Workers, \
-    Partners, Companyinformation
+    Partners, Companyinformation, About
 from ckeditor.widgets import CKEditorWidget
 from .forms import UploadPropertyi
 
@@ -19,4 +19,5 @@ admin.site.register(HomePageImages)
 admin.site.register(Testmonials)
 admin.site.register(Workers)
 admin.site.register(Partners)
+admin.site.register(About)
 admin.site.register(Companyinformation)

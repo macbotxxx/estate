@@ -42,7 +42,9 @@
         <div class="container">
           <div class="header__row"><a href="/" class="header__logo">
               <svg>
-                <use xlink:href="#icon-logo--mob"></use>
+                {%for com in companydetails%}
+              <img style="width:50%; height: 35px; float: left; margin-top: 0px;" src="{{com.company_logo_light.url}}">
+              {%endfor%}
               </svg></a>
             <div class="header__settings">
               <div class="header__settings-column">
@@ -220,17 +222,15 @@
       <!-- END NAVBAR-->
       <div class="site-wrap js-site-wrap">
         <!-- BEGIN BREADCRUMBS-->
+        {%for com in companydetails %}
         
         <!-- END BREADCRUMBS-->
         <div class="map map--contacts">
-          <div class="map__buttons">
-            <button type="button" class="map__change-map js-map-btn">Address Map</button>
-          </div>
+         
           <div class="map__wrap">
-            <div data-infobox-theme="white" class="map__view js-map-canvas-contact"></div>
+            <iframe width="1900" height="540" frameborder="50" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q={{com.company_address}}&output=embed"></iframe>
           </div>
         </div>
-        {%for com in companydetails %}
         <div class="center">
           <div class="container">
             <div class="widget js-widget widget--landing">
@@ -290,8 +290,9 @@
                     <div class="contacts__column">
                       <div class="contacts__body">
                         <h4>Contact Us to Sign Up for an Open House</h4>
-                        <p>Founded in June of 2020 and based in Some Where In Nigeria, RoverEstate is a trusted community marketplace for people to list, discover, and book unique accommodations around<a href="#"> the world</a> &mdash; online or from a mobile phone.</p>
-                        <p>Whether an apartment for a night, a castle for a week, or a villa for a month, RoverEstate connects people to unique travel experiences, at any price point, in more than 190 countries. And with world-class customer service, RoverEstate is the easiest way for people to monetize their extra sp</p>
+                        {%for abt in aboutus %}
+                        <p>{{abt.about | safe |slice:'600'}}</p>
+                        {%endfor%}
                       </div>
                       <div class="contacts__social">
                         <div class="social social--worker social--contacts"><span class="contacts__social-title">Our social profiles:</span>

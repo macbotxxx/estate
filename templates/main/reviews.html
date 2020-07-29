@@ -44,7 +44,9 @@
         <div class="container">
           <div class="header__row"><a href="/" class="header__logo">
               <svg>
-                <use xlink:href="#icon-logo--mob"></use>
+                {%for com in companydetails%}
+              <img style="width:50%; height: 35px; float: left; margin-top: 0px;" src="{{com.company_logo_light.url}}">
+              {%endfor%}
               </svg></a>
             <div class="header__settings">
               <div class="header__settings-column">
@@ -225,7 +227,7 @@
         <nav class="breadcrumbs">
           <div class="container">
             <ul>
-              <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">Home</a></li>
+              <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Home</a></li>
               <li class="breadcrumbs__item"><a href="#" class="breadcrumbs__link">Testimonials</a></li>
             </ul>
           </div>
@@ -255,7 +257,7 @@
                               </div>
                               <div class="review__info">
                                 <div class="review__info-quote review__info-quote--open">&rdquo;</div>
-                                <p>{{review.client_comment}}
+                                <p>{{review.client_comment | safe}}
                                 </p>
                                 <div class="review__info-quote review__info-quote--close">&ldquo;</div>
                               </div>
@@ -313,10 +315,8 @@
         <!-- end of block .footer-->
         <!-- END FOOTER-->
       </div>
-      {%include 'layout/css.html'%}
+      {%include 'layout/js.html'%}
     <!-- endinject -->
     <!-- END SCRIPTS and INCLUDES-->
   </body>
-
-<!-- Mirrored from demo.codefactory47.com/realtyspace/reviews.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 09 Jun 2020 23:45:12 GMT -->
 </html>

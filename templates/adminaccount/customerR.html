@@ -1,8 +1,9 @@
 {% extends 'adminaccount/base.html' %}
 {%load static %}
-{% load crispy_forms_tags %}
-{% block content %}
-<!-- Page Body Start-->
+{% load humanize %}
+
+
+{%block content %}
 <div class="page-body-wrapper">
 
       <!-- Page Sidebar Start-->
@@ -120,42 +121,72 @@
       <!-- Right sidebar Ends-->
 
       <div class="page-body">
-            {% for message in messages %}
+        {% for message in messages %}
 
-            <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                 {{message}}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-            </div>
-     
-            {% endfor %}
-          <!-- Container-fluid starts-->
-          {%for com in companyDetailz%}
-          <!-- Container-fluid Ends-->
-          <div class="jumbotron text-center">
-                <img src="{{com.company_logo_dark.url}}" alt="">
-            <h1>{{com.company_name | title}}</h1>
-            <p>Edit the company details here !</p>
-            <h3 class="btn btn-danger"><strong> <h2> WARNING ⚠️</h2></strong> Download the default logo and design your company logo according to the present width and height to maintain the beauty of the project</h3>
-           
-          </div>
-        
-          <form runat="server" class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="" enctype="multipart/form-data">
-            {%csrf_token%}
-            
-            <img  src="{{com.company_logo_dark.url}}" alt="" srcset=""><br>
-            {{form.company_logo_dark}} <br><br>
-            <img style="background-color: black;" src="{{com.company_logo_light.url}}" alt="" srcset=""><br>
-            {{form.company_logo_light}}
-            <br><br>
-        <div class="pull-right">
-                <button type="submit" class="btn btn-primary">UPDATE COMPANY LOGO > </button>
+        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+             {{message}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
         </div>
-      </form>
-          {%endfor%}
+ 
+    {% endfor %}
           <!-- Container-fluid starts-->
-          
+         
+          <!-- Container-fluid Ends-->
+          <!-- Container-fluid starts-->
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="card">
+                          <div class="card-header">
+                              <h5>Uploaded Property List </h5>
+                          </div>
+        <a href="{% url "addcusR" %}" class="btn btn-info">Create customers reviews </a>
+
+                          <div class="card-body order-datatable">
+                              <table class="display" id="basic-1">
+                                  <thead>
+                                  <tr>
+                                      <th>Client Image</th>
+                                      <th>Client Name</th>
+                                      <th>Client Career</th>
+                                      <th>Client Comment</th>
+                                     
+                                      <th>Edit</th>
+                                      <th>Delete</th>
+                                      
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  {%for Plist in customersR %}
+                                  <tr>
+                                      <td>
+                                          <div class="d-flex">
+                                              {%if Plist.client_image %}
+                                              <img src="{{Plist.client_image.url}}" alt="" class="img-fluid img-70 mr-2 blur-up lazyloaded">
+                                              {%endif%}
+                                             
+
+                                          </div>
+                                      </td>
+                                      <td>{{Plist.client_name}}</td>
+
+                                      <td>{{Plist.client_career}}</td>
+                                      <td>{{Plist.client_comment | safe}}</td>
+                                     
+                                      <td><a href="{%url 'editcusR' Plist.pk %}" class="btn btn-info">Edit Client Review</a></td>
+                                      <td><a href="{%url 'deleteCusR' Plist.pk %}" class="btn btn-danger">Delete Client Review</a></td>
+                                      
+                                  </tr>
+                                  {%endfor%}
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
           <!-- Container-fluid Ends-->
 
       </div>
@@ -175,6 +206,5 @@
       </footer>
       <!-- footer end-->
 
-  </div>
-{% endblock %}
-
+</div>
+{%endblock%}

@@ -42,7 +42,9 @@
         <div class="container">
           <div class="header__row"><a href="/" class="header__logo">
               <svg>
-                <use xlink:href="#icon-logo--mob"></use>
+                {%for com in companydetails%}
+              <img style="width:50%; height: 35px; float: left; margin-top: 0px;" src="{{com.company_logo_light.url}}">
+              {%endfor%}
               </svg></a>
             <div class="header__settings">
               <div class="header__settings-column">

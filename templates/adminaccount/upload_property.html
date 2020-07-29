@@ -136,9 +136,8 @@
                              
                               <div class="tab-content" id="myTabContent">
                                   <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
-                                      <form class="needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
+                                      <form runat="server" class="needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
                                             {%csrf_token%}
-
                                           <h4>Property Details</h4>
                                           <label class="col-form-label"><span>*</span> Property Title</label>
                                             {%for error in form.property_title.errors %}
@@ -281,13 +280,15 @@
                                             {%for error in form.property_main_image.errors %}
                                                 <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                             {%endfor%}
-                                          <div class="form-group">
+                                           <div class="form-group">
+                                           <img  id="blah" class="img-fluid" style="width: 30%; height: 250px;">
                                               {{form.property_main_image}}
                                           </div><label class="col-form-label"><span>*</span> Property Second Image</label>
                                           {%for error in form.property_image2.errors %}
                                               <p style="font-style: italic; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: red;">{{error}}</p>
                                           {%endfor%}
                                         <div class="form-group">
+                                           <img  id="blah" class="img-fluid" style="width: 30%; height: 250px;">
                                             {{form.property_image2}}
                                         </div>
 

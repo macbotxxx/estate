@@ -18,11 +18,15 @@
               </div>
               <div class="widget__content">
                 <aside class="widget_text">
+                  {%for about in aboutus %}
                   <div class="textwidget">
-                    RoverEstate is the leader in online real estate and operator of the WK of real estate web site for consumers and real estate professionals. Real Estate of websites captures more than 20 million monthly visitors
-                    <p>RoverEstate is the leader in online real estate and operator of the WK of real</p>
-                    <p><a>Read more</a></p>
+                    <p>
+                      {{about.about | slice:'227' | safe }}
+                    </p>
+                   
+                    <p><a href="{%url 'about'%}">Read more</a></p>
                   </div>
+                  {%endfor%}
                   
                 </aside>
               </div>

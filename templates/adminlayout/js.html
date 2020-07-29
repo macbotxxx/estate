@@ -2,6 +2,8 @@
 </div>
 
 <!-- latest jquery-->
+<script src="{% static "assetss/js/mik.js" %}"></script>
+
 <script src="{% static "assetss/js/jquery-3.3.1.min.js" %} "></script>
 
 <!-- Bootstrap js-->
@@ -42,6 +44,7 @@
 <script src="{% static "assetss/js/vector-map/jquery-jvectormap-2.0.2.min.js" %}"></script>
 <script src="{% static "assetss/js/vector-map/map/jquery-jvectormap-world-mill-en.js" %}"></script>
 
+
 <!--apex chart js-->
 <script src="{% static "assetss/js/chart/apex-chart/apex-chart.js" %}"></script>
 <script src="{% static "assetss/js/chart/apex-chart/stock-prices.js" %}"></script>
@@ -69,6 +72,28 @@
 <script src="{% static "assetss/js/admin-script.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+
+<script>
+      function readURL(input) {
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              
+              reader.onload = function(e) {
+                $('#blah').attr('src', e.target.result);
+              }
+              
+              reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+          }
+          
+          $("#imgInp").change(function() {
+            readURL(this);
+          });
+      
+      
+      </script>
+
 <script>
       var  form_feilds = document.getElementsByTagName('input')
       form_feilds[1].placeholder = 'Username...';
@@ -76,6 +101,6 @@
       
       for(var field in form_feilds){
             form_feilds[field].className += 'form-control custom-select'
-            form_feilds[field].id += 'exampleFormControlSelect2'
+            form_feilds[field].id += 'img'
       }
 </script>

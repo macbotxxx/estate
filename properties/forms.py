@@ -1,4 +1,4 @@
-from django.forms import ModelForm, Textarea, TextInput, Select
+from django.forms import ModelForm, Textarea, TextInput, Select,ClearableFileInput
 from django import forms
 from .models import UploadProperties, HomePageImages, Companyinformation, Testmonials, Workers, Partners, About, Fqa
 from ckeditor.widgets import CKEditorWidget
@@ -23,7 +23,8 @@ class UploadPropertyi(ModelForm):
             'bathrooms': Select(attrs={'class': 'form-control'}),
             'toilet': Select(attrs={'class': 'form-control'}),
             'garage': Select(attrs={'class': 'form-control'}),
-
+            'property_main_image': ClearableFileInput(attrs={'id': 'imgInp'}),
+            'property_image2': ClearableFileInput(attrs={'id': 'imgInp'}),
             'state': Select(attrs={'class': 'form-control'}),
             'security': Select(attrs={'class': 'form-control'}),
 
@@ -51,16 +52,22 @@ class CompanyLogo(ModelForm):
 
 
 class CustomerReviews(ModelForm):
+    client_comment = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = Testmonials
         fields = '__all__'
+        widgets = {
+            'client_image': ClearableFileInput(attrs={'id': 'imgInp'}),
+        }
 
 
 class WorkersDetails(ModelForm):
     class Meta:
         model = Workers
         fields = '__all__'
-
+        widgets = {
+            'staff_image': ClearableFileInput(attrs={'id': 'imgInp'}),
+        }
 
 class PartnerLogo(ModelForm):
     class Meta:
@@ -75,6 +82,10 @@ class QuestionAnswer(ModelForm):
 
 
 class CompanyAbout(ModelForm):
+    about = forms.CharField(widget=CKEditorWidget())
     class Meta:
         model = About
         fields = '__all__'
+        widgets = {
+        'company_image':  ClearableFileInput(attrs={'id': 'imgInp'}),
+        }

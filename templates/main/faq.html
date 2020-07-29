@@ -44,7 +44,9 @@
         <div class="container">
           <div class="header__row"><a href="/" class="header__logo">
               <svg>
-                <use xlink:href="#icon-logo--mob"></use>
+                {%for com in companydetails%}
+              <img style="width:50%; height: 35px; float: left; margin-top: 0px;" src="{{com.company_logo_light.url}}">
+              {%endfor%}
               </svg></a>
             <div class="header__settings">
               <div class="header__settings-column">
@@ -56,7 +58,7 @@
                     </svg>
                     {%for com in companydetails %}
                     {% if com.company_address %}
-                    {{ com.company_address }}, {{com.company_state}}, Nigeria
+                    {{ com.company_address }}, {{com.company_state}} , Nigeria
                     {%else%}
                     45 Tony umeh street awada ,onitsha, anambra state ,nigeria
                     {%endif%}
@@ -248,12 +250,12 @@
                       <div role="tablist" aria-multiselectable="true" class="faq">
                       {%for faq in faqs %}
                         <dl class="faq__item">
-                          <dt id="heading-0" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-0" aria-expanded="true" aria-controls="collapse-0" class="faq__expander collapsed">{{faq.question }}</a></dt>
-                          <dd id="collapse-0" role="tabpanel" aria-labelledby="heading-0" class="faq__content collapse">
+                          <dt id="heading-{{faq.id}}" role="tab" class="faq__title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{faq.id}}" aria-expanded="true" aria-controls="collapse-{{faq.id}}" class="faq__expander collapsed">{{faq.question }}</a></dt>
+                          <dd id="collapse-{{faq.id}}" role="tabpanel" aria-labelledby="heading-{{faq.id}}" class="faq__content collapse">
                             <div class="faq__body">
                               <p>{{faq.answer}}</p>
                             </div>
-                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-0" aria-controls="collapse-0" class="faq__close">Close</a></div>
+                            <div class="faq__footer"><a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{faq.id}}" aria-controls="collapse-{{faq.id}}" class="faq__close">Close</a></div>
                           </dd>
                         </dl>
                       {%endfor%}
@@ -273,14 +275,15 @@
                   </div>
                   <div class="widget__content">
                     <div class="listing listing--sidebar">
+                      {%for recents in recent %}
                       <div class="listing__item">
                         <div class="properties properties--sidebar">
-                          <div class="properties__thumb"><a href="property_details.html" class="item-photo item-photo--static"><img src="assets/media-demo/properties/554x360/02.jpg" alt=""/>
+                          <div class="properties__thumb"><a href="{% url 'property_details' recents.slug %}" class="item-photo item-photo--static"><img src="{{recents.property_main_image.url}}" alt="{{recent.property_title}}"/>
                               <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure></a>
                           </div>
                           <!-- end of block .properties__thumb-->
                           <div class="properties__details">
-                            <div class="properties__info"><a href="property_details.html" class="properties__address">649 West Adams Boulevard, Los Angeles, CA 90007, USA</a>
+                            <div class="properties__info"><a href="{% url 'property_details' recents.slug %}" class="properties__address">{{recents.address}}</a>
                               <!--+price-->
                             </div>
                           </div>
@@ -288,36 +291,7 @@
                         </div>
                         <!-- end of block .properties__item-->
                       </div>
-                      <div class="listing__item">
-                        <div class="properties properties--sidebar">
-                          <div class="properties__thumb"><a href="property_details.html" class="item-photo item-photo--static"><img src="assets/img/no-image--554x360.jpg" alt=""/>
-                              <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure></a>
-                          </div>
-                          <!-- end of block .properties__thumb-->
-                          <div class="properties__details">
-                            <div class="properties__info"><a href="property_details.html" class="properties__address">958 Dewey Avenue, Los Angeles, CA 90006, USA</a>
-                              <!--+price-->
-                            </div>
-                          </div>
-                          <!-- end of block .properties__info-->
-                        </div>
-                        <!-- end of block .properties__item-->
-                      </div>
-                      <div class="listing__item">
-                        <div class="properties properties--sidebar">
-                          <div class="properties__thumb"><a href="property_details.html" class="item-photo item-photo--static"><img src="assets/media-demo/properties/554x360/04.jpg" alt=""/>
-                              <figure class="item-photo__hover"><span class="item-photo__more">View Details</span></figure></a>
-                          </div>
-                          <!-- end of block .properties__thumb-->
-                          <div class="properties__details">
-                            <div class="properties__info"><a href="property_details.html" class="properties__address">1026 Ohio Avenue, Long Beach, CA 90804, USA</a>
-                              <!--+price-->
-                            </div>
-                          </div>
-                          <!-- end of block .properties__info-->
-                        </div>
-                        <!-- end of block .properties__item-->
-                      </div>
+                     {%endfor%}
                     </div>
                   </div>
                 </div>

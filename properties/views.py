@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import UploadProperties, Tag, Newsletters, HomePageImages, Testmonials, Partners, Companyinformation, \
-    Workers, Fqa
+    Workers, Fqa, About
 from .filters import PropertyFilter
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import get_template
@@ -8,7 +8,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import CompanyDetails, CompanyLogo, HomePageImage, QuestionAnswer, CompanyAbout, \
-    UploadPropertyi
+    UploadPropertyi, CompanyAbout, WorkersDetails, CustomerReviews
 from django.contrib import messages
 from django.core.paginator import Paginator
 
@@ -55,6 +55,7 @@ def contactus(request):
 
 
 def home(request):
+    aboutus = About.objects.all()
     companydetails = Companyinformation.objects.all()
     staff = Workers.objects.all()
     recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
@@ -98,6 +99,7 @@ def home(request):
             message.send()
 
     context = {
+        'aboutus': aboutus,
         'staff': staff,
         'partner': partner,
         'testimonies': testimonies,
@@ -114,6 +116,7 @@ def home(request):
 
 
 def propertiesDetails(request, slug):
+    aboutus = About.objects.all()
     recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
     companydetails = Companyinformation.objects.all()
     details = get_object_or_404(UploadProperties, slug=slug)
@@ -124,6 +127,7 @@ def propertiesDetails(request, slug):
     search = myfilter.qs
     tagx = Tag.objects.all()
     context = {
+        'aboutus': aboutus,
         'recent': recent,
         'companydetails': companydetails,
         'tagx': tagx,
@@ -136,6 +140,7 @@ def propertiesDetails(request, slug):
 
 
 def properties(request):
+    aboutus = About.objects.all()
     recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
     companydetails = Companyinformation.objects.all()
     allproperties = UploadProperties.objects.all().order_by('-time_uploaded')
@@ -148,6 +153,7 @@ def properties(request):
     list = Tag.objects.all()
     # count = UploadProperties.objects.all().count()
     context = {
+        'aboutus': aboutus,
         'recent': recent,
         'companydetails': companydetails,
         'page_obj': page_obj,
@@ -160,15 +166,21 @@ def properties(request):
 
 
 def propertylist(request):
+    aboutus = About.objects.all()
     recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
     companydetails = Companyinformation.objects.all()
     list = Tag.objects.all()
-    search = UploadProperties.objects.all()
-    myfilter = PropertyFilter(request.GET, queryset=search)
+    searchx = UploadProperties.objects.all()
+    myfilter = PropertyFilter(request.GET, queryset=searchx)
     search = myfilter.qs
+    paginator = Paginator(search, 9)  # Show 25 contacts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     count = myfilter.qs.count()
     tagx = Tag.objects.all()
     context = {
+        'page_obj':page_obj,
+        'aboutus': aboutus,
         'recent': recent,
         'companydetails': companydetails,
         'tagx': tagx,
@@ -181,6 +193,7 @@ def propertylist(request):
 
 
 def listingType(request, tag):
+    aboutus = About.objects.all()
     recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
     companydetails = Companyinformation.objects.all()
     allproperties = UploadProperties.objects.filter(listing_type=tag)
@@ -195,6 +208,7 @@ def listingType(request, tag):
     page_obj = paginator.get_page(page_number)
     context = {
         'recent': recent,
+        'aboutus': aboutus,
         'companydetails': companydetails,
         'page_obj': page_obj,
         'email': email,
@@ -208,10 +222,12 @@ def listingType(request, tag):
 
 
 def contact(request):
+    aboutus = About.objects.all()
     recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
     companydetails = Companyinformation.objects.all()
     list = Tag.objects.all()
     context = {
+        'aboutus': aboutus,
         'recent': recent,
         'companydetails': companydetails,
         'list': list,
@@ -221,11 +237,17 @@ def contact(request):
 
 
 def aboutUs(request):
+    aboutus = About.objects.all()
+    staff = Workers.objects.all()[:3]
     recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
+    recentx = UploadProperties.objects.all().order_by('-time_uploaded')[:3]
     companydetails = Companyinformation.objects.all()
     list = Tag.objects.all()
     context = {
+        'staff': staff,
+        'aboutus': aboutus,
         'recent': recent,
+        'recentx': recentx,
         'companydetails': companydetails,
         'list': list
 
@@ -234,6 +256,7 @@ def aboutUs(request):
 
 
 def testimonies(request):
+    aboutus = About.objects.all()
     recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
     companydetails = Companyinformation.objects.all()
     testimonies = Testmonials.objects.all()
@@ -242,6 +265,7 @@ def testimonies(request):
     search = myfilter.qs
     list = Tag.objects.all()
     context = {
+        'aboutus': aboutus,
         'recent': recent,
         'companydetails': companydetails,
         'testimonies': testimonies,
@@ -253,6 +277,7 @@ def testimonies(request):
 
 
 def featured(request):
+    aboutus = About.objects.all()
     recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
     companydetails = Companyinformation.objects.all()
     allproperties = UploadProperties.objects.filter(tag='featured')
@@ -265,6 +290,7 @@ def featured(request):
     myfilter = PropertyFilter(request.GET, queryset=search)
     search = myfilter.qs
     context = {
+        'aboutus': aboutus,
         'recent': recent,
         'companydetails': companydetails,
         'page_obj': page_obj,
@@ -277,11 +303,13 @@ def featured(request):
 
 
 def faq(request):
+    aboutus = About.objects.all()
     companydetails = Companyinformation.objects.all()
-    recent = UploadProperties.objects.all().order_by('-time_uploaded')[:6]
+    recent = UploadProperties.objects.all().order_by('-time_uploaded')[:3]
     faqs = Fqa.objects.all()
     context = {
         'companydetails': companydetails,
+        'aboutus': aboutus,
         'recent': recent,
         'faqs': faqs,
 
@@ -363,7 +391,6 @@ def propertyEdit(request, pk):
 @login_required()
 def deleteProrperty(request, pk):
     companyDetailz = Companyinformation.objects.all()
-
     property = UploadProperties.objects.get(id=pk)
     if request.method == "POST":
         property.delete()
@@ -447,6 +474,7 @@ def companyimg(request, pk):
 
 @login_required()
 def companyQues(request):
+    getfaq = Fqa.objects.all()
     companyDetailz = Companyinformation.objects.all()
     form = QuestionAnswer()
     if request.method == "POST":
@@ -455,13 +483,146 @@ def companyQues(request):
             form.save()
             messages.success(request, '👍 Your have been uploaded  successfully  ')
     context = {
+        'getfaq': getfaq,
         'form': form,
         'companyDetailz': companyDetailz,
 
     }
     return render(request, "adminaccount/questions.html", context)
 
-# @login_required()
-# def
+@login_required()
+def deletefaq(request, pk):
+    if request.method == "POST":
+        getfaq = Fqa.objects.get(id=pk)
+        getfaq.delete()
+        return redirect('/')
+    context = {
+        
+    }
+    return render(request, "adminaccount/off.html",context)
+
+# handlinig the about us page 
+@login_required()
+def aboutuss(request):
+    about = About.objects.all()
+    companyDetailz = Companyinformation.objects.all()
+
+    context = {
+        'about': about,
+        'companyDetailz':companyDetailz,
+    }
+    return render(request,'adminaccount/about.html',context)
+
+@login_required()
+def editAbout(request, pk):
+    img = About.objects.all()
+    about = About.objects.get(id= pk)
+    form = CompanyAbout(instance=about)
+    companyDetailz = Companyinformation.objects.all()
+    if request.method == "POST":
+        form = CompanyAbout(request.POST,request.FILES,instance=about)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '👍 it have been uploaded  successfully  ')
+            return redirect('about-company')
+    context = {
+        'img': img,
+        'about': about,
+        'form': form,
+        'companyDetailz':companyDetailz,
+
+    }
+    return render(request,'adminaccount/edit-about.html',context)
+
+
+@login_required()
+def worker(request):
+    work = Workers.objects.all()
+    companyDetailz = Companyinformation.objects.all()
+    context = {
+        'work': work,
+        'companyDetailz':companyDetailz,
+        
+    }
+    return render(request,"adminaccount/worker.html",context)
+
+@login_required()
+def editWorker(request, pk):
+    companyDetailz = Companyinformation.objects.all()
+    work = Workers.objects.get(id=pk)
+    form = WorkersDetails(instance=work)
+    if request.method == "POST":
+        form = WorkersDetails(request.POST, request.FILES, instance=work)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '👍 it have been uploaded  successfully  ')
+            return redirect('about-company')
+    context = {
+        'form': form,
+        'companyDetailz':companyDetailz,
+
+    }
+    return render(request,"adminaccount/edit_worker.html", context)
+
+# Testing the code using the testing view 
+
+@login_required()
+def text(request):
+    return render(request,"adminaccount/text.html",{})
+
+# Adding customers reviews 
+@login_required()
+def customerReviews(request):
+    customersR = Testmonials.objects.all()
+    context = {
+        'customersR': customersR,
+    }
+    return render(request, "adminaccount/customerR.html",context)
+
+@login_required()
+def addingCusR(request):
+    form = CustomerReviews()
+    if request.method == "POST":
+        form = CustomerReviews(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '👍 it have been uploaded  successfully  ')
+            return redirect('cusR')
+    context = {
+        'form': form,
+    }
+    return render(request,"adminaccount/addcusR.html",context)
+
+@login_required()
+def editCusR(request, pk):
+    CusR = Testmonials.objects.get(id= pk)
+    form = CustomerReviews(instance=CusR)
+    if request.method == "POST":
+        form = CustomerReviews(request.POST, request.FILES, instance=CusR)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '👍 it have been uploaded  successfully  ')
+            return redirect('cusR')
+    context = {
+        'form': form,
+        'CusR':CusR,
+    }
+    return render(request,"adminaccount/addcusR.html",context)
+
+@login_required()
+def deleteCusR(request,pk):
+    CusR = Testmonials.objects.get(id= pk)
+    form = CustomerReviews(instance=CusR)
+    if request.method == "POST":
+        CusR.delete()
+        messages.success(request, '👍 it have been uploaded  successfully  ')
+        return redirect('cusR')
+    context = {
+        'CusR':CusR,
+        'form':form,
+    }    
+    return render(request,"adminaccount/delCusR.html",context)
+
+
 
 

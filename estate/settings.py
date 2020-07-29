@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'tinymce',
     'ckeditor',
-   
     'django_summernote',
 ]
 

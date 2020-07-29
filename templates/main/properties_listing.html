@@ -41,7 +41,9 @@
         <div class="container">
           <div class="header__row"><a href="/" class="header__logo">
               <svg>
-                <use xlink:href="#icon-logo--mob"></use>
+                {%for com in companydetails%}
+              <img style="width:50%; height: 35px; float: left; margin-top: 0px;" src="{{com.company_logo_light.url}}">
+              {%endfor%}
               </svg></a>
             <div class="header__settings">
               <div class="header__settings-column">
@@ -53,7 +55,7 @@
                     </svg>
                     {%for com in companydetails %}
                     {% if com.company_address %}
-                    {{ com.company_address }}, {{com.company_state}}, Nigeria
+                    {{ com.company_address }}, {{com.company_state}} , Nigeria
                     {%else%}
                     45 Tony umeh street awada ,onitsha, anambra state ,nigeria
                     {%endif%}

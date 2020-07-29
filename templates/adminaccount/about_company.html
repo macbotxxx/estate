@@ -191,9 +191,11 @@
           <form class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
             {%csrf_token%}
           
+            <br>
         <div class="pull-right">
                 <a href="{%url 'company-edit' com.pk %}" type="submit" class="btn btn-primary">EDIT COMPANY DETAILS > </a>
         </div>
+        <br>
       </form>
           {%endfor%}
           <!-- Container-fluid starts-->

@@ -120,7 +120,7 @@
       <!-- Right sidebar Ends-->
 
       <div class="page-body">
-            {% for message in messages %}
+        {% for message in messages %}
 
             <div class="alert alert-secondary alert-dismissible fade show" role="alert">
                  {{message}}
@@ -129,7 +129,7 @@
                   </button>
             </div>
      
-            {% endfor %}
+{% endfor %}
           <!-- Container-fluid starts-->
           {%for com in companyDetailz%}
           <!-- Container-fluid Ends-->
@@ -137,22 +137,23 @@
                 <img src="{{com.company_logo_dark.url}}" alt="">
             <h1>{{com.company_name | title}}</h1>
             <p>Edit the company details here !</p>
-            <h3 class="btn btn-danger"><strong> <h2> WARNING ⚠️</h2></strong> Download the default logo and design your company logo according to the present width and height to maintain the beauty of the project</h3>
-           
           </div>
-        
-          <form runat="server" class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="" enctype="multipart/form-data">
+          <div class="container">
+          {%for abouts in about %}
+            <img src="{{abouts.company_image.url}}" style="height: 50%;" alt="">
+            <p>
+                  {{abouts.about | safe }}
+            </p>
+      </div>
+          <form class=" uniForm needs-validation user-add" novalidate="" enctype="multipart/form-data" method="POST" action="">
             {%csrf_token%}
-            
-            <img  src="{{com.company_logo_dark.url}}" alt="" srcset=""><br>
-            {{form.company_logo_dark}} <br><br>
-            <img style="background-color: black;" src="{{com.company_logo_light.url}}" alt="" srcset=""><br>
-            {{form.company_logo_light}}
-            <br><br>
+          
         <div class="pull-right">
-                <button type="submit" class="btn btn-primary">UPDATE COMPANY LOGO > </button>
+                <a href="{%url 'edit-about-company' abouts.pk %}" type="submit" class="btn btn-primary">EDIT COMPANY DETAILS > </a>
         </div>
       </form>
+      {%endfor%}
+
           {%endfor%}
           <!-- Container-fluid starts-->
           
