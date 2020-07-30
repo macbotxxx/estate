@@ -137,7 +137,17 @@ DATABASES = {
 }
 
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# ON_HEROKU = os.environ.get('ON_HEROKU')
+# HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
+
+# # DATABASES['default'] =  dj_database_url.config()
+
+# if ON_HEROKU:
+#     DATABASE_URL = 'postgresql://<postgresql>'
+# else:
+#     DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+
+# DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -191,8 +201,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
 # MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root') 
 
 
-# This should already be in your settings.py
-django_heroku.settings(locals())
-# This is new
-del DATABASES['default']
+# # This should already be in your settings.py
+# django_heroku.settings(locals())
+# # This is new
+# del DATABASES['default']
 
