@@ -25,6 +25,7 @@ SECRET_KEY = 'r&!7bb-&l3e*6aysucq@nd*!ep8hi_trg4mop)f#x8-tv!2tyf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 ALLOWED_HOSTS = ['roverestate.herokuapp.com', '127.0.0.1']
 
 
@@ -90,7 +91,7 @@ SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates/main")],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
