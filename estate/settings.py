@@ -125,29 +125,29 @@ WSGI_APPLICATION = 'estate.wsgi.application'
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'roverestate',
-        'USER': 'postgres',
-        'PASSWORD': 'M08034169322i',
-        'HOST': 'localhost',
-        'POST': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'roverestate',
+#         'USER': 'postgres',
+#         'PASSWORD': 'M08034169322i',
+#         'HOST': 'localhost',
+#         'POST': '5432',
+#     }
+# }
 
 
-# ON_HEROKU = os.environ.get('ON_HEROKU')
-# HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
+ON_HEROKU = os.environ.get('ON_HEROKU')
+HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
 
 # # DATABASES['default'] =  dj_database_url.config()
 
-# if ON_HEROKU:
-#     DATABASE_URL = 'postgresql://<postgresql>'
-# else:
-#     DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+if ON_HEROKU:
+    DATABASE_URL = 'postgresql://<postgresql>'
+else:
+    DATABASE_URL = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
-# DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -201,7 +201,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
 # MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root') 
 
 
-# # This should already be in your settings.py
+# This should already be in your settings.py
 # django_heroku.settings(locals())
 # # This is new
 # del DATABASES['default']
