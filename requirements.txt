@@ -10,12 +10,14 @@ colorama==0.4.3
 decouple==0.0.7
 defusedxml==0.6.0
 distlib==0.3.0
+dj-database-url==0.5.0
 Django==3.0.7
 django-allauth==0.41.0
 django-ckeditor==5.9.0
 django-crispy-forms==1.9.1
 django-db-locking==2.0.4
 django-filter==2.2.0
+django-heroku==0.3.1
 django-js-asset==1.2.2
 django-jsonfield==1.4.0
 django-picklefield==3.0.1
@@ -37,8 +39,10 @@ mccabe==0.6.1
 oauthlib==3.1.0
 phonenumberslite==7.3.2
 Pillow==7.1.1
+psycopg2==2.8.5
 pycodestyle==2.6.0
 pylint==2.4.4
+python-dotenv==0.14.0
 python3-openid==3.1.0
 pytz==2019.3
 redis==3.5.3

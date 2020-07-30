@@ -11,9 +11,21 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dotenv
+import django_heroku
+import dj_database_url
+
+
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# This is new:
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
 
 
 # Quick-start development settings - unsuitable for production
@@ -107,21 +119,25 @@ TEMPLATES = [
 WSGI_APPLICATION = 'estate.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'roverestate',
-        'USER': 'postgres',
-        'PASSWORD': 'M08034169322i',
-        'HOST': 'localhost',
-        'POST': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'roverestate',
+#         'USER': 'postgres',
+#         'PASSWORD': 'M08034169322i',
+#         'HOST': 'localhost',
+#         'POST': '5432',
+#     }
+# }
+
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -161,7 +177,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 STATICFILES_DIRS = [
@@ -171,4 +189,10 @@ VENV_PATH = os.path.dirname(BASE_DIR)
 MEDIA_URL = '/media/'  
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img') 
 # MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root') 
+
+
+# This should already be in your settings.py
+django_heroku.settings(locals())
+# This is new
+del DATABASES['default']
 
