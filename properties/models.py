@@ -250,6 +250,7 @@ class HomePageImages(models.Model):
     slide_image4 = models.ImageField(default="media-demo/banner/banner-1.jpg", upload_to='homepage_images/', null=True)
     company_image = models.ImageField(default="media-demo/banner/banner-1.jpg", upload_to='homepage_images/', null=True)
 
+    
 
 class Testmonials(models.Model):
     objects = None

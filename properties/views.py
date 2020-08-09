@@ -623,6 +623,10 @@ def deleteCusR(request,pk):
     }    
     return render(request,"adminaccount/delCusR.html",context)
 
+@login_required()
+def subcribers(request):
+    return render(request,"",{})
+
 
 
 
